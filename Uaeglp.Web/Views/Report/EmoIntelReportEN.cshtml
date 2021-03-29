@@ -1,0 +1,885 @@
+﻿@model Uaeglp.ViewModels.AssessmentViewModels.AssessmentIndividualToolReportView
+@{
+    Layout = null;
+}
+
+<html>
+<head>
+    <meta charset="utf-8">
+    @*
+        <title>Demo</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="license" href="https://www.opensource.org/licenses/mit-license/">
+        <script src="script.js"></script>
+        <link href="~/css/demo.css" rel="stylesheet" />*@
+    <style>
+
+        .breakhere {
+            page-break-after: always;
+            background-color: blueviolet;
+        }
+
+        tr {
+            page-break-inside: avoid;
+            /*direction: rtl;*/
+        }
+
+        .imagetorotate {
+            -webkit-transform: rotate(200deg);
+            -webkit-backface-visibility: hidden;
+        }
+
+        body {
+            font-family: sans-serif;
+            /*background: url('~/Assets/images/bgs/well-geing-report-en.jpg');*/
+            /*direction: rtl;*/
+        }
+
+        .background {
+            position: absolute;
+            display: block;
+            min-width: 100%;
+            text-align: center;
+            background-color: transparent;
+            /*padding-top: 50%;*/
+            background: url(../../Assets/images/bgs/emo-intel-report.jpg) no-repeat;
+            background-size: contain;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+        }
+
+        .cover-page {
+        }
+
+        .font-size-32 {
+            font-size: 32px;
+        }
+
+        .font-size-24 {
+            font-size: 24px;
+        }
+
+        .font-size-20 {
+            font-size: 20px;
+        }
+
+        .font-size-12 {
+            font-size: 12px;
+        }
+
+        .m-100 {
+            margin: 60px;
+        }
+
+        p {
+            line-height: 1.5;
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #6e6e6e;
+        }
+
+        .square .sq {
+            width: 28px;
+            height: 28px;
+            margin-right: 4px;
+            float: left;
+        }
+
+        .sq-green-600 {
+            background-color: #66cbc4;
+        }
+
+        .green-900 {
+            background: #00a99d;
+        }
+
+        .sq-green-100 {
+            background: #e0f5f3;
+        }
+
+        .sq-grey-300 {
+            background-color: #e6e6e6;
+        }
+
+        .red-100 {
+            background: #ffcbc4;
+        }
+
+        .text-grey-400 {
+            color: #6a6a6a;
+        }
+
+        table {
+            font-family: sans-serif;
+            /*text-align: left;*/
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .table-key td {
+            height: 75px;
+            padding: 8px;
+            border: 5px solid #fff;
+        }
+
+        table th {
+            padding: 8px;
+            border: 3px solid #fff;
+        }
+
+        table th {
+            color: #fff;
+        }
+
+        .w-100 {
+            width: 100px;
+        }
+
+        .w-160 {
+            width: 160px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .display-block {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .v-align-top {
+            vertical-align: top;
+        }
+
+        .font-weight-bold {
+            font-weight: bold;
+        }
+
+        .font-weight-600 {
+            font-weight: 600;
+        }
+
+        .w-p60 {
+            width: 60%;
+        }
+
+        .w-p40 {
+            width: 40%;
+        }
+
+        .h-27 {
+            height: 27px;
+        }
+
+        .mh-27 {
+            min-height: 27px;
+        }
+
+        .page-2 .sq {
+            color: #fff;
+            width: 23px;
+        }
+
+        .text-white {
+            color: #fff;
+        }
+
+        .title {
+            margin-bottom: 50px;
+            font-size: 32px;
+            font-weight: bold;
+            color: #666;
+        }
+
+        .subtitle {
+            font-weight: bold;
+            color: #666;
+            margin-top: 50px;
+        }
+
+        .note {
+            padding: 15px;
+            border: 2px solid #66cbc4;
+            color: #66cbc4;
+            height: 85px;
+        }
+
+        .page-5 .table-borderless td {
+            border: 0;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 37px;
+            padding: 0 15px;
+            border-bottom: 5px solid #fff;
+        }
+
+        .page-5 .table-borderless tr:last-child td {
+            border-bottom: 0;
+        }
+
+        .table-cell-p50 {
+            margin-top: 2px;
+        }
+
+            .table-cell-p50 td {
+                padding: 5px 15px;
+                width: 50%;
+                border: 3px solid #fff;
+                height: 50px;
+                line-height: 1.2;
+            }
+
+            .table-cell-p50 tr td:first-child {
+                border-left: 0;
+            }
+
+            .table-cell-p50 tr td:last-child {
+                border-right: 0;
+            }
+
+        .text-green {
+            color: #03a7a0;
+        }
+
+        .text-title {
+            margin-bottom: 30px;
+        }
+
+        .leadership-score-table tr:first-child td {
+            border-left: 2px solid #6e6e6e;
+            color: #6e6e6e;
+        }
+
+        .leadership-score-table tr:last-child td {
+            padding: 0;
+        }
+
+        .leadership-score-table td .sq,
+        .leadership-sprint .sq {
+            width: 50px;
+            height: 50px;
+            margin-right: 2px;
+            margin-left: 2px;
+        }
+
+            .leadership-score-table td .sq:last-child {
+                margin-right: 0;
+            }
+
+        .very-low {
+            background-color: #c1eae6;
+        }
+
+        .low {
+            background-color: #a3e0db;
+        }
+
+        .average {
+            background-color: #66c9c4;
+        }
+
+        .high {
+            background-color: #4c9792;
+        }
+
+        .very-high {
+            background-color: #336661;
+        }
+
+        .leadership-sprint {
+            background-color: #eef0ef;
+        }
+
+        .white-sq {
+            background-color: #fff !important;
+        }
+
+        .grey-sq {
+            background-color: #e6e6e6 !important;
+        }
+        /*.leadership-sprint .display-block{
+            display: inline-block;
+            overflow: hidden;
+        }*/
+        .leadership-sprint .sq {
+            /*float: right;*/
+        }
+
+        .career-report-table .sq {
+            width: 32px;
+            height: 32px;
+        }
+
+        table.career-report-table p {
+            margin: 0;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .career-planning {
+            height: 200px;
+            padding: 10px 15px;
+            margin-bottom: 15px;
+            color: #00b39c;
+            border: 1px solid #00b39c;
+        }
+
+        .well-being-table td {
+            vertical-align: top;
+        }
+
+        /*.overall-well-being .sq {
+            width: 78px;
+            margin-left: 4px;
+            margin-right: 4px;
+        }*/
+        .overall-eq-score .sq {
+            width: 39px;
+            height: 39px;
+        }
+    </style>
+</head>
+<body style="margin-left: 100px; margin-right: 100px; padding-top: 260px;">
+
+    <article class="cover-page">
+        <div class="background"></div>
+        <div style="">
+            <h2 class="font-size-32" style=" margin: 15px 0 0;">Know Your</h2>
+            <h1 class="" style="font-size: 48px; margin: 0 0 15px;">Emotional Intelligence</h1>
+            <h2 class="font-size-32">Individual Report</h2>
+        </div>
+        <div style="margin-top: 80px;">
+            <h2 style="margin: 15px 0; font-weight: 400;">Name : @Model.ProfileName.English </h2>
+            <h2 style="margin: 15px 0; font-weight: 400;">Assesment taken on : @Model.CompletedOn </h2>
+            <h2 style="margin: 15px 0; font-weight: 400;">Report printed on: @DateTime.Now.ToShortDateString() </h2>
+        </div>
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-1" style="padding-top: 100px; padding-bottom: 100px;">
+        <h2 class="text-green text-title">Introduction</h2>
+        <p style="margin-bottom: 30px;">
+            Thank you for completing the ‘Know Your Emotional Intelligence’ questionnaire. This report is intended to provide you with feedback on your self-reported level of emotional intelligence (EQ): the ability to understand and regulate your own and other’s emotions. It has been found that those individuals with higher levels of EQ will more easily achieve success in their career and personal lives. Whilst those with lower EQ scores are often still successful, progression to more senior levels often benefits from development of higher levels of EQ. This report provides scores and feedback on the following Emotional Intelligence scales
+        </p>
+        <table class="well-being-table" style="width: 100%; table-layout: fixed;" cellspacing="10">
+
+            <tr>
+                <td colspan="6">
+                    <table class="" style="width: 100%; table-layout: fixed; border-collapse: collapse; margin-right: auto; margin-left: auto; height: 100px;">
+
+                        <tr>
+                            <td class="text-center" colspan="3" style="background-color: #6ec9c2; padding: 0; vertical-align: middle;">
+                                <img src="~/Assets/images/well-being.png" alt="" style="width: 70%;" />
+                            </td>
+                            <td colspan="9" style="background-color: #f5f7f6; padding: 5px 10px; vertical-align: middle;">
+                                <h4 style="color: #6e6e6e; margin: 0;">Awareness</h4>
+                                <p class="font-weight-600" style="color: #6e6e6e; margin: 5px 0; font-size: 12px;">The degree to which you are aware of and understand your own emotions</p>
+                            </td>
+                        </tr>
+
+                    </table>
+                </td>
+                <td colspan="6">
+                    <table class="" style="width: 100%; table-layout: fixed; border-collapse: collapse; margin-right: auto; margin-left: auto; height: 100px;">
+
+                        <tr>
+                            <td class="text-center" colspan="3" style="background-color: #6ec9c2; padding: 0; vertical-align: middle;">
+                                <img src="~/Assets/images/icons/relationship-icon.png" alt="" style="width: 70%;" />
+                            </td>
+                            <td colspan="9" style="background-color: #f5f7f6; padding: 5px 10px; vertical-align: middle;">
+                                <h4 style="color: #6e6e6e; margin: 0;">Relationships</h4>
+                                <p class="font-weight-600" style="color: #6e6e6e; margin: 5px 0; font-size: 12px;">The degree to which you form relationships with others and have a positive impact on them</p>
+                            </td>
+                        </tr>
+
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="6">
+                    <table class="" style="width: 100%; table-layout: fixed; border-collapse: collapse; margin-right: auto; margin-left: auto; height: 100px;">
+
+                        <tr>
+                            <td class="text-center" colspan="3" style="background-color: #6ec9c2; padding: 0; vertical-align: middle;">
+                                <img src="~/Assets/images/icons/regulation-icon.png" alt="" style="width: 70%;" />
+                            </td>
+                            <td colspan="9" style="background-color: #f5f7f6; padding: 5px 10px; vertical-align: middle;">
+                                <h4 style="color: #6e6e6e; margin: 0;">Regulation</h4>
+                                <p class="font-weight-600" style="color: #6e6e6e; margin: 5px 0; font-size: 12px;">The degree to which you are able to regulate your emotions and maintain a positive emotional state</p>
+                            </td>
+                        </tr>
+
+                    </table>
+                </td>
+                <td colspan="6">
+                    <table class="" style="width: 100%; table-layout: fixed; border-collapse: collapse; margin-right: auto; margin-left: auto; height: 100px;">
+
+                        <tr>
+                            <td class="text-center" colspan="3" style="background-color: #6ec9c2; padding: 0; vertical-align: middle;">
+                                <img src="~/Assets/images/icons/relationship-icon.png" alt="" style="width: 70%;" />
+                            </td>
+                            <td colspan="9" style="background-color: #f5f7f6; padding: 5px 10px; vertical-align: middle;">
+                                <h4 style="color: #6e6e6e; margin: 0;">Stress Tolerance</h4>
+                                <p class="font-weight-600" style="color: #6e6e6e; margin: 5px 0; font-size: 12px;">The degree to which you can tolerate certain levels of stress and high pressure</p>
+                            </td>
+                        </tr>
+
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="6">
+                    <table class="" style="width: 100%; table-layout: fixed; border-collapse: collapse; margin-right: auto; margin-left: auto; height: 100px;">
+
+                        <tr>
+                            <td class="text-center" colspan="3" style="background-color: #6ec9c2; padding: 0; vertical-align: middle;">
+                                <img src="~/Assets/images/icons/empathy-icon.png" alt="" style="width: 70%;" />
+                            </td>
+                            <td colspan="9" style="background-color: #f5f7f6; padding: 5px 10px; vertical-align: middle;">
+                                <h4 style="color: #6e6e6e; margin: 0;">Empathy</h4>
+                                <p class="font-weight-600" style="color: #6e6e6e; margin: 5px 0; font-size: 12px;">The degree to which you are able to feel what others are feeling and see things from their perspective</p>
+                            </td>
+                        </tr>
+
+                    </table>
+                </td>
+                <td colspan="6">
+                    <table class="" style="width: 100%; table-layout: fixed; border-collapse: collapse; margin-right: auto; margin-left: auto; height: 100px;">
+
+                        <tr>
+                            <td class="text-center" colspan="3" style="background-color: #6ec9c2; padding: 0; vertical-align: middle;">
+                                <img src="~/Assets/images/icons/emotional-flex-icon.png" alt="" style="width: 70%;" />
+                            </td>
+                            <td colspan="9" style="background-color: #f5f7f6; padding: 5px 10px; vertical-align: middle;">
+                                <h4 style="color: #6e6e6e; margin: 0;">Emotional Flexibility</h4>
+                                <p class="font-weight-600" style="color: #6e6e6e; margin: 5px 0; font-size: 12px;">The degree to which you are flexible with your emotions</p>
+                            </td>
+                        </tr>
+
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="6">
+                    <table class="" style="width: 100%; table-layout: fixed; border-collapse: collapse; margin-right: auto; margin-left: auto; height: 100px;">
+
+                        <tr>
+                            <td class="text-center" colspan="3" style="background-color: #6ec9c2; padding: 0; vertical-align: middle;">
+                                <img src="~/Assets/images/icons/expression-icon.png" alt="" style="width: 70%;" />
+                            </td>
+                            <td colspan="9" style="background-color: #f5f7f6; padding: 5px 10px; vertical-align: middle;">
+                                <h4 style="color: #6e6e6e; margin: 0;">Expression</h4>
+                                <p class="font-weight-600" style="color: #6e6e6e; margin: 5px 0; font-size: 12px;">The degree to which you are assertive and can communicate emotions to others</p>
+                            </td>
+                        </tr>
+
+                    </table>
+                </td>
+                <td colspan="6">
+                    <table class="" style="width: 100%; table-layout: fixed; border-collapse: collapse; margin-right: auto; margin-left: auto; height: 100px;">
+
+                        <tr>
+                            <td class="text-center" colspan="3" style="background-color: #6ec9c2; padding: 0; vertical-align: middle;">
+                                <img src="~/Assets/images/smile-face.png" alt="" style="width: 70%;" />
+                            </td>
+                            <td colspan="9" style="background-color: #f5f7f6; padding: 5px 10px; vertical-align: middle;">
+                                <h4 style="color: #6e6e6e; margin: 0;">Happiness</h4>
+                                <p class="font-weight-600" style="color: #6e6e6e; margin: 5px 0; font-size: 12px;">The degree to which you are generally happy and optimistic in your outlook</p>
+                            </td>
+                        </tr>
+
+                    </table>
+                </td>
+            </tr>
+
+        </table>
+
+        <p>
+            Your results have been compared to a group of UAE Nationals who have completed this questionnaire before. Your scores on the dimensions are therefore relative to where other people see themselves and are presented on a 110- scale, where 1 is very low and 10 is very high. Developmental narrative is presented to help with the interpretation of your scores. Since it is a self-report measure, the results reflect your self-perception which has been shown to be an accurate predictor of your likely emotional and social functioning at work. Since it is auto-generated, it is important to validate the results through further exploration and self-reflection. It is likely to remain valid for around 1218- months.
+        </p>
+
+        <p>This report can be used to aid self-reflection and insight into your level of EQ. It can also be used to create a development plan for your current and future career aspirations.</p>
+
+        <p>
+            The report covers the following sections:<br />
+            Section 1: Emotional Intelligence Profile Chart<br />
+            Section 2: Narrative Profile <br />
+            Section 3: Development suggestions
+
+        </p>
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-2" style="padding-top: 50px; padding-bottom: 50px; margin-left: -50px; margin-right: -50px;">
+        <h2 class="font-weight-600" style="color: #626262;">Section 1: Your Emotional Intelligence Profile</h2>
+
+        <table class="" style="width: 100%; table-layout: fixed; border-collapse: collapse;">
+
+            <tr class="leadership-sprint">
+                <td colspan="14" style="padding: 15px;">
+                    <p><strong>Overall EQ score – </strong>this is the overall score across the scales and indicates the percentage of people who you scored higher than in the comparison group.</p>
+                    <div class="overall-eq-score">
+                        <div class="square display-block ">
+                            @{ 
+                                int dividedScore = int.Parse(Math.Round(Model.OverallScore/ 5).ToString());
+                            }
+                            @for (int i = 1; i < 21; i++)
+                            {
+                                if (i < dividedScore)
+                                {
+                                    <div class="sq average"></div>
+                                }
+                                else if (i == dividedScore)
+                                {
+                                    <div class="sq font-weight-600 text-center average" style="color:#fff; height: 19px; padding: 10px 0;">@((int)Model.OverallScore)</div>
+
+                                }
+                                else if (i > dividedScore)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+                            }
+
+
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="5" style="padding: 15px;">
+                    <p>
+                        The chart below depicts your reported level of social and emotional functioning, as measured by the questionnaire. Your score for each scale can be interpreted in the following way:
+                    </p>
+                </td>
+                <td colspan="9" style="padding: 15px;">
+                    <table class="leadership-score-table" style="width: 100%; table-layout: fixed;" dir="ltr">
+                        <tr>
+                            <td class="font-weight-600 text-center">Very Low</td>
+                            <td class="font-weight-600 text-center">Low</td>
+                            <td class="font-weight-600 text-center">Average</td>
+                            <td class="font-weight-600 text-center">High</td>
+                            <td class="font-weight-600 text-center">Very High</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="square display-block">
+                                    <div class="sq  very-low"></div>
+                                    <div class="sq  very-low"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="square display-block ">
+                                    <div class="sq low"></div>
+                                    <div class="sq low"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="square display-block ">
+                                    <div class="sq average"></div>
+                                    <div class="sq average"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="square  display-block ">
+                                    <div class="sq high"></div>
+                                    <div class="sq high"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="square display-block">
+                                    <div class="sq very-high"></div>
+                                    <div class="sq very-high"></div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr style="height: 10px;"></tr>
+
+            @foreach (var item in Model.profileScaleScoreReportsView)
+            {
+                <tr class="leadership-sprint">
+                    <td colspan="5" style="padding: 0px 15px;">
+                        <h4 style="margin-top: 10px; margin-bottom: 10px; color: #606060;">@item.ScaleName.Current</h4>
+                        <p class="font-weight-600" style="margin-bottom: 10px; margin-top: 0; color: #606060; font-size: 14px;">
+                            @item.ScaleLowDescription.Current
+                        </p>
+                    </td>
+                    <td colspan="9" style="padding: 0px 15px;">
+                        <div class="square display-block ">
+                            @if ((int)item.Score == 1)
+                            {
+                                <div class="sq very-low"></div>
+                                for (int i = 1; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+
+
+                            }
+                            else if ((int)item.Score == 2)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                for (int i = 2; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+
+                            }
+                            else if ((int)item.Score == 3)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                for (int i = 3; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+                            }
+                            else if ((int)item.Score == 4)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq low"></div>
+                                for (int i = 4; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+                            }
+                            else if ((int)item.Score == 5)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq average"></div>
+                                for (int i = 5; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+                            }
+                            else if ((int)item.Score == 6)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq average"></div>
+                                <div class="sq average"></div>
+                                for (int i = 6; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+                            }
+                            else if ((int)item.Score == 7)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq average"></div>
+                                <div class="sq average"></div>
+                                <div class="sq high"></div>
+                                for (int i = 7; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+                            }
+                            else if ((int)item.Score == 8)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq average"></div>
+                                <div class="sq average"></div>
+                                <div class="sq high"></div>
+                                <div class="sq high"></div>
+                                for (int i = 8; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+                            }
+                            else if ((int)item.Score == 9)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq average"></div>
+                                <div class="sq average"></div>
+                                <div class="sq high"></div>
+                                <div class="sq high"></div>
+                                <div class="sq very-high"></div>
+                                for (int i = 9; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+                            }
+                            else if ((int)item.Score == 10)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq average"></div>
+                                <div class="sq average"></div>
+                                <div class="sq high"></div>
+                                <div class="sq high"></div>
+                                <div class="sq very-high"></div>
+                                <div class="sq very-high"></div>
+                            }
+
+
+
+                        </div>
+
+
+                    </td>
+                </tr>
+
+                <tr style="height: 10px;"></tr>
+
+
+            }
+
+
+
+        </table>
+
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-2" style="padding-top: 50px; padding-bottom: 50px; margin-left: -50px; margin-right: -50px;">
+        <h2 class="font-weight-600" style="color: #626262; margin: 0;">Section 2: Your Emotional Intelligence Profile</h2>
+        <p style="margin-top: 0;">The narrative below describes your levels of reported functioning for each emotional intelligence scale</p>
+        @foreach (var narrative in Model.profileScaleNarrativeDescriptionsView)
+        {
+            <p class="leadership-sprint font-weight-600" style="margin-bottom: 5px; margin-top: 15px; padding: 10px; font-size: 14px;">@narrative.ScaleName.Current</p>
+            <p class="leadership-sprint font-weight-600" style="padding: 10px; margin-top: 0; margin-bottom: 3px; font-size: 12px;">
+                @narrative.Description.Current
+            </p>
+        }
+
+
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-3" style="padding-top: 50px; padding-bottom: 50px; margin-left: -50px; margin-right: -50px;">
+        <h2 class="font-weight-600" style="color: #626262; margin: 0;">Section 3: Developing Emotional Intelligence</h2>
+        <p style="margin-top: 0; margin-bottom: 10px;">The narrative below gives some suggestions for improving your Emotional Intelligence. Research suggests that those who are able to develop their EQ can find it beneficial to their personal and career goals.</p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 3px; margin-top: 6px; padding: 10px; font-size: 13px;">Awareness</p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px; margin-top: 0; margin-bottom: 3px; font-size: 12px;">
+            Being aware of and able to recognise your own emotions is important to help you understand and know yourself well. One way that you can increase self awareness is by spending time evaluating how you may be feeling on different occasions. Perhaps keep a diary of your thoughts and feelings throughout the day and when interacting with others. Review the information and see if you can find a pattern to your thoughts and feelings. For example, are there certain activities that make you happy, or others that make you feel more irritated?
+        </p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 3px; margin-top: 6px; padding: 10px; font-size: 13px;">Regulation</p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px; margin-top: 0; margin-bottom: 3px; font-size: 12px;">
+            Regulating and adapting your emotions to achieve a positive emotional state will help you when building interpersonal relationships with others. Do you sometimes find that you react too quickly to a situation, or setback? Are there certain situations where you react too quickly or feel more negative emotions? It can be useful to ask a friend or colleague to give you feedback when you react too quickly to a situation to help see from another perspective how you regulate emotions.
+        </p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 3px; margin-top: 6px; padding: 10px; font-size: 13px;">Empathy</p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px; margin-top: 0; margin-bottom: 3px; font-size: 12px;">
+            Increasing your ability to empathise more readily will help you to build higher quality relationships with others. Are there opportunities where you can spend more time getting to know an individual? Actively listening to others can hep increase your understanding of their perspectives and actions. Develop your ability to ask lots of different types of questions and practice active and deep listening, so that others get a real sense that you care about what they are saying.
+        </p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 3px; margin-top: 6px; padding: 10px; font-size: 13px;">Expression</p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px; margin-top: 0; margin-bottom: 3px; font-size: 12px;">
+            Expressing your emotions in a clear and unambiguous way will help others to regulate their response to you and will help you to build better relationships. Identify the times when you may be less confident in expressing tour emotions, and seek to increase your comfort with telling others how you are feeling even if you are less familiar with them. Learn some communication techniques and build regular check-ins with people that you are working with, asking them how they are feeling which in turn will allow you to be more comfortable to communicate how you are feeling.
+        </p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 3px; margin-top: 6px; padding: 10px; font-size: 13px;">Relationships</p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px; margin-top: 0; margin-bottom: 3px; font-size: 12px;">
+            Building positive relationships with others will help you to progress in your career and to develop outside of work. Take the time to identify the key people in the business who you do not yet know well, and seek to find opportunities to build a relationship with them. Ask questions, seek to engage them and understand their key concerns - this will then help you to build a relationship. Seek to push yourself outside of your comfort zone to initiate contact with others and seek to raise your profile within the organisation so that others will approach you as well as you approaching them.
+        </p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 3px; margin-top: 6px; padding: 10px; font-size: 13px;">Stress Tolerance</p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px; margin-top: 0; margin-bottom: 3px; font-size: 12px;">
+            The ability to tolerate a certain level of stress or pressure at work is a useful skill to develop and will help you to function effectively at more senior levels. To reduce your overall stress levels, consider whether some of the stressors you are exposed to can be reduced - for example, if there is a take you don't enjoy or find stressful, is there an opportunity to remove yourself from the situation? Secondly, change the way you appraise stressful situations - learn cognitive behavioural techniques to help you change the way you think about stressful things in your life to be more positive or to think differently, this will reduce the experience of stress. Lastly, consider improving the way in which you handle stress by increasing physical exercise, incorporating relaxation techniques into your daily routine and ensuring that you unwind doing something you love when you are not at work.
+        </p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 3px; margin-top: 6px; padding: 10px; font-size: 13px;">Emotional Flexibility</p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px; margin-top: 0; margin-bottom: 3px; font-size: 12px;">
+            Being flexible with your emotions will help you to maintain a dynamic approach at work and will also mean that you are able to adapt well to changing circumstances. Identify times when you haven't been flexible and seek feedback from others. Explore why you were inflexible in your approach and consider what you could do differently. Try to practice thinking about different ways of doing things and whether you could try another approach to achieving tasks. Sometimes just making small changes and being flexible will give us the confidence to take on larger scale changes. Read some resources of managing change and mentally list all the benefits of change when next faced with a requirement to change your approach. Change can be very positive and provide opportunity for growth.
+        </p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 3px; margin-top: 6px; padding: 10px; font-size: 13px;">Happiness</p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px; margin-top: 0; margin-bottom: 3px; font-size: 12px;">
+            Happiness will help you to remain positive in the face of setbacks and will help to improve overall emotional intelligence. To improve your happiness further, write down three things that make you happy, joyful and contented - consider doing these things more to improve you mood and overall positivity. Think about how to change the way you think about yourself by evaluating your positive contributions. Practice gratitude and counting your blessings. You can also visualise your best possible self by writing down how you see your best self in the future and thinking about what you will 'look' like when you realise your potential
+        </p>
+
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-1" style="padding-top: 100px; padding-bottom: 100px;">
+        <h2 class="font-weight-600" style="color: #626262;">Section 3: Developing Emotional Intelligence</h2>
+        <p style="margin-bottom: 30px;">
+            Emotional Intelligence (EQ) has been shown to be important to career success, particularly as you progress to more senior levels. It will help you to perform well in many competencies, but the specific UAE Government Leadership competencies EQ is most strongly related to are listed below:
+        </p>
+        <table class="well-being-table" style="width: 100%; table-layout: fixed;" cellspacing="10">
+
+            <tr>
+                <td colspan="3" style="background-color: #66c9c4; vertical-align: middle; padding: 10px 15px;">
+                    <h4 class="font-weight-600" style="color: #fff; margin: 0;">Achievements and impact</h4>
+                </td>
+                <td colspan="9" style="background-color: #e6e6e6; vertical-align: middle; padding: 10px 15px;">
+                    <p style="color: #696969; margin: 0; line-height: 1.2;">Smart, Effective and <br />Efficient Decision Maker</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="3" style="background-color: #66c9c4; vertical-align: middle; padding: 10px 15px;">
+                    <h4 class="font-weight-600" style="color: #fff; margin: 0;">Future Outlook</h4>
+                </td>
+                <td colspan="9" style="background-color: #e6e6e6; vertical-align: middle; padding: 10px 15px;">
+                    <p style="color: #696969; margin: 0; line-height: 1.2;">Life-long Learner</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="3" style="background-color: #66c9c4; vertical-align: middle; padding: 10px 15px;">
+                    <h4 class="font-weight-600" style="color: #fff; margin: 0;">Leadership Sprint</h4>
+                </td>
+                <td colspan="9" style="background-color: #e6e6e6; vertical-align: middle; padding: 10px 15px;">
+                    <p style="color: #696969; margin: 0; line-height: 1.2;">Enabler of Peopl</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="3" style="vertical-align: middle; padding: 10px 15px;"></td>
+                <td colspan="9" style="background-color: #e6e6e6; vertical-align: middle; padding: 10px 15px;">
+                    <p style="color: #696969; margin: 0; line-height: 1.2;">Role Model</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="3" style="vertical-align: middle; padding: 10px 15px;"></td>
+                <td colspan="9" style="background-color: #e6e6e6; vertical-align: middle; padding: 10px 15px;">
+                    <p style="color: #696969; margin: 0; line-height: 1.2;">Open to the World</p>
+                </td>
+            </tr>
+
+        </table>
+    </article>
+
+</body>
+</html>

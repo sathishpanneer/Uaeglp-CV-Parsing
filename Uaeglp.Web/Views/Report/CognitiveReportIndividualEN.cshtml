@@ -1,0 +1,477 @@
+﻿@model Uaeglp.ViewModels.AssessmentViewModels.AssessmentIndividualToolReportView
+
+@{
+            Layout = null;
+}
+
+<html>
+<head>
+    <meta charset="utf-8">
+    @*<title>Demo</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="license" href="https://www.opensource.org/licenses/mit-license/">
+        <script src="script.js"></script>
+        <link href="~/css/demo.css" rel="stylesheet" />*@
+    <style>
+
+        .breakhere {
+            page-break-after: always;
+            background-color: blueviolet;
+        }
+
+        tr {
+            page-break-inside: avoid;
+            direction: rtl;
+        }
+
+        .imagetorotate {
+            -webkit-transform: rotate(200deg);
+            -webkit-backface-visibility: hidden;
+        }
+
+        body {
+            font-family: sans-serif;
+            /*background: url('~/Assets/images/bgs/cognitive-report-individual-en.jpg');*/
+            direction: ltr;
+        }
+
+        .background {
+            position: absolute;
+            display: block;
+            min-width: 100%;
+            text-align: center;
+            background-color: transparent;
+            /*padding-top: 50%;*/
+            background: url(../../Assets/images/bgs/cognitive-report-individual-en.jpg) no-repeat;
+            background-size: contain;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+        }
+
+        .cover-page {
+        }
+
+        .font-size-32 {
+            font-size: 32px;
+        }
+
+        .font-size-24 {
+            font-size: 24px;
+        }
+
+        .font-size-20 {
+            font-size: 20px;
+        }
+
+        .font-size-12 {
+            font-size: 12px;
+        }
+
+        .m-100 {
+            margin: 60px;
+        }
+
+        p {
+            line-height: 1.5;
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #6e6e6e;
+        }
+
+        .square .sq {
+            width: 28px;
+            height: 28px;
+            margin-right: 4px;
+            float: left;
+        }
+
+        .sq-green-600 {
+            background-color: #66cbc4;
+        }
+
+        .green-900 {
+            background: #00a99d;
+        }
+
+        .sq-green-100 {
+            background: #e0f5f3;
+        }
+
+        .sq-grey-300 {
+            background-color: #e6e6e6;
+        }
+
+        .red-100 {
+            background: #ffcbc4;
+        }
+
+        .text-grey-400 {
+            color: #6a6a6a;
+        }
+
+        table {
+            font-family: sans-serif;
+            /*text-align: left;*/
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .table-key td {
+            height: 75px;
+            padding: 8px;
+            border: 5px solid #fff;
+        }
+
+        table th {
+            padding: 8px;
+            border: 3px solid #fff;
+        }
+
+        table th {
+            color: #fff;
+        }
+
+        .w-100 {
+            width: 100px;
+        }
+
+        .w-160 {
+            width: 160px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .display-block {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .v-align-top {
+            vertical-align: top;
+        }
+
+        .font-weight-bold {
+            font-weight: bold;
+        }
+
+        .font-weight-600 {
+            font-weight: 600;
+        }
+
+        .w-p60 {
+            width: 60%;
+        }
+
+        .w-p40 {
+            width: 40%;
+        }
+
+        .h-27 {
+            height: 27px;
+        }
+
+        .mh-27 {
+            min-height: 27px;
+        }
+
+        .page-2 .sq {
+            color: #fff;
+            width: 23px;
+        }
+
+        .text-white {
+            color: #fff;
+        }
+
+        .title {
+            margin-bottom: 50px;
+            font-size: 32px;
+            font-weight: bold;
+            color: #666;
+        }
+
+        .subtitle {
+            font-weight: bold;
+            color: #666;
+            margin-top: 50px;
+        }
+
+        .note {
+            padding: 15px;
+            border: 2px solid #66cbc4;
+            color: #66cbc4;
+            height: 85px;
+        }
+
+        .page-5 .table-borderless td {
+            border: 0;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 37px;
+            padding: 0 15px;
+            border-bottom: 5px solid #fff;
+        }
+
+        .page-5 .table-borderless tr:last-child td {
+            border-bottom: 0;
+        }
+
+        .table-cell-p50 {
+            margin-top: 2px;
+        }
+
+            .table-cell-p50 td {
+                padding: 5px 15px;
+                width: 50%;
+                border: 3px solid #fff;
+                height: 50px;
+                line-height: 1.2;
+            }
+
+            .table-cell-p50 tr td:first-child {
+                border-left: 0;
+            }
+
+            .table-cell-p50 tr td:last-child {
+                border-right: 0;
+            }
+
+        .text-green {
+            color: #03a7a0;
+        }
+
+        .text-title {
+            margin-bottom: 30px;
+        }
+
+        .leadership-score-table tr:first-child td {
+            border-left: 2px solid #6e6e6e;
+            color: #6e6e6e;
+        }
+
+        .leadership-score-table tr:last-child td {
+            padding: 0;
+        }
+
+        .leadership-score-table td .sq,
+        .leadership-sprint .sq {
+            width: 52px;
+            height: 52px;
+            margin-right: 2px;
+            margin-left: 2px;
+        }
+
+            .leadership-score-table td .sq:last-child {
+                margin-right: 0;
+            }
+
+        .very-low .sq {
+            background-color: #c1eae6;
+        }
+
+        .low .sq {
+            background-color: #a3e0db;
+        }
+
+        .average .sq {
+            background-color: #66c9c4;
+        }
+
+        .high .sq {
+            background-color: #4c9792;
+        }
+
+        .very-high .sq {
+            background-color: #336661;
+        }
+
+        .leadership-sprint {
+            background-color: #eef0ef;
+        }
+
+        .white-sq {
+            background-color: #fff !important;
+        }
+        /*.leadership-sprint .display-block{
+            display: inline-block;
+            overflow: hidden;
+        }*/
+        .leadership-sprint .sq {
+            float: right;
+        }
+    </style>
+</head>
+<body style="margin-left: 100px; margin-right: 100px; padding-top: 260px;">
+
+    <article class="cover-page">
+        <div class="background"></div>
+        <div style="">
+            <h2 class="font-size-32" style=" margin: 15px 0 10px;">
+                Know Your
+            </h2>
+            <h1 class="" style="font-size: 48px; margin: 15px 0;">
+                Cognitive Aptitude
+            </h1>
+            <h2 class="font-size-32">
+                Individual Report
+            </h2>
+        </div>
+        <div style="margin-top: 80px;">
+            <div style="margin-top: 80px;">
+                <h2 style="margin: 15px 0; font-weight: 400;">Name : @Model.ProfileName.English </h2>
+                <h2 style="margin: 15px 0; font-weight: 400;">Assesment taken on : @Model.CompletedOn </h2>
+                <h2 style="margin: 15px 0; font-weight: 400;">Report printed on: @DateTime.Now.ToShortDateString() </h2>
+            </div>
+
+        </div>
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-1" style="padding-top: 100px; padding-bottom: 100px;">
+        <h2 class="text-green text-title">Introduction</h2>
+        <p>
+            Thank you for completing the ‘Know Your Cognitive Aptitude’ test. The test measures your ability or
+            aptitude to work quickly with numbers, written information and abstract information, such as shapes and
+            patterns. Research has shown that these cognitive abilities are important for success in many types of role
+            and industry and that individuals who score higher on these tests are likely to be more successful in their
+            role and to perform at a higher level than individuals who score lower. <br />
+            Specifically, the test measures:
+
+
+        </p>
+        <p>
+            <strong>Numerical Aptitude </strong>e – the ability to analyse numerical data in tables and charts, and to perform basic
+            mathematical calculations to determine the correct answer.
+        </p>
+
+        <p>
+            <strong>
+                Verbal Aptitude –
+            </strong>the ability to evaluate and interpret written information and to draw the right
+            conclusions based on information contained in passages of text
+        </p>
+
+        <p>
+            <strong>Abstract Aptitude – </strong> the ability to analyse patterns and sequences of information, such as shapes and
+            diagrams, to solve problems and draw logical conclusions based on these.
+        </p>
+
+        <p>
+            Your results have been compared to a group of UAE Nationals who have completed this test before.
+        </p>
+
+        <p>
+            Your scores are presented in terms of narrative, which explains how your score compares to others who
+            have taken the test. Since the tests are timed, your speed when answering the questions is taken into
+            account, which impacts your overall and individual test scores. Your results are likely to remain valid for
+            around 12-18 months.
+        </p>
+
+        <p>
+            The report covers the following sections: <br />
+            Section 1: Overall and Individual Test Scores<br />
+            Section 2: Enhancing Cognitive Aptitude<br />
+
+        </p>
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-2" style="padding-top: 50px; padding-bottom: 50px; margin-left: -50px; margin-right: -50px;">
+        <h2 class="font-weight-600" style="color: #626262; margin-bottom: 80px;">
+            Section 1: Your Cognitive Aptitude
+        </h2>
+
+        <h3 class="leadership-sprint font-weight-600" style="margin-bottom: 5px; padding: 10px 20px; color: #6e6e6e;">Overall Score</h3>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px 20px 30px; margin-top: 0; min-height: 100px;">
+            @Model.profileCognitiveNarrativeDescriptionView.OverallScoreNarrativeDescription.Current
+        </p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 5px; padding: 10px 20px;">Numerical Aptitude</p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px 20px 30px; margin-top: 0; min-height: 100px;">
+            @Model.profileCognitiveNarrativeDescriptionView.NumericalScoreNarrativeDescription.Current
+        </p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 5px; padding: 10px 20px;">
+            Verbal Aptitude
+        </p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px 20px 30px; margin-top: 0; min-height: 100px;">
+            @Model.profileCognitiveNarrativeDescriptionView.VerbalScoreNarrativeDescription.Current
+        </p>
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 5px; padding: 10px 20px;">
+            Abstract Aptitude
+        </p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px 20px 30px; margin-top: 0; min-height: 100px;">
+            @Model.profileCognitiveNarrativeDescriptionView.AbstractScoreNarrativeDescription.Current
+        </p>
+
+
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-3" style="padding-top: 50px; padding-bottom: 50px; margin-left: -50px; margin-right: -50px;">
+        <h2 class="font-weight-600" style="color: #626262;">
+            Section 2: Enhancing Cognitive Aptitude
+        </h2>
+        <p style="margin-top: 0; margin-bottom: 80px;">
+            It may be useful to consider some tips for enhancing your cognitive ability. Whist you are unlikely to change your
+            score significantly, becoming more familiar with numerical, verbal and abstract information can be of benefit.
+        <p>
+
+            <h3 class="font-weight-600" style="color: #626262;">Please find below some development ideas:</h3>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 5px; padding: 10px 20px;">Numerical Aptitude</p>
+        <div class="leadership-sprint font-weight-600" style="padding: 10px 20px 30px; margin-top: 0; min-height: 100px;">
+            <ul style="margin: 0; padding: 0 15px; color:#6e6e6e;">
+                <li>Spend time reading financial and numerical reports and articles.</li>
+                <li>
+                    Try to understand the numerical information and what it means. Can you communicate this information to
+                    someone else?
+                </li>
+                <li> Complete calculations with and without a calculator. Spend time practising everyday calculations.</li>
+                <li> When reporting financial information, can you report additional trends?</li>
+                <li> Take on more responsibility for analysing numerical information.</li>
+            </ul>
+        </div>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 5px; padding: 10px 20px;">
+            Verbal Aptitude
+        </p>
+        <div class="leadership-sprint font-weight-600" style="padding: 10px 20px 30px; margin-top: 0; min-height: 100px;">
+            <ul style="margin: 0; padding: 0 15px; color:#6e6e6e;">
+                <li> Spend time reading articles, which may interest you.</li>
+                <li>  When reading articles, try and understand the main points and communicate these to someone else.</li>
+                <li> Look up unfamiliar words in a dictionary or thesaurus.</li>
+                <li>  Practice writing articles yourself.</li>
+                <li>
+                    Look at your own written communication. How can you improve this? Can you change some of the
+                    words or phrases to make your writing more interesting?
+                </li>
+                <li>  Review your own work. Can you write more concisely?</li>
+                <li>  Compare written arguments in different articles and look for similarities and differences between them.</li>
+            </ul>
+        </div>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 5px; padding: 10px 20px;">Abstract Aptitude</p>
+        <div class="leadership-sprint font-weight-600" style="padding: 10px 20px 30px; margin-top: 0; min-height: 100px;">
+            <ul style="margin: 0; padding: 0 15px; color:#6e6e6e;">
+                <li> Spend time looking for patterns and relationships in puzzles.</li>
+                <li>Explore abstract information presented in books and articles.</li>
+                <li>Can you create your own abstract reasoning puzzles for others to solve?</li>
+                <li>Are there any online games or puzzles, you could practice?</li>
+            </ul>
+        </div>
+
+    </article>
+
+</body>
+</html>

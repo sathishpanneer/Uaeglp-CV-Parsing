@@ -1,0 +1,459 @@
+﻿@model Uaeglp.ViewModels.AssessmentViewModels.AssessmentManagementToolReportView
+@{
+    Layout = null;
+    var degree=Model.OverallScore * 180 / 100;
+}
+
+<html>
+<head>
+    <meta charset="utf-8">
+    @*<title>Demo</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="license" href="https://www.opensource.org/licenses/mit-license/">
+        <script src="script.js"></script>
+        <link href="~/css/demo.css" rel="stylesheet" />*@
+    <style>
+
+        .breakhere {
+            page-break-after: always;
+            background-color: blueviolet;
+        }
+
+        tr {
+            page-break-inside: avoid;
+            /*direction: rtl;*/
+        }
+
+        .imagetorotate {
+            -webkit-transform: rotate(200deg);
+            -webkit-backface-visibility: hidden;
+        }
+
+        body {
+            font-family: sans-serif;
+            background: url('~/Assets/images/bgs/english-report-en.jpg');
+        }
+
+        .background {
+            position: absolute;
+            display: block;
+            min-width: 100%;
+            text-align: center;
+            background-color: transparent;
+            /*padding-top: 50%;*/
+            background: url(../../Assets/images/bgs/english-report-en.jpg) no-repeat;
+            background-size: contain;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+        }
+
+        .cover-page {
+        }
+
+        .font-size-32 {
+            font-size: 32px;
+        }
+
+        .font-size-24 {
+            font-size: 24px;
+        }
+
+        .font-size-20 {
+            font-size: 20px;
+        }
+
+        .font-size-12 {
+            font-size: 12px;
+        }
+
+        .m-100 {
+            margin: 60px;
+        }
+
+        p {
+            line-height: 1.5;
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #6e6e6e;
+        }
+
+        .square .sq {
+            width: 28px;
+            height: 28px;
+            margin-right: 4px;
+            float: left;
+        }
+
+        .sq-green-600 {
+            background-color: #66cbc4;
+        }
+
+        .green-900 {
+            background: #00a99d;
+        }
+
+        .sq-green-100 {
+            background: #e0f5f3;
+        }
+
+        .sq-grey-300 {
+            background-color: #e6e6e6;
+        }
+
+        .red-100 {
+            background: #ffcbc4;
+        }
+
+        .text-grey-400 {
+            color: #6a6a6a;
+        }
+
+        table {
+            font-family: sans-serif;
+            text-align: left;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .table-key td {
+            height: 75px;
+            padding: 8px;
+            border: 5px solid #fff;
+        }
+
+        table th {
+            padding: 8px;
+            border: 3px solid #fff;
+        }
+
+        table th {
+            color: #fff;
+        }
+
+        .w-100 {
+            width: 100px;
+        }
+
+        .w-160 {
+            width: 160px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .display-block {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .v-align-top {
+            vertical-align: top;
+        }
+
+        .font-weight-bold {
+            font-weight: bold;
+        }
+
+        .font-weight-600 {
+            font-weight: 600;
+        }
+
+        .w-p60 {
+            width: 60%;
+        }
+        
+        .w-p40 {
+            width: 40%;
+        }
+
+        .h-27 {
+            height: 27px;
+        }
+
+        .mh-27 {
+            min-height: 27px;
+        }
+
+        .page-2 .sq {
+            color: #fff;
+            width: 23px;
+        }
+
+        .text-white {
+            color: #fff;
+        }
+
+        .title {
+            margin-bottom: 50px;
+            font-size: 32px;
+            font-weight: bold;
+            color: #666;
+        }
+
+        .subtitle {
+            font-weight: bold;
+            color: #666;
+            margin-top: 50px;
+        }
+
+        .note {
+            padding: 15px;
+            border: 2px solid #66cbc4;
+            color: #66cbc4;
+            height: 85px;
+        }
+
+        .page-5 .table-borderless td {
+            border: 0;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 37px;
+            padding: 0 15px;
+            border-bottom: 5px solid #fff;
+        }
+
+        .page-5 .table-borderless tr:last-child td {
+            border-bottom: 0;
+        }
+
+        .table-cell-p50 {
+            margin-top: 2px;
+        }
+
+            .table-cell-p50 td {
+                padding: 5px 15px;
+                width: 50%;
+                border: 3px solid #fff;
+                height: 50px;
+                line-height: 1.2;
+            }
+
+            .table-cell-p50 tr td:first-child {
+                border-left: 0;
+            }
+
+            .table-cell-p50 tr td:last-child {
+                border-right: 0;
+            }
+
+        .text-green {
+            color: #03a7a0;
+        }
+
+        .text-title {
+            margin-bottom: 30px;
+        }
+
+        .leadership-score-table tr:first-child td {
+            border-right: 2px solid #6e6e6e;
+            color: #6e6e6e;
+        }
+
+        .leadership-score-table tr:last-child td {
+            padding: 0;
+        }
+
+        .leadership-score-table td .sq,
+        .leadership-sprint .sq {
+            width: 52px;
+            height: 52px;
+            margin-right: 2px;
+            margin-left: 2px;
+        }
+
+            .leadership-score-table td .sq:last-child {
+                margin-right: 0;
+            }
+
+        .very-low  {
+            background-color: #c1eae6;
+        }
+
+        .low  {
+            background-color: #a3e0db;
+        }
+
+        .average  {
+            background-color: #66c9c4;
+        }
+
+        .high  {
+            background-color: #4c9792;
+        }
+
+        .very-high  {
+            background-color: #336661;
+        }
+
+        .leadership-sprint {
+            background-color: #eef0ef;
+        }
+
+        .white-sq {
+            background-color: #fff !important;
+        }
+    </style>
+</head>
+<body style="margin-left: 100px; margin-right: 100px; padding-top: 260px;">
+
+    <article class="cover-page">
+        <div class="background"></div>
+        <div style="">
+            <h1 class="font-size-32">English Language Test </h1>
+            <h1 class="font-size-32">Management Report</h1>
+        </div>
+        <div style="margin-top: 150px;">
+            <h2 style="font-weight: 400;">Name : @Model.ProfileName.English </h2>
+            <h2 style="font-weight: 400;">Assesment taken on : @Model.CompletedOn </h2>
+            <h2 style="font-weight: 400;">Report printed on : @DateTime.Now.ToShortDateString() </h2>
+        </div>
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-1" style="padding-top: 100px; padding-bottom: 100px;">
+        <h2 class="text-green text-title">Introduction</h2>
+        <p>
+            This report is based on the Prime Minister’s Office English Language Test, designed to assess proficiency in written English. It assesses the candidate’s ability to identify the appropriate missing word for commonplace English sentences. The results can be used to infer the candidate’s likely level or proficiency in conducting business in English. It is not an assessment of wider workplace performance or attainment.
+        </p>
+        <p>
+            The results are based on the number of items answered correctly, expressed as a percentage. The results are also banded based on the score from well above average to well below average. Since the candidate completed the assessment remotely, supervised testing may be required to verify the candidate’s English ability, particularly when hiring decisions are being made.
+        </p>
+        <p>
+            This report can be used to help you to consider whether the candidate has the required level of English Language Proficiency for the role applied for within the Prime Minister’s Office.
+        </p>
+
+        <p>
+            The report covers the following sections:
+        </p>
+
+        <p>
+            Section 1: English Language Test Result
+        </p>
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-2" style="padding-top: 30px; padding-bottom: 30px; margin-left: -70px; margin-right: -70px;">
+        <h2 class="font-weight-600" style="color: #626262; margin-bottom: 80px;">Section 1: English Langauge Test Results</h2>
+
+		<table class="" style="width: 100%; table-layout: fixed; border-collapse: collapse;">
+			<tr>
+                <td class="" colspan="4" style="background-color: #66c9c4; padding: 15px; position: relative;">
+                    @*<img src="~/Assets/images/chart-counter-73.png" style="width: 100%;" />*@
+                    <img src="~/Assets/images/counter-chart.png" style="width: 100%;" />
+                    <img src="~/Assets/images/counter-arrow.png" style="position: absolute; bottom: 40px; right: 60px; transform: rotate(@(degree) deg); -webkit-transform: rotate(@(degree)deg);" />
+                    <span style="position: absolute; right: 122px; bottom: 25px; font-size: 20px; font-weight: 600; color: #fff;">@Model.OverallScore</span>
+                </td>
+				<td colspan="10" style="background-color: #eef0ef; padding: 10px 60px;">
+					<p>
+						The score given shows the percentage of questions that were answered correctly. In total there were 50 questions of easy, medium and difficult complexity.
+					</p>
+                    <p>
+                        @Model.OverAllResultDescription.Current
+                    </p>
+				</td>
+			</tr>
+		</table>
+
+        <h2 class="font-weight-600" style="color: #626262; margin-top: 50px;">Interpretation Guidelines</h2>
+
+        <table class="" style="width: 100%; table-layout: fixed; border-collapse: collapse;">
+
+            <tr>
+                <td colspan="5"><h3 style="color: #626262;">Percentage Correct</h3></td>
+                <td colspan="4"></td>
+                <td colspan="5"><h3 style="color: #626262;">Banding</h3></td>
+            </tr>
+
+            <tr>
+                <td class="" colspan="5" style="background-color: #eef0ef; padding: 0px 15px;">
+                    <span class="font-weight-600" style="color: #626262;">100-90</span>
+                </td>
+                <td class="text-center" colspan="4" style="background-color: #66c9c4; padding: 0px 15px; vertical-align: middle;">
+                    <h3 style="color: #fff; margin: 0;">EXCELLENT</h3>
+                </td>
+                <td colspan="5" style="background-color: #eef0ef; padding: 15px;">
+                    <p>
+                        The candidate is likely to have an excellent understanding and usage of basic English language in the workplace
+                    </p>
+                </td>
+            </tr>
+
+            <tr style="height: 15px;"></tr>
+
+            <tr>
+                <td class="" colspan="5" style="background-color: #eef0ef; padding: 0px 15px;">
+                    <span class="font-weight-600" style="color: #626262;">89-80</span>
+                </td>
+                <td class="text-center" colspan="4" style="background-color: #66c9c4; padding: 0px 15px; vertical-align: middle;">
+                    <h3 style="color: #fff; margin: 0;">GOOD</h3>
+                </td>
+                <td colspan="5" style="background-color: #eef0ef; padding: 15px;">
+                    <p>
+                        The candidate is likely to have a good understanding and usage of basic English language in the workplace
+                    </p>
+                </td>
+            </tr>
+
+            <tr style="height: 15px;"></tr>
+
+            <tr>
+                <td class="" colspan="5" style="background-color: #eef0ef; padding: 0px 15px;">
+                    <span class="font-weight-600" style="color: #626262;">79-50</span>
+                </td>
+                <td class="text-center" colspan="4" style="background-color: #66c9c4; padding: 0px 15px; vertical-align: middle;">
+                    <h3 style="color: #fff; margin: 0;">SATISFACTORY</h3>
+                </td>
+                <td colspan="5" style="background-color: #eef0ef; padding: 15px;">
+                    <p>
+                        The candidate is likely to have a satisfactory understanding and usage of basic English language in the workplace
+                    </p>
+                </td>
+            </tr>
+
+            <tr style="height: 15px;"></tr>
+
+            <tr>
+                <td class="" colspan="5" style="background-color: #eef0ef; padding: 0px 15px;">
+                    <span class="font-weight-600" style="color: #626262;">49-30</span>
+                </td>
+                <td class="text-center" colspan="4" style="background-color: #f7921e; padding: 0px 15px; vertical-align: middle;">
+                    <h3 style="color: #fff; margin: 0;">REQUIRES IMPROVENMENT</h3>
+                </td>
+                <td colspan="5" style="background-color: #eef0ef; padding: 15px;">
+                    <p>
+                        The candidate is likely to have a limited understanding and usage of basic English language in the workplace, which requires improvement
+                    </p>
+                </td>
+            </tr>
+
+            <tr style="height: 15px;"></tr>
+
+            <tr>
+                <td class="" colspan="5" style="background-color: #eef0ef; padding: 0px 15px;">
+                    <span class="font-weight-600" style="color: #626262;">29-0</span>
+                </td>
+                <td class="text-center" colspan="4" style="background-color: #f7921e; padding: 0px 15px; vertical-align: middle;">
+                    <h3 style="color: #fff; margin: 0;">LIMITED</h3>
+                </td>
+                <td colspan="5" style="background-color: #eef0ef; padding: 15px;">
+                    <p>
+                        The candidate is likely to have little or no understanding and usage of basic English language in the workplace
+                    </p>
+                </td>
+            </tr>
+
+        </table>
+
+    </article>
+
+
+</body>
+</html>

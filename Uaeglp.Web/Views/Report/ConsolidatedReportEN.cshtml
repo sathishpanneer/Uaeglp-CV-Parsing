@@ -1,0 +1,614 @@
+﻿@model Uaeglp.ViewModels.AssessmentViewModels.ReportConsolidateReportOverallView
+@using  Uaeglp.ViewModels.Enums
+@{
+    Layout = null;
+    var ImageSrc = string.IsNullOrEmpty(Model.Profile.ImageSrc.ImgeIDEncrypted) ? "/Assets/Images/user-icon.png" : "/File/GetByEncryptedId?IdEncyrpted=" + Model.Profile.ImageSrc.ImgeIDEncrypted + "";
+}
+
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <style>
+
+        .breakhere {
+            page-break-after: always;
+            background-color: blueviolet;
+        }
+
+        .imagetorotate {
+            -webkit-transform: rotate(200deg);
+            -webkit-backface-visibility: hidden;
+        }
+
+        body {
+            font-family: Verdana;
+            direction: ltr;
+            color: rgb(77,77,77);
+        }
+
+        .background {
+            position: absolute;
+            display: block;
+            min-width: 100%;
+            text-align: center;
+            background-color: transparent;
+            background: url(../../Assets/images/bgs/Consolidated-bg.jpg) no-repeat;
+            background-size: contain;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+        }
+
+        .text-red {
+            color: rgb(150,24,35);
+        }
+
+        .text-orange {
+            color: rgb(247,147,30);
+        }
+
+        .text-yellow {
+            color: rgb(254,218,27);
+        }
+
+        .text-light-green {
+            color: rgb(78,176,44);
+        }
+
+        .text-dark-green {
+            color: rgb(5,133,67);
+        }
+
+        .text-white {
+            color: #fff;
+        }
+
+        .bg-red {
+            background-color: rgb(150,24,35);
+        }
+
+        .bg-orange {
+            background-color: rgb(247,147,30);
+        }
+
+        .bg-yellow {
+            background-color: rgb(254,218,27);
+        }
+
+        .bg-light-green {
+            background-color: rgb(78,176,44);
+        }
+
+        .bg-dark-green {
+            background-color: rgb(5,133,67);
+        }
+
+        .bg-white {
+            background-color: #fff;
+        }
+
+        .font-size-12 {
+            font-size: 12px;
+        }
+
+        .font-size-13 {
+            font-size: 13px;
+        }
+
+        .font-size-14 {
+            font-size: 14px;
+        }
+
+        .font-size-15 {
+            font-size: 15px;
+        }
+
+        .font-size-16 {
+            font-size: 16px;
+        }
+
+        .font-size-17 {
+            font-size: 17px;
+        }
+
+        .font-size-22 {
+            font-size: 22px;
+        }
+
+        .font-size-30 {
+            font-size: 30px;
+        }
+
+        .font-weight-bold {
+            font-weight: bold;
+        }
+
+        .sq-container .sq {
+            width: 38px;
+            height: 38px;
+            float: left;
+            margin-right: 5px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .divider {
+            width: 100%;
+            height: 1px;
+            background-color: #fff;
+            overflow: hidden;
+            margin-left: -15px;
+        }
+
+        .list-item {
+            color: #666;
+        }
+
+        section .divider:last-child {
+            display: none;
+        }
+    </style>
+</head>
+<body style="margin-left: 100px; margin-right: 100px; padding-top: 260px;">
+
+    <article class="cover-page" style="margin-top: -50px !important; color: #000;">
+        <div class="background"></div>
+        <div style="margin-top: 100px;">
+            <h1 class="font-weight-bold" style="font-style: italic; font-size: 34px; margin-bottom: 50px;">Consolidated Report</h1>
+            <div class="media" style="clear: both; overflow: hidden;">
+                <img src="@ImageSrc" alt="GLP REPORTS" style="width: 178px; height: 245px; float: left;" />
+                <div class="media-caption" style="float: left; margin-left: 50px; margin-top: 20%;">
+                    <p class="font-size-13 font-weight-bold" style="margin-bottom: 30px;">Assesment taken on: @Model.LastAssessmentDate</p>
+                    <p class="font-size-13 font-weight-bold" style="margin-bottom: 30px;">Report printed on: @DateTime.Now.ToShortDateString()</p>
+                </div>
+            </div>
+        </div>
+        <div style="margin-top: 30px;">
+            <h1 class="font-weight-bold" style="font-size: 46px; ">@Model.Profile.Name </h1>
+            <p class="font-weight-bold font-size-14" style="width: 50%; word-spacing: 5px; line-height: 1.5;">
+                @Model.Profile.About
+            </p>
+        </div>
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-1" style="padding-top: 50px; padding-bottom: 50px;">
+        <h2 class="text-dark-green font-weight-bold font-size-17">Introduction</h2>
+        <div style="margin-bottom: 50px;">
+            <p class="font-size-13" style="margin-bottom: 50px; word-spacing: 5px; line-height: 2;">
+                The purpose of this report is for Management within the Government Leadership Programme to have a summary breakdown of an individual’s scores across the digital assessment tools. Overall and summary scores are presented, which are standardised and normed against the UAE Government Leadership Programme applicants and current incumbents.
+                <br />
+                The report is intended for expert users who are trained to understand and interpret what the scores on the various assessments represent, and for use in development and coaching contexts. It is not recommended to send this report to individuals and any discussion around the results should be accompanied with a full feedback session to validate the results on the psychometrics.
+            </p>
+            <p class="font-size-13">The report covers the following sections:</p>
+            <p class="font-size-13">Section 1: Overall weighted score across ALL assessments</p>
+            <p class="font-size-13">Section 2: Overall Scores on each individual assessment</p>
+            <p class="font-size-13">Section 3: Scale breakdown scores</p>
+        </div>
+        <div style="margin-left: -50px; margin-right: -50px;">
+            <section style="background-color: #f2f2f2; padding: 15px; border-radius: 5px;">
+                <h2 class="section-header font-size-16 font-weight-bold">Section 1: Overall Score</h2>
+                <p class="font-size-12" style="word-spacing: 3px;">This is the weighted overall score across all of the assessments, expressed as a percentage. It is the combined 1-10 score, weighted for relative contribution to the overall evaluation and expressed on a 1-100 scale.</p>
+                <div class="sq-container" style="overflow: hidden;">
+                    @{
+                        int dividedScore = int.Parse(Math.Round(Model.OverAllScore / 5).ToString());
+                    }
+                    @for (int i = 1; i < 21; i++)
+                    {
+                        if (i < dividedScore)
+                        {
+                            <span class="sq bg-dark-green"></span>
+                        }
+                        else if (i == dividedScore)
+                        {
+                            <span class="sq bg-dark-green text-white text-center font-size-12" style="padding: 11px 0;height: 16px;">@Math.Round(@Model.OverAllScore)%</span>
+
+                        }
+                        else if (i > dividedScore)
+                        {
+                            <span class="sq bg-white"></span>
+                        }
+                    }
+                </div>
+            </section>
+
+            <section style="background-color: #f2f2f2; padding: 15px; margin-top: 15px; overflow: hidden;">
+                <h2 class="section-header font-size-16 font-weight-bold">Section 2: Overall Assessment Scores</h2>
+                <p class="font-size-12" style="word-spacing: 3px;">
+                    The chart below shows the overall scores on each individual assessment, on a 10-1 (STEN) scale, which is normed and relative to the UAE National Population.
+                </p>
+                <div class="list" style="margin-top: 30px;">
+                    <div class="list-header" style="overflow: hidden;">
+                        <div class="sq-container" style="float: right;">
+                            <span class="sq text-center font-weight-bold">1</span>
+                            <span class="sq text-center font-weight-bold">2</span>
+                            <span class="sq text-center font-weight-bold">3</span>
+                            <span class="sq text-center font-weight-bold">4</span>
+                            <span class="sq text-center font-weight-bold">5</span>
+                            <span class="sq text-center font-weight-bold">6</span>
+                            <span class="sq text-center font-weight-bold">7</span>
+                            <span class="sq text-center font-weight-bold">8</span>
+                            <span class="sq text-center font-weight-bold">9</span>
+                            <span class="sq text-center font-weight-bold">10</span>
+                        </div>
+                    </div>
+                    <div class="list-item" style="overflow: hidden;">
+                        <h3 class="font-weight-bold font-size-12" style="float: left;">English language</h3>
+                        <div class="sq-container" style="float: right;">
+                            @Html.Partial("~/Views/Common_PVs/Assessment/AssessmentReports/_listingScoresEN.cshtml", Model.AssessmentCategoryScores.FirstOrDefault(e => e.AssessmenttoolCategoryID == (int)AssessmentToolCategory.EnglishLanguage).Score)
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="list-item" style="overflow: hidden; margin-top: 10px;">
+                        <h3 class="font-weight-bold font-size-12" style="float: left;">Leadership Judgement</h3>
+                        <div class="sq-container" style="float: right;">
+                            @Html.Partial("~/Views/Common_PVs/Assessment/AssessmentReports/_listingScoresEN.cshtml", Model.AssessmentCategoryScores.FirstOrDefault(e => e.AssessmenttoolCategoryID == (int)AssessmentToolCategory.Leadership).Score)
+
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="list-item" style="overflow: hidden; margin-top: 10px;">
+                        <h3 class="font-weight-bold font-size-12" style="float: left;">Cognitive Ability</h3>
+                        <div class="sq-container" style="float: right;">
+                            @Html.Partial("~/Views/Common_PVs/Assessment/AssessmentReports/_listingScoresEN.cshtml", Model.AssessmentCategoryScores.FirstOrDefault(e => e.AssessmenttoolCategoryID == (int)AssessmentToolCategory.Cognitive).Score)
+
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="list-item" style="overflow: hidden; margin-top: 10px;">
+                        <h3 class="font-weight-bold font-size-12" style="float: left;">Well-Being</h3>
+                        <div class="sq-container" style="float: right;">
+                            @Html.Partial("~/Views/Common_PVs/Assessment/AssessmentReports/_listingScoresEN.cshtml", Model.AssessmentCategoryScores.FirstOrDefault(e => e.AssessmenttoolCategoryID == (int)AssessmentToolCategory.Wellbeing).Score)
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="list-item" style="overflow: hidden; margin-top: 10px;">
+                        <h3 class="font-weight-bold font-size-12" style="float: left;">Emotional Intelligence</h3>
+                        <div class="sq-container" style="float: right;">
+                            @Html.Partial("~/Views/Common_PVs/Assessment/AssessmentReports/_listingScoresEN.cshtml", Model.AssessmentCategoryScores.FirstOrDefault(e => e.AssessmenttoolCategoryID == (int)AssessmentToolCategory.EQ).Score)
+                        </div>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="list-item" style="overflow: hidden; margin-top: 10px;">
+                        <h3 class="font-weight-bold font-size-12" style="float: left;">Personality <br /> <small>(Behavioural fit to GLM competencies)</small></h3>
+                        <div class="sq-container" style="float: right;">
+                            @Html.Partial("~/Views/Common_PVs/Assessment/AssessmentReports/_listingScoresEN.cshtml", Model.AssessmentCategoryScores.FirstOrDefault(e => e.AssessmenttoolCategoryID == (int)AssessmentToolCategory.Personality).Score)
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-2" style="padding-top: 50px; padding-bottom: 50px;">
+
+        <div style="margin-left: -50px; margin-right: -50px;">
+            <section style="background-color: #f2f2f2; padding: 15px; margin-top: 15px; overflow: hidden; border-radius: 5px;">
+                <h2 class="section-header font-size-16 font-weight-bold">Section 3: Individual Scale Score Breakdown</h2>
+            </section>
+            <section style="background-color: #f2f2f2; padding: 15px; margin-top: 15px; overflow: hidden; border-radius: 5px;">
+                <div class="list" style="margin-top: 30px;">
+                    <div class="list-header" style="overflow: hidden; background-color:#58595B; color: #fff; margin-left: -15px;margin-right: -15px;padding: 10px 15px;margin-bottom: 15px;margin-top: -45px; border-radius: 5px;">
+                        <h3 class="font-weight-bold font-size-15" style="float: left;">GLM Competency Scores</h3>
+                        <div class="sq-container" style="float: right; margin-top: 6px;">
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">1</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">2</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">3</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">4</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">5</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">6</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">7</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">8</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">9</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">10</span>
+                        </div>
+                    </div>
+                    @foreach (var comp in Model.CompetenciesReport)
+                    {
+                        <div class="list-item" style="overflow: hidden;">
+                            <h3 class="font-weight-bold font-size-12" style="float: left; width: 45%; padding-right: 30px;">@comp.CompetencyName</h3>
+                            <div class="sq-container" style="float: right; width: 50%; padding-top: 5px; padding-bottom: 5px;">
+                                @Html.Partial("~/Views/Common_PVs/Assessment/AssessmentReports/_listingScoresEN.cshtml", comp.Score)
+
+                            </div>
+                        </div>
+                        <div class="divider"></div>
+                    }
+
+                </div>
+            </section>
+            <section style="background-color: #f2f2f2; padding: 15px; margin-top: 15px; overflow: hidden; border-radius: 5px;">
+                <div class="list" style="margin-top: 30px;">
+                    <div class="list-header" style="overflow: hidden; background-color:#58595B; color: #fff; margin-left: -15px;margin-right: -15px;padding: 10px 15px;margin-bottom: 15px;margin-top: -45px; border-radius: 5px;">
+                        <h3 class="font-weight-bold font-size-15" style="float: left;">Leadership Judgement</h3>
+                        <div class="sq-container" style="float: right; margin-top: 6px;">
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">1</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">2</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">3</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">4</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">5</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">6</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">7</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">8</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">9</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">10</span>
+                        </div>
+                    </div>
+                    @foreach (var pillar in Model.LeadershipPillarsScores)
+                    {
+                        <div class="list-item" style="overflow: hidden;">
+                            <h3 class="font-weight-bold font-size-12" style="float: left; width: 45%; padding-right: 30px;">@pillar.Name</h3>
+                            <div class="sq-container" style="float: right; width: 50%; padding-top: 5px; padding-bottom: 5px;">
+                                @Html.Partial("~/Views/Common_PVs/Assessment/AssessmentReports/_listingScoresEN.cshtml", pillar.Score)
+
+                            </div>
+                        </div>
+                        <div class="divider"></div>
+                    }
+                </div>
+            </section>
+        </div>
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-3" style="padding-top: 50px; padding-bottom: 50px;">
+
+        <div style="margin-left: -50px; margin-right: -50px;">
+            <section style="background-color: #f2f2f2; padding: 15px; margin-top: 15px; overflow: hidden; border-radius: 5px;">
+                <div class="list" style="margin-top: 30px;">
+                    <div class="list-header" style="overflow: hidden; background-color:#58595B; color: #fff; margin-left: -15px;margin-right: -15px;padding: 10px 15px;margin-bottom: 15px;margin-top: -45px; border-radius: 5px;">
+                        <h3 class="font-weight-bold font-size-15" style="float: left;">Well-Being</h3>
+                        <div class="sq-container" style="float: right; margin-top: 6px;">
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">1</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">2</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">3</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">4</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">5</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">6</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">7</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">8</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">9</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">10</span>
+                        </div>
+                    </div>
+                    @foreach (var scale in Model.WellBeingScalesScores)
+                    {
+                        <div class="list-item" style="overflow: hidden;">
+                            <h3 class="font-weight-bold font-size-12" style="float: left; width: 45%; padding-right: 30px;">@scale.Name</h3>
+                            <div class="sq-container" style="float: right; width: 50%; padding-top: 5px; padding-bottom: 5px;">
+                                @Html.Partial("~/Views/Common_PVs/Assessment/AssessmentReports/_listingScoresEN.cshtml", scale.Score)
+
+                            </div>
+                        </div>
+                        <div class="divider"></div>
+                    }
+                </div>
+            </section>
+            <section style="background-color: #f2f2f2; padding: 15px; margin-top: 15px; overflow: hidden; border-radius: 5px;">
+                <div class="list" style="margin-top: 30px;">
+                    <div class="list-header" style="overflow: hidden; background-color:#58595B; color: #fff; margin-left: -15px;margin-right: -15px;padding: 10px 15px;margin-bottom: 15px;margin-top: -45px; border-radius: 5px;">
+                        <h3 class="font-weight-bold font-size-15" style="float: left;">Emotional Intelligence</h3>
+                        <div class="sq-container" style="float: right; margin-top: 6px;">
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">1</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">2</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">3</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">4</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">5</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">6</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">7</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">8</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">9</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">10</span>
+                        </div>
+                    </div>
+                    @foreach (var scale in Model.EQScalesScore)
+                    {
+                        <div class="list-item" style="overflow: hidden;">
+                            <h3 class="font-weight-bold font-size-12" style="float: left; width: 45%; padding-right: 30px;">@scale.Name</h3>
+                            <div class="sq-container" style="float: right; width: 50%; padding-top: 5px; padding-bottom: 5px;">
+                                @Html.Partial("~/Views/Common_PVs/Assessment/AssessmentReports/_listingScoresEN.cshtml", scale.Score)
+
+                            </div>
+                        </div>
+                        <div class="divider"></div>
+                    }
+                </div>
+            </section>
+        </div>
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-4" style="padding-top: 50px; padding-bottom: 50px;">
+
+        <div style="margin-left: -50px; margin-right: -50px;">
+            <section style="background-color: #f2f2f2; padding: 15px; margin-top: 15px; overflow: hidden; border-radius: 5px;">
+                <div class="list" style="margin-top: 30px;">
+                    <div class="list-header" style="overflow: hidden; background-color:#58595B; color: #fff; margin-left: -15px;margin-right: -15px;padding: 10px 15px;margin-bottom: 15px;margin-top: -45px; border-radius: 5px;">
+                        <h3 class="font-weight-bold font-size-15" style="float: left;">Career Interests</h3>
+                        <div class="sq-container" style="float: right; margin-top: 6px;">
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">1</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">2</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">3</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">4</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">5</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">6</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">7</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">8</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">9</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">10</span>
+                        </div>
+                    </div>
+                    @foreach (var scale in Model.CareerInterestScalesScore)
+                    {
+                        <div class="list-item" style="overflow: hidden;">
+                            <h3 class="font-weight-bold font-size-12" style="float: left; width: 45%; padding-right: 30px;">@scale.Name</h3>
+                            <div class="sq-container" style="float: right; width: 50%; padding-top: 5px; padding-bottom: 5px;">
+                                @Html.Partial("~/Views/Common_PVs/Assessment/AssessmentReports/_listingScoresEN.cshtml", scale.Score)
+
+                            </div>
+                        </div>
+                        <div class="divider"></div>
+                    }
+                </div>
+            </section>
+            <section style="background-color: #f2f2f2; padding: 15px; margin-top: 15px; overflow: hidden; border-radius: 5px;">
+                <div class="list" style="margin-top: 30px;">
+                    <div class="list-header" style="overflow: hidden; background-color:#58595B; color: #fff; margin-left: -15px;margin-right: -15px;padding: 10px 15px;margin-bottom: 15px;margin-top: -45px; border-radius: 5px;">
+                        <h3 class="font-weight-bold font-size-15" style="float: left;">Aptitude - Individual Abilities</h3>
+                        <div class="sq-container" style="float: right; margin-top: 6px;">
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">1</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">2</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">3</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">4</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">5</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">6</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">7</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">8</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">9</span>
+                            <span class="sq text-center text-white font-weight-bold" style="padding: 8px 0;height: 22px;">10</span>
+                        </div>
+                    </div>
+                    <div class="list-item" style="overflow: hidden;">
+                        <h3 class="font-weight-bold font-size-12" style="float: left; width: 45%; padding-right: 30px;">English language</h3>
+                        <div class="sq-container" style="float: right; width: 50%; padding-top: 5px; padding-bottom: 5px;">
+                            @Html.Partial("~/Views/Common_PVs/Assessment/AssessmentReports/_listingScoresEN.cshtml", Model.AssessmentCategoryScores.FirstOrDefault(e => e.AssessmenttoolCategoryID == (int)AssessmentToolCategory.EnglishLanguage).Score)
+                        </div>
+                    </div>
+                    @if (Model.CognitiveSubBlocksScores.Count > 0)
+                    {
+                        <div class="divider"></div>
+                        <div class="list-item" style="overflow: hidden; margin-top: 10px;">
+                            <h3 class="font-weight-bold font-size-12" style="float: left; width: 45%; padding-right: 30px;">Abstract Reasoning</h3>
+                            <div class="sq-container" style="float: right; width: 50%; padding-top: 5px; padding-bottom: 5px;">
+                                @Html.Partial("~/Views/Common_PVs/Assessment/AssessmentReports/_listingScoresEN.cshtml", Model.CognitiveSubBlocksScores.FirstOrDefault(e => e.TypeID == (int)CognitiveSubBlocks.Abstract).Score)
+
+                            </div>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="list-item" style="overflow: hidden; margin-top: 10px;">
+                            <h3 class="font-weight-bold font-size-12" style="float: left; width: 45%; padding-right: 30px;">Numerical Reasoning</h3>
+                            <div class="sq-container" style="float: right; width: 50%; padding-top: 5px; padding-bottom: 5px;">
+                                @Html.Partial("~/Views/Common_PVs/Assessment/AssessmentReports/_listingScoresEN.cshtml", Model.CognitiveSubBlocksScores.FirstOrDefault(e => e.TypeID == (int)CognitiveSubBlocks.Numerical).Score)
+                            </div>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="list-item" style="overflow: hidden; margin-top: 10px;">
+                            <h3 class="font-weight-bold font-size-12" style="float: left; width: 45%; padding-right: 30px;">Verbal Reasoning</h3>
+                            <div class="sq-container" style="float: right; width: 50%; padding-top: 5px; padding-bottom: 5px;">
+                                @Html.Partial("~/Views/Common_PVs/Assessment/AssessmentReports/_listingScoresEN.cshtml", Model.CognitiveSubBlocksScores.FirstOrDefault(e => e.TypeID == (int)CognitiveSubBlocks.Verbal).Score)
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="divider"></div>
+                        <div class="list-item" style="overflow: hidden; margin-top: 10px;">
+                            <h3 class="font-weight-bold font-size-12" style="float: left; width: 45%; padding-right: 30px;">Abstract Reasoning</h3>
+                            <div class="sq-container" style="float: right; width: 50%; padding-top: 5px; padding-bottom: 5px;">
+                                @Html.Partial("~/Views/Common_PVs/Assessment/AssessmentReports/_listingScoresEN.cshtml", decimal.Parse("0"))
+
+                            </div>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="list-item" style="overflow: hidden; margin-top: 10px;">
+                            <h3 class="font-weight-bold font-size-12" style="float: left; width: 45%; padding-right: 30px;">Numerical Reasoning</h3>
+                            <div class="sq-container" style="float: right; width: 50%; padding-top: 5px; padding-bottom: 5px;">
+                                @Html.Partial("~/Views/Common_PVs/Assessment/AssessmentReports/_listingScoresEN.cshtml", decimal.Parse("0"))
+                            </div>
+                        </div>
+                        <div class="divider"></div>
+                        <div class="list-item" style="overflow: hidden; margin-top: 10px;">
+                            <h3 class="font-weight-bold font-size-12" style="float: left; width: 45%; padding-right: 30px;">Verbal Reasoning</h3>
+                            <div class="sq-container" style="float: right; width: 50%; padding-top: 5px; padding-bottom: 5px;">
+                                @Html.Partial("~/Views/Common_PVs/Assessment/AssessmentReports/_listingScoresEN.cshtml", decimal.Parse("0"))
+                            </div>
+                        </div>
+                    }
+                </div>
+            </section>
+        </div>
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-5" style="padding-top: 50px; padding-bottom: 50px;">
+        <h2 class="font-weight-bold font-size-17" style="color: #666;">UAE Government Leadership Model </h2>
+        <div style="margin-bottom: 50px; text-align: center;">
+            <img src="~/Assets/images/bgs/consolidated-chart.png" style="width: 100%; margin: auto;" alt="GLP REPORTS" />
+        </div>
+        <h2 class="font-weight-bold font-size-17" style="color: #666;">BEHAVIOURAL PROFILE</h2>
+        @foreach (var comp in Model.CompetenciesReport.Take(3))
+        {
+            <div class="pragraph">
+                <h4 class="text-dark-green font-size-13 font-weight-bold" style="margin-bottom: 0;">@comp.CompetencyName.English </h4>
+                <p class="font-size-12" style="line-height: 1.4; word-spacing: 5px; margin-top: 5px;">
+                    @comp.CompetencyResultNarrativeDescription.English
+                </p>
+            </div>
+        }
+
+
+    </article>
+
+    <div class="breakhere"></div>
+    <article class="page-6" style="padding-top: 50px; padding-bottom: 50px;">
+
+        @foreach (var comp in Model.CompetenciesReport.Skip(3))
+        {
+            <div class="pragraph">
+                <h4 class="text-dark-green font-size-13 font-weight-bold" style="margin-bottom: 0;">@comp.CompetencyName.English </h4>
+                <p class="font-size-12" style="line-height: 1.4; word-spacing: 5px; margin-top: 5px;">
+                    @comp.CompetencyResultNarrativeDescription.English
+                </p>
+            </div>
+        }
+    </article>
+
+    <div class="breakhere"></div>
+    <article class="page-7" style="padding-top: 50px; padding-bottom: 50px;">
+        <div class="pragraph">
+            <h4 class="text-dark-green font-size-13 font-weight-bold" style="margin-bottom: 0;">Well-Being </h4>
+            <p class="font-size-12" style="line-height: 1.4; word-spacing: 5px; margin-top: 5px;">
+                @Model.WellBeingNarrative
+            </p>
+        </div>
+        <div class="pragraph">
+            <h4 class="text-dark-green font-size-13 font-weight-bold" style="margin-bottom: 0;">Emotional Intelligence</h4>
+            <p class="font-size-12" style="line-height: 1.4; word-spacing: 5px; margin-top: 5px;">
+                @Model.EQNarrative
+            </p>
+        </div>
+        @if (!string.IsNullOrEmpty(Model.CognitiveNarrative))
+        {
+            <div class="pragraph">
+                <h4 class="text-dark-green font-size-13 font-weight-bold" style="margin-bottom: 0;">Cognitive Overall Score</h4>
+                <p class="font-size-12" style="line-height: 1.4; word-spacing: 5px; margin-top: 5px;">
+                    @Model.CognitiveNarrative
+                </p>
+            </div>
+        }
+        <div class="pragraph">
+            <h4 class="text-dark-green font-size-13 font-weight-bold" style="margin-bottom: 0;">English Language</h4>
+            <p class="font-size-12" style="line-height: 1.4; word-spacing: 5px; margin-top: 5px;">
+                @Model.EnglishNarrative
+            </p>
+        </div>
+        <div class="pragraph">
+            <h4 class="text-dark-green font-size-13 font-weight-bold" style="margin-bottom: 0;">Leadership Judgement Indicator</h4>
+            <p class="font-size-12" style="line-height: 1.4; word-spacing: 5px; margin-top: 5px;">
+                @Model.LeadershipNarrative
+            </p>
+        </div>
+    </article>
+</body>
+</html>

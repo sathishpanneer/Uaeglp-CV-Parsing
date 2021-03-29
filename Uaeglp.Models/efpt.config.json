@@ -1,0 +1,758 @@
+﻿{
+   "ContextClassName": "GLP_QCContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "DoNotCombineNamespace": false,
+   "IdReplace": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": null,
+   "ProjectRootNamespace": "Uaeglp.Models",
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[ADConnection]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[ADMapping]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[BTimeZone]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[ChatMessage]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[ChatMessageAttachment]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[ChatMessageSeenBy]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[ChatRoom]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[ChatRoom_User]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[ChatUnreadMessage]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[ClientMachine]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[Configurations]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[Country]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[EmailHeaderAndFooterTemplate]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[File]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[FormsHubConnection]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[ImpersonationRule]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[LibraryFolder]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[Lookup]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[LookupGroup]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[LookupItem]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[Organization]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[Participant]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[Permission]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[PermissionSet]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[PermissionSet_Permission]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[PermissionSet_User]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[Provider]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[ProviderAttribute]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[PublicHoliday]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[Template]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[TemplateInfo]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[TemplateUnsubscribe]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[TMETask]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[User]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[UserConnection]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[UserInfo]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[Workflow]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[WorkflowActivity]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[WorkflowActivityOutcome]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[WorkflowActivityVariable]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[WorkflowError]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[WorkflowInstance]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[WorkflowInstanceComment]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[WorkflowInstanceTask]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[WorkflowInstanceVariable]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[WorkflowInstanceVariable_VariableLookup]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[WorkflowLog]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[WorkflowLogVariable]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[WorkflowVariable]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[WorkflowVariableLookup]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[bbsf].[WorkflowVersion]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[__MigrationHistory]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Agenda]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Announcement]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Application]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ApplicationAchievement]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ApplicationCycleLog]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ApplicationProgress]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ApplicationTraining]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[AssessmentBlock]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[AssessmentGroup]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[AssessmentGroupMember]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[AssessmentNarrativeReport]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[AssessmentNumbers]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[AssessmentReportFeedback]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[AssessmentTool]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[AssessmentToolMatrix]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[AssignedAssessment]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Assignment]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[AssignmentAnswer]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Badge]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[BadgeRequest]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Batch]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Batch_AssessmentTools]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[BatchInitiative]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Challenge]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ClientClaims]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ClientCorsOrigins]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ClientCustomGrantTypes]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ClientIdPRestrictions]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ClientPostLogoutRedirectUris]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ClientRedirectUris]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Clients]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ClientScopes]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ClientSecrets]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Competency]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[CompetencyAssessmentTool]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[CompetencySubscale]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Consents]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Criteria]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[CriteriaClaim]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Criterion]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[DirectorySearchHistory]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[EResource]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[EResourceLink]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Event]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[EventDay]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Factor]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[FAQ]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Folder]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[FolderBatch]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[GLPModel]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[GlpOrganization]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[GlpOrganization_ItemTypes]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[GLPPermission]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[GLPPermissionClientUser]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[GovernmentEntity]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[GovernmentEntity_coordinators]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Group]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Industry]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Initiative]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Initiative_Profile]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[InitiativeCategory]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[KnowledgeHub]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[KnowledgeHubCategory]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[KnowledgeHubCourse]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Localization]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Matrix_Tools]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Meetup]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[NetworkGroup]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[NetworkGroupProfile]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Option]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Pillar]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[PillarAssessmentTool]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Profile]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Profile_Events]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Profile_Groups]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Profile_Interest]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Profile_LearningPreference]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Profile_Meetups]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Profile_Tags]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ProfileAchievement]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ProfileAdminComment]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ProfileAssessmentToolScore]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ProfileAssignedAssessment]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ProfileBatchAssessment]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ProfileCompetencyScore]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ProfileEducation]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ProfileEducationFieldOfStudy]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ProfileFactorScore]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ProfileGroupAssessment]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ProfileMembership]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ProfileMenuItem]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ProfilePillarScore]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ProfileQuestionItemScore]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ProfileScaleScore]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ProfileSkill]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ProfileSubAssessmentToolScore]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ProfileSubScaleScore]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ProfileTraining]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ProfileVideoAssessmentAnswerScore]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ProfileVideoAssessmentCriteriaScore]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ProfileVideoAssessmentScore]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ProfileWorkExperience]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ProfileWorkExperienceJobTitle]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Programme]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[QAnswer]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Question]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[QuestionAnswer]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[QuestionGroup]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[QuestionGroupsQuestions]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[QuestionHead]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[QuestionItem]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Scale]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ScopeClaims]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Scopes]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ScopeSecrets]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ScoringApplication]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[ScoringProfile]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[SubAssessmentTool]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[SubScale]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Survey]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[SurveyProfileInfo]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[SurveyProfileQuestionAnswer]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[SurveyProfileQuestionAnswer_SurveyQuestionField]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[SurveyQuestion]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[SurveyQuestionField]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Tokens]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[Topic]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[TopicGroup]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[VidAssesCriteria]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[VideoAssessment]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[VideoAssessmentQuestion]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[WorkField]"
+      }
+   ],
+   "UseDatabaseNames": false,
+   "UseFluentApiOnly": false,
+   "UseHandleBars": false,
+   "UseInflector": true,
+   "UseLegacyPluralizer": false,
+   "UseSpatial": false
+}

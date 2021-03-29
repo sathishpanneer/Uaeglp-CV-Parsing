@@ -1,0 +1,742 @@
+﻿@model Uaeglp.ViewModels.AssessmentViewModels.AssessmentIndividualToolReportView
+@{
+    Layout = null;
+}
+
+<html>
+<head>
+    <meta charset="utf-8">
+    @*
+        <title>Demo</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="license" href="https://www.opensource.org/licenses/mit-license/">
+        <script src="script.js"></script>
+        <link href="~/css/demo.css" rel="stylesheet" />*@
+    <style>
+
+        .breakhere {
+            page-break-after: always;
+            background-color: blueviolet;
+        }
+
+        tr {
+            page-break-inside: avoid;
+            /*direction: rtl;*/
+        }
+
+        .imagetorotate {
+            -webkit-transform: rotate(200deg);
+            -webkit-backface-visibility: hidden;
+        }
+
+        body {
+            font-family: sans-serif;
+            background: url('~/Assets/images/bgs/well-geing-report-en.jpg');
+            /*direction: rtl;*/
+        }
+
+        .background {
+            position: absolute;
+            display: block;
+            min-width: 100%;
+            text-align: center;
+            background-color: transparent;
+            /*padding-top: 50%;*/
+            background: url(../../Assets/images/bgs/well-geing-report-en.jpg) no-repeat;
+            background-size: contain;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+        }
+
+        .cover-page {
+        }
+
+        .font-size-32 {
+            font-size: 32px;
+        }
+
+        .font-size-24 {
+            font-size: 24px;
+        }
+
+        .font-size-20 {
+            font-size: 20px;
+        }
+
+        .font-size-12 {
+            font-size: 12px;
+        }
+
+        .m-100 {
+            margin: 60px;
+        }
+
+        p {
+            line-height: 1.5;
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #6e6e6e;
+        }
+
+        .square .sq {
+            width: 28px;
+            height: 28px;
+            margin-right: 4px;
+            float: left;
+        }
+
+        .sq-green-600 {
+            background-color: #66cbc4;
+        }
+
+        .green-900 {
+            background: #00a99d;
+        }
+
+        .sq-green-100 {
+            background: #e0f5f3;
+        }
+
+        .sq-grey-300 {
+            background-color: #e6e6e6;
+        }
+
+        .red-100 {
+            background: #ffcbc4;
+        }
+
+        .text-grey-400 {
+            color: #6a6a6a;
+        }
+
+        table {
+            font-family: sans-serif;
+            /*text-align: left;*/
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .table-key td {
+            height: 75px;
+            padding: 8px;
+            border: 5px solid #fff;
+        }
+
+        table th {
+            padding: 8px;
+            border: 3px solid #fff;
+        }
+
+        table th {
+            color: #fff;
+        }
+
+        .w-100 {
+            width: 100px;
+        }
+
+        .w-160 {
+            width: 160px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .display-block {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .v-align-top {
+            vertical-align: top;
+        }
+
+        .font-weight-bold {
+            font-weight: bold;
+        }
+
+        .font-weight-600 {
+            font-weight: 600;
+        }
+
+        .w-p60 {
+            width: 60%;
+        }
+
+        .w-p40 {
+            width: 40%;
+        }
+
+        .h-27 {
+            height: 27px;
+        }
+
+        .mh-27 {
+            min-height: 27px;
+        }
+
+        .page-2 .sq {
+            color: #fff;
+            width: 23px;
+        }
+
+        .text-white {
+            color: #fff;
+        }
+
+        .title {
+            margin-bottom: 50px;
+            font-size: 32px;
+            font-weight: bold;
+            color: #666;
+        }
+
+        .subtitle {
+            font-weight: bold;
+            color: #666;
+            margin-top: 50px;
+        }
+
+        .note {
+            padding: 15px;
+            border: 2px solid #66cbc4;
+            color: #66cbc4;
+            height: 85px;
+        }
+
+        .page-5 .table-borderless td {
+            border: 0;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 37px;
+            padding: 0 15px;
+            border-bottom: 5px solid #fff;
+        }
+
+        .page-5 .table-borderless tr:last-child td {
+            border-bottom: 0;
+        }
+
+        .table-cell-p50 {
+            margin-top: 2px;
+        }
+
+            .table-cell-p50 td {
+                padding: 5px 15px;
+                width: 50%;
+                border: 3px solid #fff;
+                height: 50px;
+                line-height: 1.2;
+            }
+
+            .table-cell-p50 tr td:first-child {
+                border-left: 0;
+            }
+
+            .table-cell-p50 tr td:last-child {
+                border-right: 0;
+            }
+
+        .text-green {
+            color: #03a7a0;
+        }
+
+        .text-title {
+            margin-bottom: 30px;
+        }
+
+        .leadership-score-table tr:first-child td {
+            border-left: 2px solid #6e6e6e;
+            color: #6e6e6e;
+        }
+
+        .leadership-score-table tr:last-child td {
+            padding: 0;
+        }
+
+        .leadership-score-table td .sq,
+        .leadership-sprint .sq {
+            width: 50px;
+            height: 50px;
+            margin-right: 2px;
+            margin-left: 2px;
+        }
+
+            .leadership-score-table td .sq:last-child {
+                margin-right: 0;
+            }
+
+        .very-low  {
+            background-color: #c1eae6;
+        }
+
+        .low  {
+            background-color: #a3e0db;
+        }
+
+        .average  {
+            background-color: #66c9c4;
+        }
+
+        .high  {
+            background-color: #4c9792;
+        }
+
+        .very-high  {
+            background-color: #336661;
+        }
+
+        .leadership-sprint {
+            background-color: #eef0ef;
+        }
+
+        .white-sq {
+            background-color: #fff !important;
+        }
+
+        .grey-sq {
+            background-color: #e6e6e6 !important;
+        }
+        /*.leadership-sprint .display-block{
+            display: inline-block;
+            overflow: hidden;
+        }*/
+        .leadership-sprint .sq {
+            /*float: right;*/
+        }
+
+        .career-report-table .sq {
+            width: 32px;
+            height: 32px;
+        }
+
+        table.career-report-table p {
+            margin: 0;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .career-planning {
+            height: 200px;
+            padding: 10px 15px;
+            margin-bottom: 15px;
+            color: #00b39c;
+            border: 1px solid #00b39c;
+        }
+
+        .well-being-table td {
+            vertical-align: top;
+        }
+
+        .overall-well-being .sq {
+            width: 78px;
+            margin-left: 4px;
+            margin-right: 4px;
+        }
+    </style>
+</head>
+<body style="margin-left: 100px; margin-right: 100px; padding-top: 260px;">
+
+    <article class="cover-page">
+        <div class="background"></div>
+        <div style="">
+            <h2 class="font-size-32" style=" margin: 15px 0 0;">Know Your</h2>
+            <h1 class="" style="font-size: 48px; margin: 0 0 15px;">Well Being</h1>
+            <h2 class="font-size-32">Individual Report</h2>
+        </div>
+        <div style="margin-top: 80px;">
+            <h2 style="margin: 15px 0; font-weight: 400;">Name : @Model.ProfileName.English </h2>
+            <h2 style="margin: 15px 0; font-weight: 400;">Assesment taken on : @Model.CompletedOn </h2>
+            <h2 style="margin: 15px 0; font-weight: 400;">Report printed on : @DateTime.Now.ToShortDateString() </h2>
+        </div>
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-1" style="padding-top: 100px; padding-bottom: 100px;">
+        <h2 class="text-green text-title">Introduction</h2>
+        <p style="margin-bottom: 30px;">
+            Thank you for completing the 'Know Your Well-being’ questionnaire. This report is intended to provide you with feedback on your overall and specific levels of self-rated well-being. That is, your recent and current evaluations of your general life satisfaction and happiness. It is not a test and indicates current levels of well-being, which can always be improved.
+            <br />The report covers the 3 main components of subjective well-being: Life Satisfaction, Positive Feelings & Negative Feelings. It also includes items related to realisation of potential, sometimes also referred to as flourishing, within the Cognitive Evaluation (Life Satisfaction) scales.
+        </p>
+        <table class="well-being-table" style="width: 100%; table-layout: fixed;">
+            <tr>
+                <td colspan="6" style="background-color: #6ec9c2; padding: 10px; vertical-align: middle;">
+                    <h4 class="font-weight-600" style="color: #fff; margin: 0;">Well-Being Domain</h4>
+                </td>
+                <td colspan="6" style="background-color: #6ec9c2; padding: 10px; vertical-align: middle;">
+                    <h4 class="font-weight-600" style="color: #fff; margin: 0;">Well-Being Scale</h4>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6">
+                    <table class="" style="width: 100%; table-layout: fixed; border-collapse: collapse; margin-right: auto; margin-left: auto; height: 100px;">
+
+                        <tr>
+                            <td class="text-center" colspan="3" style="background-color: #6ec9c2; padding: 0; vertical-align: middle;">
+                                <img src="~/Assets/images/smile-face.png" alt="" style="width: 70%;" />
+                            </td>
+                            <td colspan="9" style="background-color: #f5f7f6; padding: 5px 10px; vertical-align: middle;">
+                                <h4 style="color: #6e6e6e; margin: 0;">Happiness</h4>
+                                <p class="font-weight-600" style="color: #6e6e6e; margin: 5px 0; font-size: 12px;">Positive and negative feelings and emotions </p>
+                            </td>
+                        </tr>
+
+                    </table>
+                </td>
+                <td colspan="6">
+                    <p class="leadership-sprint font-weight-600" style="margin:0 0 3px; padding: 12px 10px;">Happiness (Positiove)</p>
+                    <p class="leadership-sprint font-weight-600" style="margin:0; padding: 12px 10px;">Happiness (Negative)</p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6">
+                    <table class="" style="width: 100%; table-layout: fixed; border-collapse: collapse; margin-right: auto; margin-left: auto; height: 100px;">
+
+                        <tr>
+                            <td class="text-center" colspan="3" style="background-color: #6ec9c2; padding: 0; vertical-align: middle;">
+                                <img src="~/Assets/images/well-being.png" alt="" style="width: 70%;" />
+                            </td>
+                            <td colspan="9" style="background-color: #f5f7f6; padding: 5px 10px; vertical-align: middle;">
+                                <h4 style="color: #6e6e6e; margin: 0;">Well-Being</h4>
+                                <p class="font-weight-600" style="color: #6e6e6e; margin: 5px 0; font-size: 12px;">(Satisfaction with life domains)</p>
+                            </td>
+                        </tr>
+
+                    </table>
+                </td>
+                <td colspan="6">
+                    <p class="leadership-sprint font-weight-600" style="margin:0 0 3px; padding: 12px 10px;">Life Satisfaction</p>
+                    <p class="leadership-sprint font-weight-600" style="margin:0 0 3px; padding: 12px 10px;">Physical Health </p>
+                    <p class="leadership-sprint font-weight-600" style="margin:0 0 3px; padding: 12px 10px;">Work</p>
+                    <p class="leadership-sprint font-weight-600" style="margin:0 0 3px; padding: 12px 10px;">Leisure</p>
+                    <p class="leadership-sprint font-weight-600" style="margin:0 0 3px; padding: 12px 10px;">Sleep</p>
+                    <p class="leadership-sprint font-weight-600" style="margin:0 0 3px; padding: 12px 10px;">Flourishin</p>
+                    <p class="leadership-sprint font-weight-600" style="margin:0; padding: 12px 10px;">Social Interaction</p>
+                </td>
+            </tr>
+        </table>
+
+        <p style="margin-bottom: 0;">
+            This report is designed to measure current levels of 'happiness', which is the recent experience of positive and negative affect. It also measures global and specific Well-being in terms of your evaluations and levels of satisfaction with various life domains, such as physical health and work.
+            <br />Your results are presented on a 110- scale, where 10 is an extremely high level of satisfaction and 1 is an extremely low level of satisfaction (except for the Happiness scale, which indicate the extent to which you experience positive and negative emotions). The Overall Well-being score is a measure of your combined overall Happiness and Well-being, taking into account negative emotions. Your scores are compared to a group of UAE Nationals who have completed this questionnaire before.
+            <br />It is assumed that levels of Well-being are determined by genes and the environment, within which a level of is also influenced by personality preferences. The current report provides a measure against the current state and 'stable' subjective experience of well-being, with the assumption being that individuals enhance their well-being, achieve more and improve life satisfaction, as detailed in the positive psychology literature.
+            <br />You can use the profile in Section 1 to understand your current level of happiness and well-being. The well-being improvement suggestions in Section 2 are there to help you with further reflection and to think about what actions you might take to improve different areas of well-being – these suggestions are generic and not specifically tailored to you and should be used as guidelines only.
+        </p>
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-2" style="padding-top: 50px; padding-bottom: 50px; margin-left: -50px; margin-right: -50px;">
+        <h2 class="font-weight-600" style="color: #626262;">Section 1: Your Well-Being Profile</h2>
+
+        <table class="" style="width: 100%; table-layout: fixed; border-collapse: collapse;">
+
+            <tr>
+                <td colspan="5" style="padding: 15px;">
+                    <p>
+                        The chart below depicts your current reported levels of well-being as measured by the questionnaire. Your score for each scale can be interpreted in the following way:
+                    </p>
+                </td>
+                <td colspan="9" style="padding: 15px;">
+                    <table class="leadership-score-table" style="width: 100%; table-layout: fixed;" dir="ltr">
+                        <tr>
+                            <td class="font-weight-600 text-center">Very<br />Dissatisfied</td>
+                            <td class="font-weight-600 text-center">Dissatisfied</td>
+                            <td class="font-weight-600 text-center">Neutral</td>
+                            <td class="font-weight-600 text-center">satisfied</td>
+                            <td class="font-weight-600 text-center">Very<br /> satisfied</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="square display-block very-low">
+                                    <div class="sq very-low"></div>
+                                    <div class="sq very-low"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="square display-block low">
+                                    <div class="sq low"></div>
+                                    <div class="sq low"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="square display-block average">
+                                    <div class="sq average"></div>
+                                    <div class="sq average"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="square  display-block high">
+                                    <div class="sq high"></div>
+                                    <div class="sq high"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="square display-block very-high">
+                                    <div class="sq very-high"></div>
+                                    <div class="sq very-high"></div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr class="leadership-sprint">
+                <td colspan="14" style="padding: 15px;">
+                    <p><strong>Overall Well-Being score – </strong>Your overall combined Well-Being and Happiness Score</p>
+                    <div class="overall-well-being">
+                        <div class="square display-block ">
+                            @for (int i = 1; i < 11; i++)
+                            {
+                                if (i < (int)Model.OverallScore)
+                                {
+                                    <div class="sq average"></div>
+                                }
+                                else if (i == (int)Model.OverallScore)
+                                {
+                                    <div class="sq font-weight-600 text-center average" style="color:#fff; height: 30px; padding: 10px 0;">@((int)Model.OverallScore)</div>
+
+                                }
+                                else if (i > (int)Model.OverallScore)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+                            }
+
+
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr style="height: 10px;"></tr>
+            @foreach (var item in Model.profileScaleScoreReportsView)
+            {
+                <tr class="leadership-sprint">
+                    <td colspan="5" style="padding: 0px 15px;">
+                        <h4 style="margin-top: 10px; margin-bottom: 10px; color: #606060;">@item.ScaleName.Current</h4>
+                        <p class="font-weight-600" style="margin-bottom: 10px; margin-top: 0; color: #606060; font-size: 14px;">
+                            @item.ScaleLowDescription.Current
+                        </p>
+                    </td>
+                    <td colspan="9" style="padding: 0px 15px;">
+                        <div class="square display-block ">
+                            @if ((int)item.Score == 1)
+                            {
+                                <div class="sq very-low"></div>
+                                for (int i = 1; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+
+
+                            }
+                            else if ((int)item.Score == 2)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                for (int i = 2; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+
+                            }
+                            else if ((int)item.Score == 3)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                for (int i = 3; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+                            }
+                            else if ((int)item.Score == 4)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq low"></div>
+                                for (int i = 4; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+                            }
+                            else if ((int)item.Score == 5)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq average"></div>
+                                for (int i = 5; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+                            }
+                            else if ((int)item.Score == 6)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq average"></div>
+                                <div class="sq average"></div>
+                                for (int i = 6; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+                            }
+                            else if ((int)item.Score == 7)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq average"></div>
+                                <div class="sq average"></div>
+                                <div class="sq high"></div>
+                                for (int i = 7; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+                            }
+                            else if ((int)item.Score == 8)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq average"></div>
+                                <div class="sq average"></div>
+                                <div class="sq high"></div>
+                                <div class="sq high"></div>
+                                for (int i = 8; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+                            }
+                            else if ((int)item.Score == 9)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq average"></div>
+                                <div class="sq average"></div>
+                                <div class="sq high"></div>
+                                <div class="sq high"></div>
+                                <div class="sq very-high"></div>
+                                for (int i = 9; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+                            }
+                            else if ((int)item.Score == 10)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq average"></div>
+                                <div class="sq average"></div>
+                                <div class="sq high"></div>
+                                <div class="sq high"></div>
+                                <div class="sq very-high"></div>
+                                <div class="sq very-high"></div>
+                            }
+
+
+
+                        </div>
+
+
+                    </td>
+                </tr>
+
+                <tr style="height: 10px;"></tr>
+
+
+            }
+    
+        </table>
+
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-2" style="padding-top: 50px; padding-bottom: 50px; margin-left: -50px; margin-right: -50px;">
+        <h2 class="font-weight-600" style="color: #626262;">Section 2: Well-Being Profile</h2>
+        <p>The narrative below describes your levels of satisfaction for each Well-Being scale.</p>
+        @foreach (var narrative in Model.profileScaleNarrativeDescriptionsView)
+        {
+            <p class="leadership-sprint font-weight-600" style="margin-bottom: 5px; margin-top: 15px; padding: 10px; font-size: 14px;">@narrative.ScaleName.Current</p>
+            <p class="leadership-sprint font-weight-600" style="padding: 10px; margin-top: 0; margin-bottom: 3px; font-size: 12px;">
+                @narrative.Description.Current
+            </p>
+        }
+
+      
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-2" style="padding-top: 50px; padding-bottom: 50px; margin-left: -50px; margin-right: -50px;">
+        <h2 class="font-weight-600" style="color: #626262; margin: 0;">Section 2: Well-Being Improvement</h2>
+        <p style="margin: 0;">The narrative below gives some suggestions for improving well-being and satisfaction for each scale. They are not specific for you and should used as a guidelines only for further development and increasing your personal well-being. Why not choose a couple of areas to focus on increasing. You could always speak to someone you know well to help support you with the activities.</p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 3px; margin-top: 6px; padding: 10px; font-size: 12px;">Happiness - Positive</p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px; margin-top: 0; margin-bottom: 3px; font-size: 12px;">
+            To improve your happiness further, write down 3 things that make you happy, joyful and contented - consider doing these things more to improve your mood and overall positivity. Consider how to change the way you think about yourself by evaluating your positive contribution. Practice gratitude and counting your blessings. You can also visualise your best possible self by writing down how you see your best self in the future and thinking about what you will 'look' like when you realise your potential.
+        </p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 3px; margin-top: 6px; padding: 10px; font-size: 12px;">Happiness - Negative</p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px; margin-top: 0; margin-bottom: 3px; font-size: 12px;">
+            Happiness is reduced by the frequency of negative thoughts and emotions - try and focus on positive thoughts and change the way you think about yourself to be more positive than negative - in the morning be mindful of 3 positive things about yourself and keep saying these internally throughout the day. Whilst negative emotions are natural, place less emphasis on these thoughts and focus on the positive emotions described earlier
+        </p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 3px; margin-top: 6px; padding: 10px; font-size: 12px;">Life Satisfaction</p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px; margin-top: 0; margin-bottom: 3px; font-size: 12px;">
+            To improve your satisfaction with life in general, consider how to ensure you take into account all your blessings and the things which are positive in your life. Focus on the positive and evaluate negative experiences as opportunities to learn and improve in the future. Consider devoting more time to the things which make you happy and give you a sense of fulfilment and reduce the time you spend on things which you don’t enjoy.
+        </p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 3px; margin-top: 6px; padding: 10px; font-size: 12px;">Physical Health</p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px; margin-top: 0; margin-bottom: 3px; font-size: 12px;">
+            To improve your physical well-being, consider areas of your physical health which you need to address - focus on one area at a time and build a realistic plan for improving it. Consider taking more exercise or perusing a new hobby. Seek to get involved in sport, and make sure that you take regular breaks from your workstation and move around at least every 90 minutes when working.
+        </p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 3px; margin-top: 6px; padding: 10px; font-size: 12px;">Work</p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px; margin-top: 0; margin-bottom: 3px; font-size: 12px;">
+            To improve your satisfaction with work, consider how to set yourself more goals to pursue. Seek to establish a mentor relationship with a colleague at work to improve your development areas, or engage a coach if required. Ensure you have a specific and measurable development plan that you are working to for 1, 3 and 5-year horizons. If you are not happy with your work, consider a new department or role that is more aligned to your interests. Read your career interest report.
+        </p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 3px; margin-top: 6px; padding: 10px; font-size: 12px;">Leisure</p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px; margin-top: 0; margin-bottom: 3px; font-size: 12px;">
+            To improve your satisfaction with life outside of work, consider reading more widely, taking up new hobbies and developing new intellectual interests. Consider work within the community and spend your time on things that make you feel positive about yourself and other people.
+        </p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 3px; margin-top: 6px; padding: 10px; font-size: 12px;">Sleep</p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px; margin-top: 0; margin-bottom: 3px; font-size: 12px;">
+            Most people need a core amount of sleep to maintain optimal functioning (between 4 and 8 hours). To ensure you get the right amount for you personally, ensure that you stick to regular sleep and wake up times. Ensure that you switch off from your working day and do something different to unwind. Minimise using phones, tablets or laptops directly before going to sleep, allowing yourself a clear hour before sleeping to switch off. Make sure your phone is on silent. Consider mindfulness techniques to clear your mind and write a to-do list throughout the day and update it before you sleep so that you do not experience cognitive interruptions during the night. Increase the amount of exercise you take and minimise the use of stimulants in the evening.
+        </p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 3px; margin-top: 6px; padding: 10px; font-size: 12px;">Flourishing</p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px; margin-top: 0; margin-bottom: 3px; font-size: 12px;">
+            To improve your ability to fulfil your potential, consider what strengths you have and whether you are making full use of these. Consider what you really want to achieve in your work and life; consider what makes you feel positive about yourself and set goals to achieve this, minimising the people or activities which make you feel negative. Set life and work goals and targets that you track and work towards. Follow a role model and ensure that you aspire to achieve more.
+        </p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 3px; margin-top: 6px; padding: 10px; font-size: 12px;">Social Interaction</p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px; margin-top: 0; margin-bottom: 3px; font-size: 12px;">
+            To improve your satisfaction with the people and relationships in your life, seek to build a network of people that can support you as well as you supporting them. Minimise the negative relationships in your life, instead spending your energy on developing and cultivating relationships that bring you meaning and make you feel positive. Seek to be more resilient to criticism by changing the way you think about negative feedback and place more emphasis on the positive feedback you receive from people.
+        </p>
+
+    </article>
+
+</body>
+</html>

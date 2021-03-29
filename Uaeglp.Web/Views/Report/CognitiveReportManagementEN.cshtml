@@ -1,0 +1,401 @@
+﻿@model Uaeglp.ViewModels.AssessmentViewModels.AssessmentManagementToolReportView
+@{
+    Layout = null;
+}
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <style>
+        .pie_progress {
+            position: relative;
+            text-align: center;
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d
+        }
+
+        .pie_progress__svg {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            padding-bottom: 100%;
+            overflow: hidden;
+            vertical-align: middle
+        }
+
+            .pie_progress__svg svg {
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: inline-block;
+                width: 100%;
+                height: 100%;
+                margin: 0 auto
+            }
+
+        .pie_progress__content, .pie_progress__icon, .pie_progress__label, .pie_progress__number {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            -webkit-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            transform: translateY(-50%)
+        }
+
+        .pie_progress__number {
+            font-size: 42px
+        }
+
+        .pie_progress__label {
+            margin-top: 32px;
+            font-size: 12px
+        }
+    </style>
+    <style>
+        .breakhere {
+            page-break-after: always;
+            background-color: blueviolet;
+        }
+
+        tr {
+            page-break-inside: avoid;
+            direction: ltr;
+        }
+
+        body {
+            font-family: sans-serif;
+            direction: ltr;
+        }
+
+        .background {
+            position: absolute;
+            display: block;
+            min-width: 100%;
+            text-align: center;
+            background-color: transparent;
+            /*padding-top: 50%;*/
+            background: url(../../Assets/images/bgs/cognitive-report-individual-en.jpg) no-repeat;
+            background-size: contain;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+        }
+
+        p {
+            line-height: 1.5;
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #6e6e6e;
+        }
+    </style>
+</head>
+<body style="margin-left: 100px; margin-right: 100px; padding-top: 260px;">
+
+    <article class="cover-page">
+        <div class="background"></div>
+        <div style="">
+            <h2 class="font-size-32" style=" margin: 15px 0 10px;">
+                Know Your
+
+            </h2>
+            <h1 class="" style="font-size: 48px; margin: 15px 0;">
+                Cognitive Aptitude
+
+            </h1>
+            <h2 class="font-size-32">Management Report</h2>
+        </div>
+        <div style="margin-top: 80px;">
+            <h2 style="margin: 15px 0; font-weight: 400;">Name : @Model.ProfileName.English </h2>
+            <h2 style="margin: 15px 0; font-weight: 400;">Assesment taken on : @Model.CompletedOn </h2>
+            <h2 style="margin: 15px 0; font-weight: 400;">Report printed on: @DateTime.Now.ToShortDateString() </h2>
+        </div>
+
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-1" style="padding-top: 100px; padding-bottom: 100px;">
+        <h1 class="text-title" style="font-weight: 600; color: #03a7a0;">Introduction</h1>
+        <p>
+            The Cognitive Aptitude tests measures ability or aptitude to work quickly with numbers, written information and abstract information, such as shapes and patterns. Research has shown that these cognitive
+            abilities are important to success in many types of role and industry and that individuals who score higher
+            on these tests are likely to be more successful in their role and perform at a higher level than individuals
+            who score lower.
+        </p>
+        <p>
+            Specifically, the test measures:
+        </p>
+
+        <p>
+            <strong>
+                اNumerical Aptitude –
+            </strong> the ability to analyse numerical data in tables and charts, and to perform basic
+            mathematical calculations to determine the correct answer
+        </p>
+
+        <p>
+            <strong> Verbal Aptitude –  </strong>the ability to evaluate and interpret written information and to draw the right conclusions based on passages of text.
+        </p>
+
+        <p>
+            <strong>Abstract Aptitude – </strong> the ability to analyse patterns and sequences of information, such as shapes and
+            diagrams, to solve problems and draw logical conclusions based on these.
+        </p>
+
+        <p>
+            The candidate’s results have been compared to a group of UAE Nationals who have completed this test
+            before.
+            Candidate scores are presented in terms of the percentage of the comparison group they scored higher
+            than. Both individual tests scores and an overall score for all three tests is given. Since the tests are timed,
+            the candidate’s speed when answering the questions is taken into account and impacts their overall and
+            individual test scores. The results are likely to remain valid for around 12-18 months.
+        </p>
+
+        <p>
+            The report covers the following sections:
+
+        </p>
+
+        <p>
+            Section 1: Overall and Individual Test Scores
+        </p>
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-2" style="padding-top: 50px; padding-bottom: 50px; margin-left: -50px; margin-right: -50px;">
+        <h1 style="font-weight: 600; color: #6e6e6e;">
+            Section 1: Cognitive Aptitude Scores
+        </h1>
+
+        <table style="width: 100%; table-layout: fixed; border-collapse: collapse;" cellpadding="10">
+            <tr>
+                <td colspan="4" style="background-color: #66c9c4;">
+                    <div style="width: 200px; height: 200px; margin-left: auto; margin-right: auto;" class="pie_progress" role="progressbar" data-goal="@Model.ManagementCognitive.OverallScore">
+                        <div class="pie_progress__label" style="color: #fff; margin-top: 0; font-size: 18px; font-weight: 600;">
+                            <strong style="font-size: 32px;">
+                                @if (Math.Abs(Model.ManagementCognitive.OverallScore) % 10 == 1 && Model.ManagementCognitive.OverallScore != 11)
+                                {
+                                    @Model.ManagementCognitive.OverallScore
+                                    <span>st</span>
+                                }
+                                else if (Math.Abs(Model.ManagementCognitive.OverallScore) % 10 == 2 && Model.ManagementCognitive.OverallScore != 12)
+                                {
+                                    @Model.ManagementCognitive.OverallScore
+                                    <span>nd</span>
+                                }
+                                else if (Math.Abs(Model.ManagementCognitive.OverallScore) % 10 == 3 && Model.ManagementCognitive.OverallScore != 13)
+                                {
+                                    @Model.ManagementCognitive.OverallScore
+                                    <span>rd</span>
+                                }
+                                else
+                                {
+                                    @Model.ManagementCognitive.OverallScore
+                                    <span>th</span>
+                                }
+                            </strong>
+                            <br />Percentile
+                        </div>
+                    </div>
+                </td>
+                <td colspan="10" style="background-color: #eef0ef;">
+                    <h2 style="font-weight: 600; color: #676968;">
+                        Overall Score
+                    </h2>
+                    <p style="color: #676968;">
+                        @Model.ManagementCognitive.OverallScoreNarrativeDescription.Current
+
+                    </p>
+                </td>
+            </tr>
+            <tr style="height: 30px;"></tr>
+            <tr>
+                <td colspan="4" style="background-color: #66c9c4;">
+                    <div style="width: 200px; height: 200px; margin-left: auto; margin-right: auto;" class="pie_progress" role="progressbar" data-goal="@Model.ManagementCognitive.NumericalScore">
+                        @*<div class="pie_progress__number"></div>*@
+                        <div class="pie_progress__label" style="color: #fff; margin-top: 0; font-size: 18px; font-weight: 600;">
+                            <strong style="font-size: 32px;">
+                                @if (Math.Abs(Model.ManagementCognitive.NumericalScore) % 10 == 1 && Model.ManagementCognitive.NumericalScore != 11)
+                                {
+                                    @Model.ManagementCognitive.NumericalScore
+                                    <span>st</span>
+                                }
+                                else if (Math.Abs(Model.ManagementCognitive.NumericalScore) % 10 == 2 && Model.ManagementCognitive.NumericalScore != 12)
+                                {
+                                    @Model.ManagementCognitive.NumericalScore
+                                    <span>nd</span>
+                                }
+                                else if (Math.Abs(Model.ManagementCognitive.NumericalScore) % 10 == 3 && Model.ManagementCognitive.NumericalScore != 13)
+                                {
+                                    @Model.ManagementCognitive.NumericalScore
+                                    <span>rd</span>
+                                }
+                                else
+                                {
+                                    @Model.ManagementCognitive.NumericalScore
+                                    <span>th</span>
+                                }
+                            </strong> <br />Percentile
+                        </div>
+                    </div>
+                </td>
+                <td colspan="10" style="background-color: #eef0ef;">
+                    <h2 style="font-weight: 600; color: #676968;">
+                        Numerical Aptitude
+                    </h2>
+                    <p style="color: #676968;">
+                        @Model.ManagementCognitive.NumericalScoreNarrativeDescription.Current
+                    </p>
+                </td>
+            </tr>
+            <tr style="height: 30px;"></tr>
+            <tr>
+                <td colspan="4" style="background-color: #66c9c4;">
+                    <div style="width: 200px; height: 200px; margin-left: auto; margin-right: auto;" class="pie_progress" role="progressbar" data-goal="@Model.ManagementCognitive.VerbalScore">
+                        @*<div class="pie_progress__number"></div>*@
+                        <div class="pie_progress__label" style="color: #fff; margin-top: 0; font-size: 18px; font-weight: 600;">
+                            <strong style="font-size: 32px;">
+                                @if (Math.Abs(Model.ManagementCognitive.VerbalScore) % 10 == 1 && Model.ManagementCognitive.VerbalScore != 11)
+                                {
+                                    @Model.ManagementCognitive.VerbalScore
+                                    <span>st</span>
+                                }
+                                else if (Math.Abs(Model.ManagementCognitive.VerbalScore) % 10 == 2 && Model.ManagementCognitive.VerbalScore != 12)
+                                {
+                                    @Model.ManagementCognitive.VerbalScore
+                                    <span>nd</span>
+                                }
+                                else if (Math.Abs(Model.ManagementCognitive.VerbalScore) % 10 == 3 && Model.ManagementCognitive.VerbalScore != 13)
+                                {
+                                    @Model.ManagementCognitive.VerbalScore
+                                    <span>rd</span>
+                                }
+                                else
+                                {
+                                    @Model.ManagementCognitive.VerbalScore
+                                    <span>th</span>
+                                }
+                            </strong> <br />Percentile
+                        </div>
+                    </div>
+                </td>
+                <td colspan="10" style="background-color: #eef0ef;">
+                    <h2 style="font-weight: 600; color: #676968;"> Verbal Aptitude</h2>
+                    <p style="color: #676968;">
+                        @Model.ManagementCognitive.VerbalScoreNarrativeDescription.Current
+                    </p>
+            </tr>
+            <tr style="height: 30px;"></tr>
+            <tr>
+                <td colspan="4" style="background-color: #66c9c4;">
+                    <div style="width: 200px; height: 200px; margin-left: auto; margin-right: auto;" class="pie_progress" role="progressbar" data-goal="@Model.ManagementCognitive.AbstractScore">
+                        @*<div class="pie_progress__number"></div>*@
+                        <div class="pie_progress__label" style="color: #fff; margin-top: 0; font-size: 18px; font-weight: 600;">
+                            <strong style="font-size: 32px;">
+                                @if (Math.Abs(Model.ManagementCognitive.AbstractScore) % 10 == 1 && Model.ManagementCognitive.AbstractScore != 11)
+                                {
+                                    @Model.ManagementCognitive.AbstractScore
+                                    <span>st</span>
+                                }
+                                else if (Math.Abs(Model.ManagementCognitive.AbstractScore) % 10 == 2 && Model.ManagementCognitive.AbstractScore != 12)
+                                {
+                                    @Model.ManagementCognitive.AbstractScore
+                                    <span>nd</span>
+                                }
+                                else if (Math.Abs(Model.ManagementCognitive.AbstractScore) % 10 == 3 && Model.ManagementCognitive.AbstractScore != 13)
+                                {
+                                    @Model.ManagementCognitive.AbstractScore
+                                    <span>rd</span>
+                                }
+                                else
+                                {
+                                    @Model.ManagementCognitive.AbstractScore
+                                    <span>th</span>
+                                }
+                            </strong> <br />Percentile </div>
+                    </div>
+                </td>
+                <td colspan="10" style="background-color: #eef0ef;">
+                    <h2 style="font-weight: 600; color: #676968;">
+                        Abstract Aptitude
+                    </h2>
+                    <p style="color: #676968;">
+                        @Model.ManagementCognitive.AbstractScoreNarrativeDescription.Current
+                    </p>
+                </td>
+            </tr>
+            <tr style="height: 30px;"></tr>
+            <tr>
+                <td colspan="4" style="background-color: #66c9c4;">
+                    <div style="width: 200px; height: 200px; margin-left: auto; margin-right: auto;" class="pie_progress" role="progressbar"data-goal="@Model.ManagementCognitive.TimeTakenScore">
+                        @*<div class="pie_progress__number"></div>*@
+                        <div class="pie_progress__label" style="color: #fff; margin-top: 0; font-size: 18px; font-weight: 600;">
+                            <strong style="font-size: 32px;">
+                                @if (Math.Abs(Model.ManagementCognitive.TimeTakenScore) % 10 == 1 && Model.ManagementCognitive.TimeTakenScore != 11)
+                                {
+                                    @Model.ManagementCognitive.TimeTakenScore
+                                    <span>st</span>
+                                }
+                                else if (Math.Abs(Model.ManagementCognitive.TimeTakenScore) % 10 == 2 && Model.ManagementCognitive.TimeTakenScore != 12)
+                                {
+                                    @Model.ManagementCognitive.TimeTakenScore
+                                    <span>nd</span>
+                                }
+                                else if (Math.Abs(Model.ManagementCognitive.TimeTakenScore) % 10 == 3 && Model.ManagementCognitive.TimeTakenScore != 13)
+                                {
+                                    @Model.ManagementCognitive.TimeTakenScore
+                                    <span>rd</span>
+                                }
+                                else
+                                {
+                                    @Model.ManagementCognitive.TimeTakenScore
+                                    <span>th</span>
+                                }
+                            </strong> <br />Percentile </div>
+                    </div>
+                </td>
+                <td colspan="10" style="background-color: #eef0ef;">
+                    <h2 style="font-weight: 600; color: #676968;">Pace (time taken) </h2>
+                    <p style="color: #676968;">
+                      @Model.ManagementCognitive.TimetakenScoreNarrativeDescription.Current
+                    </p>
+                </td>
+            </tr>
+        </table>
+
+    </article>
+
+    <script src="~/Assets/global/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Assets/global/vendor/aspieprogress/jquery-asPieProgress.min.js"></script>
+    <script>
+        $('.pie_progress').asPieProgress({
+            namespace: 'pie_progress',
+            classes: {
+                svg: 'pie_progress__svg',
+                element: 'pie_progress',
+                number: 'pie_progress__number',
+                content: 'pie_progress__content'
+            },
+            min: 0,
+            max: 100,
+            //goal: 15,
+            //size: 300,
+            trackcolor: '#ffffff',
+            barcolor: '#00aea1',
+            barsize: '15',
+            fillcolor: 'none',
+            //numberCallback(n) {
+            //	'use strict';
+            //	const percentage = Math.round(this.getPercentage(n));
+            //	return `${percentage}%`;
+            //},
+            //contentCallback: null
+        });
+        $('.pie_progress').asPieProgress('start');
+    </script>
+</body>
+</html>

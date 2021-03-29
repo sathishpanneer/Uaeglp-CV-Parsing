@@ -1,0 +1,628 @@
+﻿@model Uaeglp.ViewModels.AssessmentViewModels.AssessmentManagementToolReportView
+@{
+    Layout = null;
+  
+}
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <style>
+
+        .breakhere {
+            page-break-after: always;
+            background-color: blueviolet;
+        }
+
+        tr {
+            page-break-inside: avoid;
+            direction: rtl;
+        }
+
+        .imagetorotate {
+            -webkit-transform: rotate(200deg);
+            -webkit-backface-visibility: hidden;
+        }
+
+        body {
+            font-family: sans-serif;
+            direction: rtl;
+        }
+
+        .background {
+            position: absolute;
+            display: block;
+            min-width: 100%;
+            text-align: center;
+            background-color: transparent;
+            /*padding-top: 50%;*/
+            background: url(../../Assets/images/bgs/report-leadership-ar.jpg) no-repeat;
+            background-size: contain;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+        }
+
+        .cover-page {
+        }
+
+        .font-size-32 {
+            font-size: 32px;
+        }
+
+        .font-size-24 {
+            font-size: 24px;
+        }
+
+        .font-size-20 {
+            font-size: 20px;
+        }
+
+        .font-size-12 {
+            font-size: 12px;
+        }
+
+        .m-100 {
+            margin: 60px;
+        }
+
+        p {
+            line-height: 1.5;
+            font-size: 16px;
+            color: #6e6e6e;
+        }
+
+        .square .sq {
+            width: 28px;
+            height: 28px;
+            margin-right: 4px;
+            float: right;
+        }
+
+        .sq-green-600 {
+            background-color: #66cbc4;
+        }
+
+        .green-900 {
+            background: #00a99d;
+        }
+
+        .sq-green-100 {
+            background: #e0f5f3;
+        }
+
+        .sq-grey-300 {
+            background-color: #e6e6e6;
+        }
+
+        .red-100 {
+            background: #ffcbc4;
+        }
+
+        .text-grey-400 {
+            color: #6a6a6a;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .table-key td {
+            height: 75px;
+            padding: 8px;
+            border: 5px solid #fff;
+        }
+
+        table th {
+            padding: 8px;
+            border: 3px solid #fff;
+        }
+
+        table th {
+            color: #fff;
+        }
+
+        .w-100 {
+            width: 100px;
+        }
+
+        .w-160 {
+            width: 160px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .display-block {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .v-align-top {
+            vertical-align: top;
+        }
+
+        .font-weight-bold {
+            font-weight: bold;
+        }
+
+        .w-p60 {
+            width: 60%;
+        }
+
+        .w-p40 {
+            width: 40%;
+        }
+
+        .h-27 {
+            height: 27px;
+        }
+
+        .mh-27 {
+            min-height: 27px;
+        }
+
+        .page-2 .sq {
+            color: #fff;
+            width: 23px;
+        }
+
+        .text-white {
+            color: #fff;
+        }
+
+        .title {
+            margin-bottom: 50px;
+            font-size: 32px;
+            font-weight: bold;
+            color: #666;
+        }
+
+        .subtitle {
+            font-weight: bold;
+            color: #666;
+            margin-top: 50px;
+        }
+
+        .note {
+            padding: 15px;
+            border: 2px solid #66cbc4;
+            color: #66cbc4;
+            height: 85px;
+        }
+
+        .page-5 .table-borderless td {
+            border: 0;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 37px;
+            padding: 0 15px;
+            border-bottom: 5px solid #fff;
+        }
+
+        .page-5 .table-borderless tr:last-child td {
+            border-bottom: 0;
+        }
+
+        .table-cell-p50 {
+            margin-top: 2px;
+        }
+
+            .table-cell-p50 td {
+                padding: 5px 15px;
+                width: 50%;
+                border: 3px solid #fff;
+                height: 50px;
+                line-height: 1.2;
+            }
+
+            .table-cell-p50 tr td:first-child {
+                border-left: 0;
+            }
+
+            .table-cell-p50 tr td:last-child {
+                border-right: 0;
+            }
+    </style>
+
+</head>
+<body style="margin-left: 100px; margin-right: 100px; padding-top: 260px;">
+    <article class="cover-page">
+        <div class="background"></div>
+        <div style="">
+            <h2 class="font-size-32" style=" margin: 15px 0 0;">تعرف على</h2>
+            <h1 class="" style="font-size: 48px; margin: 0 0 15px;">صفاتك الشخصية</h1>
+            <h2 class="font-size-32">تقرير الادارة</h2>
+        </div>
+        <div style="margin-top: 80px;">
+            <h2 style="margin: 15px 0; font-weight: 400;">الاسم: @Model.ProfileName.Arabic </h2>
+            <h2 style="margin: 15px 0; font-weight: 400;">ﺗﺎرﻳﺦ ﺗﻘﺪﻳﻢ اﻻﺧﺘﺒﺎر : @Model.CompletedOn </h2>
+            <h2 style="margin: 15px 0; font-weight: 400;">تم طباعة التقرير : @DateTime.Now.ToShortDateString() </h2>
+        </div>
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-1" style="padding-top: 100px; padding-bottom: 100px;">
+        <h2>ﻣﻘﺪﻣﺔ </h2>
+        <p>ﻳﺴﺘﻨﺪ ﻫﺬا اﻟﺘﻘﺮﻳﺮ إﻟﻰ إﺟﺎﺑﺎت اﻟﻤﺮﺷﺢ ﻋﻠﻰ اﺳﺘﺒﻴﺎن اﻟﺸﺨﺼﻴﺔ "إﻋﺮف ﻧﻔﺴﻚ"، وﻫﻮ ﻣﻌﻴﺎر ﻟﻺﺑﻼغ اﻟﺬاﺗﻲ ﺧﺎص ﺑﺎﻟﺘﻔﻀﻴﻼت واﻟﺪواﻓﻊ واﻟﻤﻬﺎرات ﻓﻲ ﺳﻴﺎق ﺑﻴﺌﺔ اﻟﻌﻤﻞ.</p>
+        <p>ﻳﺘﻢ ﺗﻘﺪﻳﻢ اﻟﻨﺘﺎﺋﺞ ﻷﻏﺮاض ﻧﻤﻮذج اﻹﻣﺎرات اﻟﻌﺎﻟﻤﻲ ﻟﻠﻘﻴﺎدة، وﻫﻲ ﺗﻌﻜﺲ إﻣﻜﺎﻧﻴﺎت اﻟﻤﺮﺷﺢ ﻟﺘﻘﺪﻳﻢ  إﻟﻰ ﺗﻔﻀﻴﻼت اﻟﺸﺨﺼﻴﺔ اﻟﺨﺎﺻﺔ ﺑﻪ. وﻻ ًأداٍء ﺟﻴﺪ ﻓﻲ ﻛﻞ ﻣﺠﺎل ﻣﻦ ﻣﺠﺎﻻت اﻟﻜﻔﺎءة وذﻟﻚ اﺳﺘﻨﺎدا ﻋﻦ ذﻟﻚ ﻣﺆﺷﺮات ﺣﻮل اﻹﻣﻜﺎﻧﺎت اﻟﻤﺴﺘﻘﺒﻠﻴﺔ ﻟﻠﻤﺮﺷﺢ.ًﻳﻘﻴﺲ اﻟﺘﻘﺮﻳﺮ اﻷداء اﻟﺤﺎﻟﻲ، ﺑﻞ ﻳﻘﺪم ﻋﻮﺿ</p>
+
+        <p>
+            ﺟﺮى ﺗﺼﻤﻴﻢ ﻫﺬا اﻟﺘﻘﺮﻳﺮ ﻟﻤﺴﺎﻋﺪة اﻹدارة واﻟﻘﺎدة ﻋﻠﻰ اﺗﺨﺎذ ﻗﺮارات ﺣﻮل اﺳﺘﺪاﻣﺔ اﻟﻤﺮﺷﺤﻴﻦ ﻟﺸﻐﻞ اﻟﻤﻨﺎﺻﺐ اﻟﺤﺎﻟﻴﺔ واﻟﻤﺴﺘﻘﺒﻠﻴﺔ ﻓﻲ ﺣﻜﻮﻣﺔ دوﻟﺔ اﻹﻣﺎرات اﻟﻌﺮﺑﻴﺔ اﻟﻤﺘﺤﺪة. ﻛﻤﺎ ﻳﺸﺘﻤﻞ ﻋﻠﻰ "دﻟﻴﻞ اﻟﻤﻘﺎﺑﻼت" ﻷﻏﺮاض إﺟﺮاء اﻟﻤﻘﺎﺑﻼت اﻟﻤﺨﻄﻄﺔ اﻟﻤﺴﺘﻨﺪة إﻟﻰ اﻟﻜﻔﺎءة.
+        </p>
+
+        <p> .ً ﺷﻬﺮا18 - 12وﻣﻦ اﻟﻤﺘﻮﻗﻊ أن ﺗﻜﻮن اﻟﻨﺘﺎﺋﺞ ﺳﺎرﻳﺔ ﻟﻔﺘﺮة ﺗﺘﺮاوح ﻣﺎ ﺑﻴﻦ </p>
+
+        <p>
+            ﻳﻐﻄﻲ اﻟﺘﻘﺮﻳﺮ اﻷﻗﺴﺎم اﻟﺘﺎﻟﻴﺔ: <br />
+            القسم 1: ﻧﺘﺎﺋﺞ ﺗﻘﻴﻴﻢ اﻟﻨﻤﻮذج <br />
+            القسم 2: اﻟﻤﻠﻒ اﻟﺴﻠﻮﻛي <br />
+            القسم 3: دﻟﻴﻞ اﻟﻤﻘﺎﺑﻼت<br />
+
+        </p>
+        <div style="padding-top: 100px;">
+            <h1>دﻟﻴﻞ ﺗﻮﺿﻴﺤﻲ</h1>
+            <table class="table-key" style="border: 5px solid #66cbc4; padding: 8px; width: 100%;">
+                <tr>
+                    <td class="font-size-20" colspan="6" style="background: #66cbc4; color: #fff; font-weight: bold;">ﻏﻴﺮ ﻣﺆﻫﻞ ﻋﻠﻰ اﻹﻃﻼق</td>
+                    <td style="width: 160px;">
+                        <div class="square text-center display-block">
+                            <div class="sq sq-green-600"></div>
+                            <div class="sq sq-grey-300"></div>
+                            <div class="sq sq-grey-300"></div>
+                            <div class="sq sq-grey-300"></div>
+                            <div class="sq sq-grey-300"></div>
+                        </div>
+                    </td>
+                    <td class="font-size-12 w-100 sq-grey-300 v-align-top" colspan="2">
+                        ﻳﺤﺘﺎج ﻟﺘﻄﻮﻳﺮ ﻛﺒﻴﺮ ﻟﻠﻮﺻﻮل إﻟﻰ ﻣﺴﺘﻮى اﻟﻜﻔﺎءة اﻟﻤﻄﻠﻮب
+                    </td>
+                    <td class="font-size-12 w-100 sq-grey-300 v-align-top" colspan="2">
+                        دﻟﻴﻞ ﻗﻮي ﻋﻠﻰ وﺟﻮد ﺳﻠﻮﻛﻴﺎت ﺳﻠﺒﻴﺔ
+                    </td>
+                </tr>
+                <tr>
+                    <td class="font-size-20" colspan="6" style="background: #66cbc4; color: #fff; font-weight: bold;">ﻳﺤﺘﺎج ﻟﻠﺘﻄﻮﻳﺮ</td>
+                    <td style="width: 160px;">
+                        <div class="square text-center display-block">
+                            <div class="sq sq-green-100"></div>
+                            <div class="sq sq-green-600"></div>
+                            <div class="sq sq-grey-300"></div>
+                            <div class="sq sq-grey-300"></div>
+                            <div class="sq sq-grey-300"></div>
+                        </div>
+                    </td>
+                    <td class="font-size-12 w-100 sq-grey-300 v-align-top" colspan="2">
+                        ﻳﺤﺘﺎج ﻟﺒﻌﺾ اﻟﺘﻄﻮﻳﺮ ﻣﻦ أﺟﻞ اﻟﻮﺻﻮل إﻟﻰ ﻣﺴﺘﻮى اﻟﻜﻔﺎءة اﻟﻤﻄﻠﻮب
+                    </td>
+                    <td class="font-size-12 w-100 sq-grey-300 v-align-top" colspan="2">
+                        اﻟﺴﻠﻮﻛﻴﺎت اﻟﺴﻠﺒﻴﺔ أﻛﺜﺮ ﻣﻦ اﻟﺴﻠﻮﻛﻴﺎت اﻹﻳﺠﺎﺑﻴﺔ
+                    </td>
+                </tr>
+                <tr>
+                    <td class="font-size-20" colspan="6" style="background: #66cbc4; color: #fff; font-weight: bold;">ﻛﻒء</td>
+                    <td style="width: 160px;">
+                        <div class="square text-center display-block">
+                            <div class="sq sq-green-100"></div>
+                            <div class="sq sq-green-100"></div>
+                            <div class="sq sq-green-600"></div>
+                            <div class="sq sq-grey-300"></div>
+                            <div class="sq sq-grey-300"></div>
+                        </div>
+                    </td>
+                    <td class="font-size-12 w-100 sq-grey-300 v-align-top" colspan="2">
+                        ﻳﺘﻮﻗﻊ أن ﻳﺘﺠﺎوز ﻣﺴﺘﻮى اﻟﻜﻔﺎءة اﻟﻤﻄﻠﻮب
+                    </td>
+                    <td class="font-size-12 w-100 sq-grey-300 v-align-top" colspan="2">
+                        اﻟﺴﻠﻮﻛﻴﺎت اﻹﻳﺠﺎﺑﻴﺔ أﻛﺜﺮ ﻣﻦ اﻟﺴﻠﻮﻛﻴﺎت اﻟﺴﻠﺒﻴﺔ
+                    </td>
+                </tr>
+                <tr>
+                    <td class="font-size-20" colspan="6" style="background: #66cbc4; color: #fff; font-weight: bold;">ﻳﺘﺠﺎوز اﻟﺘﻮﻗﻌﺎت</td>
+                    <td style="width: 160px;">
+                        <div class="square text-center display-block">
+                            <div class="sq sq-green-100"></div>
+                            <div class="sq sq-green-100"></div>
+                            <div class="sq sq-green-100"></div>
+                            <div class="sq sq-green-600"></div>
+                            <div class="sq sq-grey-300"></div>
+                        </div>
+                    </td>
+                    <td class="font-size-12 w-100 sq-grey-300 v-align-top" colspan="2">
+                        ﻳﺘﻮﻗﻊ أن ﻳﺘﺠﺎوز ﻣﺴﺘﻮى اﻟﻜﻔﺎءة اﻟﻤﻄﻠﻮب
+                    </td>
+                    <td class="font-size-12 w-100 sq-grey-300 v-align-top" colspan="2">
+                        اﻟﺴﻠﻮﻛﻴﺎت اﻹﻳﺠﺎﺑﻴﺔ أﻛﺜﺮ ﻣﻦ اﻟﺴﻠﻮﻛﻴﺎت اﻟﺴﻠﺒﻴﺔ
+                    </td>
+                </tr>
+                <tr>
+                    <td class="font-size-20" colspan="6" style="background: #66cbc4; color: #fff; font-weight: bold;">ﻣﺘﻤﻴﺰ</td>
+                    <td style="width: 160px;">
+                        <div class="square text-center display-block">
+                            <div class="sq sq-green-100"></div>
+                            <div class="sq sq-green-100"></div>
+                            <div class="sq sq-green-100"></div>
+                            <div class="sq sq-green-100"></div>
+                            <div class="sq sq-green-600"></div>
+                        </div>
+                    </td>
+                    <td class="font-size-12 w-100 sq-grey-300 v-align-top" colspan="2">
+                        ﻳﺘﻮﻗﻊ أن ﻳﻔﻮق ﻣﺴﺘﻮى اﻟﻜﻔﺎءة اﻟﻤﻄﻠﻮب ﺑﺪرﺟﺔ ﻛﺒﻴﺮة
+                    </td>
+                    <td class="font-size-12 w-100 sq-grey-300 v-align-top" colspan="2">
+
+                        ﻳﺘﻮﻗﻊ أن ﻳﻔﻮق ﻣﺴﺘﻮى اﻟﻜﻔﺎءة اﻟﻤﻄﻠﻮب ﺑﺪرﺟﺔ ﻛﺒﻴﺮة
+                        دﻟﻴﻞ ﻗﻮي ﻋﻠﻰ وﺟﻮد ﺳﻠﻮﻛﻴﺎت إﻳﺠﺎﺑﻴﺔ
+
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-2" style="padding-top: 50px; padding-bottom: 50px; margin-left: -70px; margin-right: -70px;">
+        <h3 class="font-weight-bold" style="margin-bottom: 0;">ﻧﺘﺎﺋﺞ ﺗﻘﻴﻴﻢ اﻟﻨﻤﻮذج</h3>
+        <p>ﻳﺒﻴﻦ ﻫﺬا اﻟﻤﻠﻒ ﺗﻔﻀﻴﻼﺗﻚ اﻟﺸﺨﺼﻴﺔ اﻟﺘﻲ ﺣﺪدﺗﻬﺎ ﻋﻦ ﻧﻔﺴﻚ ﻓﻲ ﺳﻴﺎق اﻟﻌﻤﻞ</p>
+        <table style="width: 100%;">
+            <tr>
+                <th class="w-p40 h-27 green-900" colspan="2">اﻟﻮﺻﻒ</th>
+                <th class="h-27 green-900" colspan="4">اﻟﺘﻘﻴﻴﻢ</th>
+            </tr>
+            @foreach (var item in Model.profileCompetencyScoreReports)
+            {
+                <tr>
+                    <td colspan="2" style="border: 3px solid #fff;">
+                        <div class="sq-green-600 text-white font-weight-bold" style="padding: 5px; margin-bottom: 0;  height: 30px;">@item.CompetencyName.Current</div>
+                        <p style="margin-top: 5px; line-height: 1.2;">
+                            @item.CompetencyDescription.Current
+                        </p>
+                    </td>
+                    <td colspan="2" class="v-align-top" style="width: 216px; border: 2px solid #fff; padding-top: 10px;">
+                        <div class="square text-center display-block">
+                            @{int j = 0;
+                                int p = 1;
+
+
+                                for (int c = 0; c < 10; c++)
+                                {
+                                    if (c + 1 <= item.Score)
+                                    {
+                                        if (c + 1 == 1)
+                                        {
+                                            <div class="sq" style="background:rgb(255, 202, 196)">@(c + 1)</div>
+                                        }
+                                        else if (c + 1 == 2)
+                                        {
+                                            <div class="sq" style="background:rgb(237, 202, 196)">@(c + 1)</div>
+
+                                        }
+                                        else if (c + 1 == 3)
+                                        {
+                                            <div class="sq" style="background:rgb(221, 202, 196)">@(c + 1)</div>
+
+                                        }
+                                        else if (c + 1 == 4)
+                                        {
+                                            <div class="sq" style="background:rgb(204, 202, 196)">@(c + 1)</div>
+
+                                        }
+                                        else if (c + 1 == 5)
+                                        {
+                                            <div class="sq" style="background:rgb(186, 202, 196)">@(c + 1)</div>
+
+                                        }
+                                        else if (c + 1 == 6)
+                                        {
+                                            <div class="sq" style="background:rgb(170, 202, 196)">@(c + 1)</div>
+
+                                        }
+                                        else if (c + 1 == 7)
+                                        {
+                                            <div class="sq" style="background:rgb(153, 202, 196)">@(c + 1)</div>
+
+                                        }
+                                        else if (c + 1 == 8)
+                                        {
+                                            <div class="sq" style="background:rgb(135, 202, 196)">@(c + 1)</div>
+
+                                        }
+                                        else if (c + 1 == 9)
+                                        {
+                                            <div class="sq" style="background:rgb(119, 202, 196)">@(c + 1)</div>
+
+                                        }
+                                        else if (c + 1 == 10)
+                                        {
+                                            <div class="sq" style="background:rgb(119, 202, 196)">@(c + 1)</div>
+
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        <div class="sq" style="background:rgb(242, 242, 242)"></div>
+                                    }
+
+                                }
+
+
+                                j++;
+                                p++;
+
+                            }
+
+                        </div>
+                    </td>
+                    <td class="v-align-top" colspan="2" style="width: 208px; border: 2px solid #fff; ">
+                        <div class="sq-green-600 text-white font-size-12" style="padding: 5px; height: 30px;">
+                            @item.CompetencyResultDescription.Current
+                    </div>
+                </td>
+            </tr>
+        }
+
+
+        </table>
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-3" style="padding-top: 50px; padding-bottom: 50px; margin-left: -50px; margin-right: -50px;">
+        <h1 class="title" style="margin-bottom: 0;">اﻟﻤﻠﻒ اﻟﺴﻠﻮﻛﻲ</h1>
+
+        @foreach (var item in Model.profileCompetencyScoreReports.Take(5))
+        {
+            <h4 class="sq-green-600 text-white" style="padding: 10px 15px;">@item.CompetencyName.Arabic</h4>
+            <p style="line-height: 1.2;">
+                @item.CompetencyResultNarrativeDescription.Arabic
+            </p>
+
+
+        }
+
+    </article>
+
+    <div class="breakhere"></div>
+    <article class="page-4" style="padding-top: 50px; padding-bottom: 50px; margin-left: -50px; margin-right: -50px;">
+        
+        @foreach (var item in Model.profileCompetencyScoreReports.Skip(5))
+        {
+            <h4 class="sq-green-600 text-white" style="padding: 10px 15px;">@item.CompetencyName.Arabic</h4>
+            <p style="line-height: 1.2;">
+                @item.CompetencyResultNarrativeDescription.Arabic
+            </p>
+
+
+        }
+
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-5" style="padding-top: 100px; padding-bottom: 100px;">
+        <h1 class="title">دﻟﻴﻞ اﻟﻤﻘﺎﺑﻼت</h1>
+        <p style="line-height: 1.2; font-size: 18px;">
+            ﻳﺴﺘﻨﺪ ﻫﺬا اﻟﺘﻘﺮﻳﺮ إﻟﻰ إﺟﺎﺑﺎت اﻟﻤﺮﺷﺢ ﻋﻠﻰ اﺳﺘﺒﻴﺎن اﻟﺸﺨﺼﻴﺔ "اﻋﺮف ﻧﻔﺴﻚ"، وﻫﻮ ﺗﻘﻴﻴﻢ ﺷﺨﺼﻲ ﻟﻠﺘﻔﻀﻴﻼت واﻟﺪواﻓﻊ واﻟﻤﻬﺎرات اﻟﻤﺮﺗﺒﻄﺔ ﺑﺒﻴﺌﺔ اﻟﻌﻤﻞ.
+        </p>
+
+        <h3 class="subtitle">ﻣﺮن وﺳﺮﻳﻊ</h3>
+        <h4 class="sq-green-600 text-white" style="padding: 10px 15px;"> ﻟﺘﺤﻘﻴﻖ اﻟﻨﺘﺎﺋﺞًﺎﻗﺎّ وﺳﺒً ﻟﻤﻨﺎﺳﺒٍﺔ ُﻛﻨﺖ ﻓﻴﻬﺎ اﺳﺘﺒﺎﻗﻴﺎ ًأﻋﻂ ﻣﺜﺎﻻ  </h4>
+        <p style="line-height: 1.2;">
+            ﻛﻴﻒ ﺗﻤّﻜﻨﺖ ﻣﻦ اﻟﺤﻔﺎظ ﻋﻠﻰ ﻣﺮوﻧﺘﻚ ﻓﻲ ﺗﻮجهك؟ <br />
+            ﻣﺎ اﻟﺬي ﻗﺪ ﺗﻔﻌﻠﻪ ﺑﺄﺳﻠﻮب ﻣﺨﺘﻠﻒ ﻓﻲ اﻟﻤﺮة اﻟﻘﺎدﻣﺔ؟
+
+        </p>
+        <h4 class="sq-green-600 text-white" style="padding: 10px 15px;">ﻣﺎ اﻟﺬي ﻗﺪ ﺗﻔﻌﻠﻪ ﺑﺄﺳﻠﻮب ﻣﺨﺘﻠﻒ ﻓﻲ اﻟﻤﺮة اﻟﻘﺎدﻣﺔ؟ </h4>
+        <p style="line-height: 1.2;">
+            ﻛﻴﻒ ﺗﻤّﻜﻨﺖ ﻣﻦ اﻟﺤﻔﺎظ ﻋﻠﻰ ﻣﺮوﻧﺘﻚ ﻓﻲ ﺗوجهك؟<br />
+            ﻣﺎ اﻟﺬي ﻗﺪ ﺗﻔﻌﻠﻪ ﺑﺄﺳﻠﻮب ﻣﺨﺘﻠﻒ ﻓﻲ اﻟﻤﺮة اﻟﻘﺎدﻣﺔ؟
+        </p>
+        <div class="note">ﻣﻼﺣﻈﺎت</div>
+
+        <h3 class="subtitle">ﻣﺮن وﺳﺮﻳﻊ</h3>
+        <h4 class="sq-green-600 text-white" style="padding: 10px 15px;"> ﻟﺘﺤﻘﻴﻖ اﻟﻨﺘﺎﺋﺞًﺎﻗﺎّ وﺳﺒً ﻟﻤﻨﺎﺳﺒٍﺔ ُﻛﻨﺖ ﻓﻴﻬﺎ اﺳﺘﺒﺎﻗﻴﺎ ًأﻋﻂ ﻣﺜﺎﻻ  </h4>
+        <p style="line-height: 1.2;">
+            ﻛﻴﻒ ﺗﻤّﻜﻨﺖ ﻣﻦ اﻟﺤﻔﺎظ ﻋﻠﻰ ﻣﺮوﻧﺘﻚ ﻓﻲ ﺗﻮجهك؟ <br />
+            ﻣﺎ اﻟﺬي ﻗﺪ ﺗﻔﻌﻠﻪ ﺑﺄﺳﻠﻮب ﻣﺨﺘﻠﻒ ﻓﻲ اﻟﻤﺮة اﻟﻘﺎدﻣﺔ؟
+
+        </p>
+        <h4 class="sq-green-600 text-white" style="padding: 10px 15px;">ﻣﺎ اﻟﺬي ﻗﺪ ﺗﻔﻌﻠﻪ ﺑﺄﺳﻠﻮب ﻣﺨﺘﻠﻒ ﻓﻲ اﻟﻤﺮة اﻟﻘﺎدﻣﺔ؟ </h4>
+        <p style="line-height: 1.2;">
+            ﻛﻴﻒ ﺗﻤّﻜﻨﺖ ﻣﻦ اﻟﺤﻔﺎظ ﻋﻠﻰ ﻣﺮوﻧﺘﻚ ﻓﻲ ﺗوجهك؟<br />
+            ﻣﺎ اﻟﺬي ﻗﺪ ﺗﻔﻌﻠﻪ ﺑﺄﺳﻠﻮب ﻣﺨﺘﻠﻒ ﻓﻲ اﻟﻤﺮة اﻟﻘﺎدﻣﺔ؟
+        </p>
+        <div class="note">ﻣﻼﺣﻈﺎت</div>
+
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-6" style="padding-top: 100px; padding-bottom: 100px; margin-left: -50px; margin-right: -50px;">
+        <table style="width: 97.5%; border-collapse: collapse; margin: 0 10px;" class="table-borderless">
+            <tr>
+                <td colspan="2" class="green-900 text-white">إﺳﻢ اﻟﻤﺮﺷﺢ</td>
+                <td colspan="6" style="width: 200px; background: #e6e6e6;"></td>
+                <td colspan="2" class="green-900 text-white">اﻟﺘﺎرﻳﺦ</td>
+                <td colspan="6" style="width: 200px; background: #e6e6e6;"></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="green-900 text-white">إﺳﻢ ﻣﺠﺮي اﻟﻤﻘﺎﺑﻠﺔ</td>
+                <td colspan="6" style="width: 200px; background: #e6e6e6;"></td>
+                <td colspan="2" class="green-900 text-white">اﻟﻤﺴﻤﻰ اﻟﻮﻇﻴﻔﻲ</td>
+                <td colspan="6" style="width: 200px; background: #e6e6e6;"></td>
+            </tr>
+        </table>
+
+        <table style="width: 100%; table-layout: fixed;" cellpadding="10" cellspacing="10">
+            <tr>
+                <td class="green-900 text-white font-weight-600" colspan="8">ﻛﻔﺎﺋﺎت ﻧﻤﻮذج ﻗﻴﺎدات ﺣﻜﻮﻣﺔ اﻹﻣﺎرات</td>
+                <td class="green-900 text-white font-weight-600" colspan="8" style="padding-top: 5px; padding-bottom: 5px;">
+                    اﻟﺘﻘﻴﻴﻢ<br />
+                    (حيث 1 يعتي "غير مؤهل على الإطلاق" و 5 تعني "متميز")
+                </td>
+            </tr>
+            <tr>
+                <td class="sq-grey-300 text-grey-400" colspan="8">ﻣﺮن وﺳﺮﻳﻊ</td>
+                <td class="sq-grey-300 " colspan="8"></td>
+            </tr>
+            <tr>
+                <td class="sq-grey-300 text-grey-400" colspan="8">ﻳﺼﻨﻊ ﻗﺮارات ذﻛﻴﺔ وﻓﻌﺎﻟﺔ وﻛﻔﺆة</td>
+                <td class="sq-grey-300 " colspan="8"></td>
+            </tr>
+            <tr>
+                <td class="sq-grey-300 text-grey-400" colspan="8">ﻳﺮﻛﺰ ﻋﻠﻰ اﻟﻐﺎﻳﺎت اﻟﻌﻠﻴﺎ ﻟﻠﺤﻜﻮﻣﺔ وﺗﺤﻘﻴﻖ اﻟﻨﺘﺎﺋﺞ</td>
+                <td class="sq-grey-300 " colspan="8"></td>
+            </tr>
+            <tr>
+                <td class="sq-grey-300 text-grey-400" colspan="8">ﻣﺘﻌﻠﻢ ﺑﺈﺳﺘﻤﺮار وﻣﺪى اﻟﺤﻴﺎة</td>
+                <td class="sq-grey-300 " colspan="8"></td>
+            </tr>
+            <tr>
+                <td class="sq-grey-300 text-grey-400" colspan="8">ﻣﻠﻢ ﺑﺘﻜﻨﻮﻟﻮﺟﻴﺎ اﻟﻤﺴﺘﻘﺒﻞ اﻟﻤﺘﻘﺪﻣﺔ</td>
+                <td class="sq-grey-300 " colspan="8"></td>
+            </tr>
+            <tr>
+                <td class="sq-grey-300 text-grey-400" colspan="8">ﻣﺒﺘﻜﺮ وﻣﺤﻔﺰ ﻟﻠﺘﻐﻴﺮ اﻟﺠﺬري</td>
+                <td class="sq-grey-300 " colspan="8"></td>
+            </tr>
+            <tr>
+                <td class="sq-grey-300 text-grey-400" colspan="8">ﻣﺴﺘﺸﺮف ﻟﻠﻤﺴﺘﻘﻞ</td>
+                <td class="sq-grey-300 " colspan="8"></td>
+            </tr>
+            <tr>
+                <td class="sq-grey-300 text-grey-400" colspan="8">ﻣﻨﻔﺘﺢ ﻋﻠﻰ اﻟﻌﺎﻟﻢ</td>
+                <td class="sq-grey-300 " colspan="8"></td>
+            </tr>
+            <tr>
+                <td class="sq-grey-300 text-grey-400" colspan="8">ﻗﺪوة ﺣﺴﻨﺔ</td>
+                <td class="sq-grey-300 " colspan="8"></td>
+            </tr>
+            <tr>
+                <td class="sq-grey-300 text-grey-400" colspan="8">ممكن ﻟﻺﻧﺴﺎن </td>
+                <td class="sq-grey-300 " colspan="8"></td>
+            </tr>
+        </table>
+
+        <h2 style="color: #6e6e6e; margin-top: 30px; margin-right: 10px;">اﻟﺘﻮﺻﻴﺔ اﻟﻤﻘﺘﺮﺣﺔ</h2>
+        <table style="width: 98%; table-layout: fixed; border-collapse: collapse; margin: 0 10px;" cellpadding="10">
+            <tr>
+                <td colspan="4" class="green-900 text-white font-weight-bold">ﻻ ﻳﻮﺻﻰ ﺑﻪ </td>
+                <td colspan="1" style="background: #e6e6e6;"></td>
+                <td colspan="4" class="green-900 text-white font-weight-bold">المضي قدما مع توخي الحذر</td>
+                <td colspan="1" style="background: #e6e6e6;"></td>
+                <td colspan="4" class="green-900 text-white font-weight-bold">ﻣﻨﺎﺳﺐ ﻟﻠﻮﻇﻴفة</td>
+                <td colspan="1" style="background: #e6e6e6;"></td>
+            </tr>
+        </table>
+
+        <div class="note" style="width: 95%; height: 200px; margin: 30px auto;">ﻣﻼﺣﻈﺎت</div>
+    </article>
+
+</body>
+</html>

@@ -1,0 +1,701 @@
+﻿@model Uaeglp.ViewModels.AssessmentViewModels.AssessmentManagementToolReportView
+
+@{
+    Layout = null;
+}
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <style>
+
+        .breakhere {
+            page-break-after: always;
+            background-color: blueviolet;
+        }
+
+        tr {
+            page-break-inside: avoid;
+            direction: ltr;
+        }
+
+        .imagetorotate {
+            -webkit-transform: rotate(200deg);
+            -webkit-backface-visibility: hidden;
+        }
+
+        body {
+            font-family: sans-serif;
+            direction: ltr;
+        }
+
+        .background {
+            position: absolute;
+            display: block;
+            min-width: 100%;
+            text-align: center;
+            background-color: transparent;
+            /*padding-top: 50%;*/
+            background: url(../../Assets/images/bgs/cognitive-report-individual-en.jpg) no-repeat;
+            background-size: contain;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+        }
+
+        .cover-page {
+        }
+
+        .font-size-32 {
+            font-size: 32px;
+        }
+
+        .font-size-24 {
+            font-size: 24px;
+        }
+
+        .font-size-20 {
+            font-size: 20px;
+        }
+
+        .font-size-12 {
+            font-size: 12px;
+        }
+
+        .m-100 {
+            margin: 60px;
+        }
+
+        p {
+            line-height: 1.5;
+            font-size: 16px;
+            color: #6e6e6e;
+        }
+
+        .square .sq {
+            width: 28px;
+            height: 28px;
+            margin-left: 4px;
+            float: left;
+        }
+
+        .sq-green-600 {
+            background-color: #66cbc4;
+        }
+
+        .green-900 {
+            background: #00a99d;
+        }
+
+        .sq-green-100 {
+            background: #e0f5f3;
+        }
+
+        .sq-grey-300 {
+            background-color: #e6e6e6;
+        }
+
+        .red-100 {
+            background: #ffcbc4;
+        }
+
+        .text-grey-400 {
+            color: #6a6a6a;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .table-key td {
+            height: 75px;
+            padding: 8px;
+            border: 5px solid #fff;
+        }
+
+        table th {
+            padding: 8px;
+            border: 3px solid #fff;
+        }
+
+        table th {
+            color: #fff;
+        }
+
+        .w-100 {
+            width: 100px;
+        }
+
+        .w-160 {
+            width: 160px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .display-block {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .v-align-top {
+            vertical-align: top;
+        }
+
+        .font-weight-bold {
+            font-weight: bold;
+        }
+
+        .w-p60 {
+            width: 60%;
+        }
+
+        .w-p40 {
+            width: 40%;
+        }
+
+        .h-27 {
+            height: 27px;
+        }
+
+        .mh-27 {
+            min-height: 27px;
+        }
+
+        .page-2 .sq {
+            color: #fff;
+            width: 23px;
+        }
+
+        .text-white {
+            color: #fff;
+        }
+
+        .title {
+            margin-bottom: 50px;
+            font-size: 32px;
+            font-weight: bold;
+            color: #666;
+        }
+
+        .subtitle {
+            font-weight: bold;
+            color: #666;
+            margin-top: 50px;
+        }
+
+        .note {
+            padding: 15px;
+            border: 2px solid #66cbc4;
+            color: #66cbc4;
+            height: 85px;
+        }
+
+        .table-borderless td {
+            border: 0;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 37px;
+            padding: 0 15px;
+            border-bottom: 5px solid #fff;
+        }
+
+        .table-borderless tr:last-child td {
+            border-bottom: 0;
+        }
+
+        .table-cell-p50 {
+            margin-top: 2px;
+        }
+
+            .table-cell-p50 td {
+                padding: 5px 15px;
+                width: 50%;
+                border: 3px solid #fff;
+                height: 50px;
+                line-height: 1.2;
+            }
+
+            .table-cell-p50 tr td:first-child {
+                border-left: 0;
+            }
+
+            .table-cell-p50 tr td:last-child {
+                border-right: 0;
+            }
+    </style>
+
+</head>
+<body style="margin-left: 100px; margin-right: 100px; padding-top: 260px;">
+    <article class="cover-page">
+        <div class="background"></div>
+        <div style="">
+            <h2 class="font-size-32" style=" margin: 15px 0 0;">Know Yourself</h2>
+            <h2 class="font-size-32">
+                Management Report
+            </h2>
+        </div>
+        <div style="margin-top: 80px;">
+            <h2 style="margin: 15px 0; font-weight: 400;">Name : @Model.ProfileName.English </h2>
+            <h2 style="margin: 15px 0; font-weight: 400;">Assesment taken on : @Model.CompletedOn </h2>
+            <h2 style="margin: 15px 0; font-weight: 400;">Report printed on: @DateTime.Now.ToShortDateString() </h2>
+
+        </div>
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-1" style="padding-top: 100px; padding-bottom: 100px;">
+        <h2>Introduction </h2>
+        <p>This report is based on the candidate's responses to the 'Know Yourself' personality questionnaire, a self-report measure of preferences, motives and talent within a work context. </p>
+        <p>
+            The results are presented for the Government Leadership Model (GLM) and represent a
+            candidate's potential to perform on each of the competencies based on their personality
+            preferences. It does not measure current performance, instead giving an indication of a
+            candidate's future potential.
+        </p>
+        <p>
+            This report has been designed to help management and leaders make decisions about the
+            suitability of candidates for current and future roles within the Government of the UAE. It
+            includes an Interview Guide for the purposes of a structured competency-based interview.
+        </p>
+
+        <p>Results have been compared to a group of UAE Nationals who have completed this questionnaire before and are likely to remain valid for around 12-18 months.</p>
+        <p>
+            The report covers the following sections: <br />
+            Section 1: Model Assessment Results<br />
+            Section 2: Behavioural Profile<br />
+            Section 3: Interview Guide<br />
+
+        </p>
+        <div style="padding-top: 100px;">
+            <h1>KEY</h1>
+            <table class="table-key" style="border: 5px solid #66cbc4; padding: 8px; width: 100%;">
+                <tr>
+                    <td class="font-size-20" colspan="6" style="background: #66cbc4; color: #fff; font-weight: bold;">Not All Developed</td>
+                    <td style="width: 160px;">
+                        <div class="square text-center display-block">
+                            <div class="sq sq-green-600"></div>
+                            <div class="sq sq-grey-300"></div>
+                            <div class="sq sq-grey-300"></div>
+                            <div class="sq sq-grey-300"></div>
+                            <div class="sq sq-grey-300"></div>
+                        </div>
+                    </td>
+                    <td class="font-size-12 w-100 sq-grey-300 v-align-top" colspan="2">
+                        Significant
+                        Development
+                        needed to meet the
+                        requirements of the
+                        competency
+                    </td>
+                    <td class="font-size-12 w-100 sq-grey-300 v-align-top" colspan="2">
+                        Strong evidence of
+                        negative behaviours
+                    </td>
+                </tr>
+                <tr>
+                    <td class="font-size-20" colspan="6" style="background: #66cbc4; color: #fff; font-weight: bold;">Underdeveloped</td>
+                    <td style="width: 160px;">
+                        <div class="square text-center display-block">
+                            <div class="sq sq-green-100"></div>
+                            <div class="sq sq-green-600"></div>
+                            <div class="sq sq-grey-300"></div>
+                            <div class="sq sq-grey-300"></div>
+                            <div class="sq sq-grey-300"></div>
+                        </div>
+                    </td>
+                    <td class="font-size-12 w-100 sq-grey-300 v-align-top" colspan="2">
+                        Some development
+                        needed to meet the
+                        requirements of the
+                        competency
+                    </td>
+                    <td class="font-size-12 w-100 sq-grey-300 v-align-top" colspan="2">
+                        More negative
+                        behaviours than
+                        positive behaviours
+                    </td>
+                </tr>
+                <tr>
+                    <td class="font-size-20" colspan="6" style="background: #66cbc4; color: #fff; font-weight: bold;">Competent</td>
+                    <td style="width: 160px;">
+                        <div class="square text-center display-block">
+                            <div class="sq sq-green-100"></div>
+                            <div class="sq sq-green-100"></div>
+                            <div class="sq sq-green-600"></div>
+                            <div class="sq sq-grey-300"></div>
+                            <div class="sq sq-grey-300"></div>
+                        </div>
+                    </td>
+                    <td class="font-size-12 w-100 sq-grey-300 v-align-top" colspan="2">
+                        Meets the
+                        requirements of the
+                        competency
+                    </td>
+                    <td class="font-size-12 w-100 sq-grey-300 v-align-top" colspan="2">
+                        Mix of positive and
+                        negative behaviours
+                    </td>
+                </tr>
+                <tr>
+                    <td class="font-size-20" colspan="6" style="background: #66cbc4; color: #fff; font-weight: bold;">Very Strong</td>
+                    <td style="width: 160px;">
+                        <div class="square text-center display-block">
+                            <div class="sq sq-green-100"></div>
+                            <div class="sq sq-green-100"></div>
+                            <div class="sq sq-green-100"></div>
+                            <div class="sq sq-green-600"></div>
+                            <div class="sq sq-grey-300"></div>
+                        </div>
+                    </td>
+                    <td class="font-size-12 w-100 sq-grey-300 v-align-top" colspan="2">
+                        Likely to exceed the
+                        requirments of the
+                        competency
+                    </td>
+                    <td class="font-size-12 w-100 sq-grey-300 v-align-top" colspan="2">
+                        More positive than
+                        negative behaviours
+                    </td>
+                </tr>
+                <tr>
+                    <td class="font-size-20" colspan="6" style="background: #66cbc4; color: #fff; font-weight: bold;">Outstanding</td>
+                    <td style="width: 160px;">
+                        <div class="square text-center display-block">
+                            <div class="sq sq-green-100"></div>
+                            <div class="sq sq-green-100"></div>
+                            <div class="sq sq-green-100"></div>
+                            <div class="sq sq-green-100"></div>
+                            <div class="sq sq-green-600"></div>
+                        </div>
+                    </td>
+                    <td class="font-size-12 w-100 sq-grey-300 v-align-top" colspan="2">
+                        Likely to
+                        significantly exceed
+                        the requirments of
+                        the competency
+                    </td>
+                    <td class="font-size-12 w-100 sq-grey-300 v-align-top" colspan="2">
+
+                        Strong evidence of
+                        positive behaviours
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-2" style="padding-top: 50px; padding-bottom: 50px; margin-left: -70px; margin-right: -70px;">
+        <h3 class="font-weight-bold" style="margin-bottom: 0;">
+            MODEL ASSESSMENT RESULTS
+        </h3>
+        <p>The profile shows the candidate's potential to perform on each of the competencies based on their personality preferences.</p>
+        <table style="width: 100%;">
+            <tr>
+                <th class="w-p40 h-27 green-900" colspan="2">DESCRIPTION</th>
+                <th class="h-27 green-900" colspan="4">POTENTIAL</th>
+            </tr>
+            @foreach (var item in Model.profileCompetencyScoreReports)
+            {
+                <tr>
+                    <td colspan="2" style="border: 3px solid #fff;">
+                        <div class="sq-green-600 text-white font-weight-bold" style="padding: 5px; margin-bottom: 0; ">
+                            @item.CompetencyName.Current
+                        </div>
+                        <p style="margin-top: 5px; line-height: 1.2;">
+                            @item.CompetencyDescription.Current
+                        </p>
+                    </td>
+                    <td colspan="2" class="v-align-top" style="width: 216px; border: 2px solid #fff; padding-top: 10px;">
+                        <div class="square text-center display-block">
+                            @{int j = 0;
+                                int p = 1;
+
+
+                                for (int c = 0; c < 10; c++)
+                                {
+                                    if (c + 1 <= item.Score)
+                                    {
+                                        if (c + 1 == 1)
+                                        {
+                                            <div class="sq" style="background:rgb(255, 202, 196)">@(c + 1)</div>
+                                        }
+                                        else if (c + 1 == 2)
+                                        {
+                                            <div class="sq" style="background:rgb(237, 202, 196)">@(c + 1)</div>
+
+                                        }
+                                        else if (c + 1 == 3)
+                                        {
+                                            <div class="sq" style="background:rgb(221, 202, 196)">@(c + 1)</div>
+
+                                        }
+                                        else if (c + 1 == 4)
+                                        {
+                                            <div class="sq" style="background:rgb(204, 202, 196)">@(c + 1)</div>
+
+                                        }
+                                        else if (c + 1 == 5)
+                                        {
+                                            <div class="sq" style="background:rgb(186, 202, 196)">@(c + 1)</div>
+
+                                        }
+                                        else if (c + 1 == 6)
+                                        {
+                                            <div class="sq" style="background:rgb(170, 202, 196)">@(c + 1)</div>
+
+                                        }
+                                        else if (c + 1 == 7)
+                                        {
+                                            <div class="sq" style="background:rgb(153, 202, 196)">@(c + 1)</div>
+
+                                        }
+                                        else if (c + 1 == 8)
+                                        {
+                                            <div class="sq" style="background:rgb(135, 202, 196)">@(c + 1)</div>
+
+                                        }
+                                        else if (c + 1 == 9)
+                                        {
+                                            <div class="sq" style="background:rgb(119, 202, 196)">@(c + 1)</div>
+
+                                        }
+                                        else if (c + 1 == 10)
+                                        {
+                                            <div class="sq" style="background:rgb(119, 202, 196)">@(c + 1)</div>
+
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        <div class="sq" style="background:rgb(242, 242, 242)"></div>
+                                    }
+
+                                }
+
+
+                                j++;
+                                p++;
+
+                            }
+
+                        </div>
+                    </td>
+                    <td class="v-align-top" colspan="2" style="width: 208px; border: 2px solid #fff; ">
+                        <div class="sq-green-600 text-white font-size-12" style="padding: 5px; height: 30px;">
+                            @item.CompetencyResultDescription.Current
+                        </div>
+                    </td>
+                </tr>
+            }
+        </table>
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-3" style="padding-top: 50px; padding-bottom: 50px; margin-left: -50px; margin-right: -50px;">
+        <h1 class="title" style="margin-bottom: 0;">BEHAVIOURAL PROFILE</h1>
+
+        @foreach (var item in Model.profileCompetencyScoreReports.Take(5))
+        {
+            <h4 class="sq-green-600 text-white" style="padding: 10px 15px;">@item.CompetencyName.Current</h4>
+            <p style="line-height: 1.2;">
+                @item.CompetencyResultNarrativeDescription.Current
+            </p>
+
+
+        }
+
+    </article>
+    <div class="breakhere"></div>
+
+    <article class="page-4" style="padding-top: 50px; padding-bottom: 50px; margin-left: -50px; margin-right: -50px;">
+     
+        @foreach (var item in Model.profileCompetencyScoreReports.Skip(5))
+        {
+            <h4 class="sq-green-600 text-white" style="padding: 10px 15px;">@item.CompetencyName.Current</h4>
+            <p style="line-height: 1.2;">
+                @item.CompetencyResultNarrativeDescription.Current
+            </p>
+
+
+        }
+
+    </article>
+    <div class="breakhere"></div>
+
+    <article class="page-5" style="padding-top: 100px; padding-bottom: 100px;">
+        <h1 class="title">
+            INTERVIEW GUIDE
+        </h1>
+        <p style="line-height: 1.2; font-size: 18px;">
+            This report is based on the candidate's responses to the 'Know Yourself'
+            personality questionnaire, a self-report measure of preferences, motives
+            and talent within a work context.
+        </p>
+
+        <h3 class="subtitle"> Agile & Fast</h3>
+        <h4 class="sq-green-600 text-white" style="padding: 10px 15px;"> Give an example of a time when you have been proactive to achieve results  </h4>
+        <p style="line-height: 1.2;">
+            How were you able to be flexible in your approaches?<br />
+            What would you do differently next time?<br />
+        </p>
+        <h4 class="sq-green-600 text-white" style="padding: 10px 15px;">
+            Tell me about a time when you have worked with others in order to achieve a result?
+        </h4>
+        <p style="line-height: 1.2;">
+            Were you able to be flexible to accommodate the needs of others?<br />
+            How were you able to convey confidence to others?<br />
+        </p>
+        <div class="note">Notes</div>
+
+        <h3 class="subtitle">
+            Smart, Effective and Efficient Decision Maker
+        </h3>
+        <h4 class="sq-green-600 text-white" style="padding: 10px 15px;"> Give an example of a time when you have been proactive to achieve results  </h4>
+        <p style="line-height: 1.2;">
+            How were you able to be flexible in your approaches? <br />
+            What would you do differently next time?
+        </p>
+        <h4 class="sq-green-600 text-white" style="padding: 10px 15px;">
+            Tell me about a time when you have worked with others in order to achieve a result?
+        </h4>
+        <p style="line-height: 1.2;">
+            Were you able to be flexible to accommodate the needs of others?<br />
+            How were you able to convey confidence to others?
+        </p>
+        <div class="note">Notes</div>
+
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-6" style="padding-top: 100px; padding-bottom: 100px; margin-left: -50px; margin-right: -50px;">
+        <table style="width: 97.5%; border-collapse: collapse; margin: 0 10px;" class="table-borderless">
+            <tr>
+                <td colspan="2" class="green-900 text-white">Candidate Name </td>
+                <td colspan="6" style="width: 200px; background: #e6e6e6;"></td>
+                <td colspan="2" class="green-900 text-white">Date</td>
+                <td colspan="6" style="width: 200px; background: #e6e6e6;"></td>
+            </tr>
+            <tr>
+                <td colspan="2" class="green-900 text-white">
+                    Interviewer Name
+                </td>
+                <td colspan="6" style="width: 200px; background: #e6e6e6;"></td>
+                <td colspan="2" class="green-900 text-white">Role </td>
+                <td colspan="6" style="width: 200px; background: #e6e6e6;"></td>
+            </tr>
+        </table>
+
+        <table style="width: 100%; table-layout: fixed;" cellpadding="10" cellspacing="10">
+            <tr>
+                <td class="green-900 text-white font-weight-600" colspan="8">
+                    Government Leadership Model Competency
+                </td>
+                <td class="green-900 text-white font-weight-600" colspan="8" style="padding-top: 5px; padding-bottom: 5px;">
+                    Rating<br />
+                    (where =1 Not at all developed, 5= Outstanding)
+                </td>
+            </tr>
+            <tr>
+                <td class="sq-grey-300 text-grey-400" colspan="8">
+                    Agile and Fast
+
+                </td>
+                <td class="sq-grey-300 " colspan="8"></td>
+            </tr>
+            <tr>
+                <td class="sq-grey-300 text-grey-400" colspan="8">
+                    Smart, Effective and Efficient
+
+                </td>
+                <td class="sq-grey-300 " colspan="8"></td>
+            </tr>
+            <tr>
+                <td class="sq-grey-300 text-grey-400" colspan="8">
+                    Focuses on the government’s ultimate
+
+                </td>
+                <td class="sq-grey-300 " colspan="8"></td>
+            </tr>
+            <tr>
+                <td class="sq-grey-300 text-grey-400" colspan="8">
+                    Life-long Learner
+
+                </td>
+                <td class="sq-grey-300 " colspan="8"></td>
+            </tr>
+            <tr>
+                <td class="sq-grey-300 text-grey-400" colspan="8">
+
+                    Well-versed in Advanced
+                    Technology
+
+                </td>
+                <td class="sq-grey-300 " colspan="8"></td>
+            </tr>
+            <tr>
+                <td class="sq-grey-300 text-grey-400" colspan="8">
+
+                    Innovative and Disruptive
+
+                </td>
+                <td class="sq-grey-300 " colspan="8"></td>
+            </tr>
+            <tr>
+                <td class="sq-grey-300 text-grey-400" colspan="8">
+
+                    Futuristic
+
+                </td>
+                <td class="sq-grey-300 " colspan="8"></td>
+            </tr>
+            <tr>
+                <td class="sq-grey-300 text-grey-400" colspan="8">
+
+                    Open to the World
+
+                </td>
+                <td class="sq-grey-300 " colspan="8"></td>
+            </tr>
+            <tr>
+                <td class="sq-grey-300 text-grey-400" colspan="8">
+
+                    Role Model
+
+                </td>
+                <td class="sq-grey-300 " colspan="8"></td>
+            </tr>
+            <tr>
+                <td class="sq-grey-300 text-grey-400" colspan="8">   Enabler of People </td>
+                <td class="sq-grey-300 " colspan="8"></td>
+            </tr>
+        </table>
+
+        <h2 style="color: #6e6e6e; margin-top: 30px; margin-right: 10px;">
+            Overall Recommendation
+        </h2>
+        <table style="width: 98%; table-layout: fixed; border-collapse: collapse; margin: 0 10px;" cellpadding="10">
+            <tr>
+                <td colspan="4" class="green-900 text-white font-weight-bold">Good fit for the role</td>
+                <td colspan="1" style="background: #e6e6e6;"></td>
+                <td colspan="4" class="green-900 text-white font-weight-bold">Proceed with caution </td>
+                <td colspan="1" style="background: #e6e6e6;"></td>
+                <td colspan="4" class="green-900 text-white font-weight-bold"> Not Recommended  </td>
+                <td colspan="1" style="background: #e6e6e6;"></td>
+            </tr>
+        </table>
+
+        <div class="note" style="width: 95%; height: 200px; margin: 30px auto;">Notes</div>
+    </article>
+
+</body>
+</html>

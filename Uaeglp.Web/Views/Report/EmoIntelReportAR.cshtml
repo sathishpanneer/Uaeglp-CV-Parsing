@@ -1,0 +1,881 @@
+﻿@model Uaeglp.ViewModels.AssessmentViewModels.AssessmentIndividualToolReportView
+
+@{
+    Layout = null;
+}
+
+<html>
+<head>
+    <meta charset="utf-8">
+    @*
+        <title>Demo</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="license" href="https://www.opensource.org/licenses/mit-license/">
+        <script src="script.js"></script>
+        <link href="~/css/demo.css" rel="stylesheet" />*@
+    <style>
+
+        .breakhere {
+            page-break-after: always;
+            background-color: blueviolet;
+        }
+
+        tr {
+            page-break-inside: avoid;
+            direction: rtl;
+        }
+
+        .imagetorotate {
+            -webkit-transform: rotate(200deg);
+            -webkit-backface-visibility: hidden;
+        }
+
+        body {
+            font-family: sans-serif;
+            /*background: url('~/Assets/images/bgs/well-geing-report-en.jpg');*/
+            direction: rtl;
+        }
+
+        .background {
+            position: absolute;
+            display: block;
+            min-width: 100%;
+            text-align: center;
+            background-color: transparent;
+            /*padding-top: 50%;*/
+            background: url(../../Assets/images/bgs/report-leadership-ar.jpg) no-repeat;
+            background-size: contain;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+        }
+
+        .cover-page {
+        }
+
+        .font-size-32 {
+            font-size: 32px;
+        }
+
+        .font-size-24 {
+            font-size: 24px;
+        }
+
+        .font-size-20 {
+            font-size: 20px;
+        }
+
+        .font-size-12 {
+            font-size: 12px;
+        }
+
+        .m-100 {
+            margin: 60px;
+        }
+
+        p {
+            line-height: 1.5;
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #6e6e6e;
+        }
+
+        .square .sq {
+            width: 28px;
+            height: 28px;
+            margin-right: 4px;
+            float: left;
+        }
+
+        .sq-green-600 {
+            background-color: #66cbc4;
+        }
+
+        .green-900 {
+            background: #00a99d;
+        }
+
+        .sq-green-100 {
+            background: #e0f5f3;
+        }
+
+        .sq-grey-300 {
+            background-color: #e6e6e6;
+        }
+
+        .red-100 {
+            background: #ffcbc4;
+        }
+
+        .text-grey-400 {
+            color: #6a6a6a;
+        }
+
+        table {
+            font-family: sans-serif;
+            /*text-align: left;*/
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .table-key td {
+            height: 75px;
+            padding: 8px;
+            border: 5px solid #fff;
+        }
+
+        table th {
+            padding: 8px;
+            border: 3px solid #fff;
+        }
+
+        table th {
+            color: #fff;
+        }
+
+        .w-100 {
+            width: 100px;
+        }
+
+        .w-160 {
+            width: 160px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .display-block {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .v-align-top {
+            vertical-align: top;
+        }
+
+        .font-weight-bold {
+            font-weight: bold;
+        }
+
+        .font-weight-600 {
+            font-weight: 600;
+        }
+
+        .w-p60 {
+            width: 60%;
+        }
+
+        .w-p40 {
+            width: 40%;
+        }
+
+        .h-27 {
+            height: 27px;
+        }
+
+        .mh-27 {
+            min-height: 27px;
+        }
+
+        .page-2 .sq {
+            color: #fff;
+            width: 23px;
+        }
+
+        .text-white {
+            color: #fff;
+        }
+
+        .title {
+            margin-bottom: 50px;
+            font-size: 32px;
+            font-weight: bold;
+            color: #666;
+        }
+
+        .subtitle {
+            font-weight: bold;
+            color: #666;
+            margin-top: 50px;
+        }
+
+        .note {
+            padding: 15px;
+            border: 2px solid #66cbc4;
+            color: #66cbc4;
+            height: 85px;
+        }
+
+        .page-5 .table-borderless td {
+            border: 0;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 37px;
+            padding: 0 15px;
+            border-bottom: 5px solid #fff;
+        }
+
+        .page-5 .table-borderless tr:last-child td {
+            border-bottom: 0;
+        }
+
+        .table-cell-p50 {
+            margin-top: 2px;
+        }
+
+            .table-cell-p50 td {
+                padding: 5px 15px;
+                width: 50%;
+                border: 3px solid #fff;
+                height: 50px;
+                line-height: 1.2;
+            }
+
+            .table-cell-p50 tr td:first-child {
+                border-left: 0;
+            }
+
+            .table-cell-p50 tr td:last-child {
+                border-right: 0;
+            }
+
+        .text-green {
+            color: #03a7a0;
+        }
+
+        .text-title {
+            margin-bottom: 30px;
+        }
+
+        .leadership-score-table tr:first-child td {
+            border-left: 2px solid #6e6e6e;
+            color: #6e6e6e;
+        }
+
+        .leadership-score-table tr:last-child td {
+            padding: 0;
+        }
+
+        .leadership-score-table td .sq,
+        .leadership-sprint .sq {
+            width: 50px;
+            height: 50px;
+            margin-right: 2px;
+            margin-left: 2px;
+        }
+
+            .leadership-score-table td .sq:last-child {
+                margin-right: 0;
+            }
+
+        .very-low  {
+            background-color: #c1eae6;
+        }
+
+        .low  {
+            background-color: #a3e0db;
+        }
+
+        .average  {
+            background-color: #66c9c4;
+        }
+
+        .high  {
+            background-color: #4c9792;
+        }
+
+        .very-high  {
+            background-color: #336661;
+        }
+
+        .leadership-sprint {
+            background-color: #eef0ef;
+            /*height: 90px;*/
+        }
+
+        .white-sq {
+            background-color: #fff !important;
+        }
+
+        .grey-sq {
+            background-color: #e6e6e6 !important;
+        }
+        /*.leadership-sprint .display-block{
+            display: inline-block;
+            overflow: hidden;
+        }*/
+        .leadership-sprint .sq {
+            float: right;
+        }
+
+        .career-report-table .sq {
+            width: 32px;
+            height: 32px;
+        }
+
+        table.career-report-table p {
+            margin: 0;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .career-planning {
+            height: 200px;
+            padding: 10px 15px;
+            margin-bottom: 15px;
+            color: #00b39c;
+            border: 1px solid #00b39c;
+        }
+
+        .well-being-table td {
+            vertical-align: top;
+        }
+
+        /*.overall-well-being .sq {
+            width: 78px;
+            margin-left: 4px;
+            margin-right: 4px;
+        }*/
+        .overall-eq-score .sq {
+            width: 39px;
+            height: 39px;
+        }
+    </style>
+</head>
+<body style="margin-left: 100px; margin-right: 100px; padding-top: 260px;">
+
+    <article class="cover-page">
+        <div class="background"></div>
+        <div style="">
+            <h2 class="font-size-32" style=" margin: 15px 0 0;">تعرف على</h2>
+            <h1 class="" style="font-size: 48px; margin: 0 0 15px;">ذﻛﺎﺋﻚ اﻟﻌﺎﻃﻔﻲ </h1>
+            <h2 class="font-size-32">تقرير المرشح</h2>
+        </div>
+        <div style="margin-top: 80px;">
+            <h2 style="margin: 15px 0; font-weight: 400;">الاسم : @Model.ProfileName.Arabic </h2>
+            <h2 style="margin: 15px 0; font-weight: 400;">ﺗﺎرﻳﺦ ﺗﻘﺪﻳﻢ اﻻﺧﺘﺒﺎر : @Model.CompletedOn </h2>
+            <h2 style="margin: 15px 0; font-weight: 400;">تم طباعة التقرير :@DateTime.Now.ToShortDateString() </h2>
+        </div>
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-1" style="padding-top: 100px; padding-bottom: 100px;">
+        <h2 class="text-green text-title">مقدمة</h2>
+        <p style="margin-bottom: 30px;">
+            ﻧﺸﻜﺮك ﻋﻠﻰ ﺗﻌﺒﺌﺔ اﺳﺘﺒﻴﺎن "ﺗﻌﺮف ﻋﻠﻰ ذﻛﺎﺋﻚ اﻟﻌﺎﻃﻔﻲ". ﻳﻬﺪف ﻫﺬا اﻟﺘﻘﺮﻳﺮ إﻟﻰ ﺗﻘﻴﻴﻢ أﺟﻮﺑﺘﻚ ﻋﻠﻰ اﺳﺘﺒﻴﺎن ﻣﺴﺘﻮى ذﻛﺎﺋﻚ اﻟﻌﺎﻃﻔﻲ، وﻫﻮ اﻟﻘﺪرة ﻋﻠﻰ ﻓﻬﻢ وإدارة ﻋﻮاﻃﻔﻚ وﻋﻮاﻃﻒ اﻵﺧﺮﻳﻦ. ﻓﺎﻷﻓﺮاد اﻟﺬﻳﻦ ﻳﺘﻤﺘﻌﻮن ﺑﻤﺴﺘﻮﻳﺎت أﻋﻠﻰ ﻣﻦ اﻟﺬﻛﺎء اﻟﻌﺎﻃﻔﻲ ﻳﻤﻜﻨﻬﻢ ﺗﺤﻘﻴﻖ اﻟﻨﺠﺎح ﻓﻲ وﻇﺎﺋﻔﻬﻢ وﺣﻴﺎﺗﻬﻢ اﻟﺸﺨﺼﻴﺔ ﺑﺴﻬﻮﻟﺔ أﻛﺒﺮ. وﻋﻠﻰ اﻟﺮﻏﻢ ﻣﻦ اﻟﻨﺠﺎح اﻟﺬي ﻗﺪ ﻳﺤﻘﻘﻪ اﻷﻓﺮاد ﻣﻤﻦ ﻟﺪﻳﻬﻢ ﻣﺴﺘﻮﻳﺎت أﻗﻞ ﻣﻦ اﻟﺬﻛﺎء اﻟﻌﺎﻃﻔﻲ، ﻓﺈن ﺗﺮﻗﻴﻬﻢ إﻟﻰ اﻟﻤﺴﺘﻮﻳﺎت اﻟﻌﻠﻴﺎ ﻓﻲ وﻇﺎﺋﻔﻬﻢ ﻋﺎدًة ﻣﺎ ﻳﺄﺗﻲ ﻣﻦ ﺧﻼل ﺗﻄﻮﻳﺮ ﻣﺴﺘﻮﻳﺎت اﻟﺬﻛﺎء اﻟﻌﺎﻃﻔﻲ. وﻣﻦ ﻫﺬا اﻟﻤﻨﻄﻠﻖ،  ﻟﻤﻘﺎﻳﻴﺲ اﻟﺬﻛﺎء اﻟﻌﺎﻃﻔﻲ اﻟﺘﺎﻟﻴﺔ:ًﻳﺴﺘﻌﺮض ﻫﺬا اﻟﺘﻘﺮﻳﺮ ﻣﺠﻤﻮﻋﺔ ﻣﻦ اﻟﻨﺘﺎﺋﺞ واﻟﺘﻘﻴﻴﻤﺎت وﻓقا
+        </p>
+        <table class="well-being-table" style="width: 100%; table-layout: fixed;" cellspacing="10">
+
+            <tr>
+                <td colspan="6">
+                    <table class="" style="width: 100%; table-layout: fixed; border-collapse: collapse; margin-right: auto; margin-left: auto; height: 100px;">
+
+                        <tr>
+                            <td class="text-center" colspan="3" style="background-color: #6ec9c2; padding: 0; vertical-align: middle;">
+                                <img src="~/Assets/images/bgs/well-being.png" alt="" style="width: 70%;" />
+                            </td>
+                            <td colspan="9" style="background-color: #f5f7f6; padding: 5px 10px; vertical-align: middle;">
+                                <h4 style="color: #6e6e6e; margin: 0;">الوعي</h4>
+                                <p class="font-weight-600" style="color: #6e6e6e; margin: 5px 0; font-size: 12px;">درﺟﺔ إدراﻛﻚ وﻓﻬﻤﻚ ﻟﻌﻮاﻃﻔﻚ</p>
+                            </td>
+                        </tr>
+
+                    </table>
+                </td>
+                <td colspan="6">
+                    <table class="" style="width: 100%; table-layout: fixed; border-collapse: collapse; margin-right: auto; margin-left: auto; height: 100px;">
+
+                        <tr>
+                            <td class="text-center" colspan="3" style="background-color: #6ec9c2; padding: 0; vertical-align: middle;">
+                                <img src="~/Assets/images/icons/relationship-icon.png" alt="" style="width: 70%;" />
+                            </td>
+                            <td colspan="9" style="background-color: #f5f7f6; padding: 5px 10px; vertical-align: middle;">
+                                <h4 style="color: #6e6e6e; margin: 0;">العلاقات</h4>
+                                <p class="font-weight-600" style="color: #6e6e6e; margin: 5px 0; font-size: 12px;">درجة تكوين علاقات مع الاخرين والتأثير الايجابي عليهم</p>
+                            </td>
+                        </tr>
+
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="6">
+                    <table class="" style="width: 100%; table-layout: fixed; border-collapse: collapse; margin-right: auto; margin-left: auto; height: 100px;">
+
+                        <tr>
+                            <td class="text-center" colspan="3" style="background-color: #6ec9c2; padding: 0; vertical-align: middle;">
+                                <img src="~/Assets/images/icons/regulation-icon.png" alt="" style="width: 70%;" />
+                            </td>
+                            <td colspan="9" style="background-color: #f5f7f6; padding: 5px 10px; vertical-align: middle;">
+                                <h4 style="color: #6e6e6e; margin: 0;">التنظيم</h4>
+                                <p class="font-weight-600" style="color: #6e6e6e; margin: 5px 0; font-size: 12px;">ﻣﺪى ﻗﺪرﺗﻚ ﻋﻠﻰ ﺗﻨﻈﻴﻢ ﻋﻮاﻃﻔﻚ وﺣﻔﺎﻇﻚ ﻋﻠﻰ ﻣﺸﺎﻋﺮ إﻳﺠﺎﺑﻴﺔ</p>
+                            </td>
+                        </tr>
+
+                    </table>
+                </td>
+                <td colspan="6">
+                    <table class="" style="width: 100%; table-layout: fixed; border-collapse: collapse; margin-right: auto; margin-left: auto; height: 100px;">
+
+                        <tr>
+                            <td class="text-center" colspan="3" style="background-color: #6ec9c2; padding: 0; vertical-align: middle;">
+                                <img src="~/Assets/images/icons/relationship-icon.png" alt="" style="width: 70%;" />
+                            </td>
+                            <td colspan="9" style="background-color: #f5f7f6; padding: 5px 10px; vertical-align: middle;">
+                                <h4 style="color: #6e6e6e; margin: 0;">تحمل التوتر</h4>
+                                <p class="font-weight-600" style="color: #6e6e6e; margin: 5px 0; font-size: 12px;">درﺟﺔ ﺗﺤﻤﻠﻚ ﻟﻤﺴﺘﻮﻳﺎت ﻣﻌﻴﻨﺔ ﻣﻦ اﻹﺟﻬﺎد واﻟﻀﻐﻂ اﻟﻌﺎﻟﻲ</p>
+                            </td>
+                        </tr>
+
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="6">
+                    <table class="" style="width: 100%; table-layout: fixed; border-collapse: collapse; margin-right: auto; margin-left: auto; height: 100px;">
+
+                        <tr>
+                            <td class="text-center" colspan="3" style="background-color: #6ec9c2; padding: 0; vertical-align: middle;">
+                                <img src="~/Assets/images/icons/empathy-icon.png" alt="" style="width: 70%;" />
+                            </td>
+                            <td colspan="9" style="background-color: #f5f7f6; padding: 5px 10px; vertical-align: middle;">
+                                <h4 style="color: #6e6e6e; margin: 0;">التعاطف مع الاخرين</h4>
+                                <p class="font-weight-600" style="color: #6e6e6e; margin: 5px 0; font-size: 12px;">ﻣﺪى ﻗﺪرﺗﻚ ﻋﻠﻰ اﻟﺸﻌﻮر ﺑﻤﺎ ﻳﺸﻌﺮ ﺑﻪ اﻵﺧﺮون ورؤﻳﺔ اﻷﺷﻴﺎء ﻣﻦ ﻣﻨﻈﻮرﻫﻢ</p>
+                            </td>
+                        </tr>
+
+                    </table>
+                </td>
+                <td colspan="6">
+                    <table class="" style="width: 100%; table-layout: fixed; border-collapse: collapse; margin-right: auto; margin-left: auto; height: 100px;">
+
+                        <tr>
+                            <td class="text-center" colspan="3" style="background-color: #6ec9c2; padding: 0; vertical-align: middle;">
+                                <img src="~/Assets/images/icons/emotional-flex-icon.png" alt="" style="width: 70%;" />
+                            </td>
+                            <td colspan="9" style="background-color: #f5f7f6; padding: 5px 10px; vertical-align: middle;">
+                                <h4 style="color: #6e6e6e; margin: 0;">المرونة العاطفية</h4>
+                                <p class="font-weight-600" style="color: #6e6e6e; margin: 5px 0; font-size: 12px;">ﻣﺴﺘﻮى ﻣﺮوﻧﺘﻚ ﻓﻲ اﻟﺘﻌﺎﻣﻞ ﻣﻊ ﻋﻮاﻃﻔﻚ</p>
+                            </td>
+                        </tr>
+
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="6">
+                    <table class="" style="width: 100%; table-layout: fixed; border-collapse: collapse; margin-right: auto; margin-left: auto; height: 100px;">
+
+                        <tr>
+                            <td class="text-center" colspan="3" style="background-color: #6ec9c2; padding: 0; vertical-align: middle;">
+                                <img src="~/Assets/images/icons/expression-icon.png" alt="" style="width: 70%;" />
+                            </td>
+                            <td colspan="9" style="background-color: #f5f7f6; padding: 5px 10px; vertical-align: middle;">
+                                <h4 style="color: #6e6e6e; margin: 0;">التعبير</h4>
+                                <p class="font-weight-600" style="color: #6e6e6e; margin: 5px 0; font-size: 12px;">درﺟﺔ اﻟﺜﻘﺔ ﺑﺎﻟﻨﻔﺲ اﻟﺘﻲ ﺗﺘﻤﺘﻊ ﺑﻬﺎ وﻗﺪرﺗﻚ ﻋﻠﻰ اﻟﺘﻌﺒﻴﺮ ﻋﻦ ﻋﻮاﻃﻔﻚ ﻟﻶﺧﺮﻳﻦ</p>
+                            </td>
+                        </tr>
+
+                    </table>
+                </td>
+                <td colspan="6">
+                    <table class="" style="width: 100%; table-layout: fixed; border-collapse: collapse; margin-right: auto; margin-left: auto; height: 100px;">
+
+                        <tr>
+                            <td class="text-center" colspan="3" style="background-color: #6ec9c2; padding: 0; vertical-align: middle;">
+                                <img src="~/Assets/images/smile-face.png" alt="" style="width: 70%;" />
+                            </td>
+                            <td colspan="9" style="background-color: #f5f7f6; padding: 5px 10px; vertical-align: middle;">
+                                <h4 style="color: #6e6e6e; margin: 0;">السعادة</h4>
+                                <p class="font-weight-600" style="color: #6e6e6e; margin: 5px 0; font-size: 12px;">ﻣﺪى ﺳﻌﺎدﺗﻚ وﺗﻔﺎؤﻟﻚ ﺑﺸﻜﻞ ﻋﺎم ﻓﻲ ﺗﻄﻠﻌﺎﺗﻚ اﻟﻤﺴﺘﻘﺒﻠﻴﺔ</p>
+                            </td>
+                        </tr>
+
+                    </table>
+                </td>
+            </tr>
+
+        </table>
+
+        <p>
+            " وً إﻟﻰ درﺟﺔ "ﻣﻨﺨﻔﺾ ﺟﺪا1، ﺣﻴﺚ ﻳﺸﻴﺮ اﻟﺮﻗﻢ 10 إﻟﻰ 1اﻷﺑﻌﺎد اﻟﻤﺨﺘﻠﻔﺔ ﻣﺮﺗﺒﻂ ﺑﺘﻘﻴﻴﻢ اﻵﺧﺮﻳﻦ ﻷﻧﻔﺴﻬﻢ، وﺗﻢ ﻋﺮﺿﻪ ﻋﻠﻰ ﻣﻘﻴﺎس ﻣﻦ  ﻻﻋﺘﻤﺎد اﻻﺳﺘﺒﻴﺎن ﻋﻠﻰ اﻟﺘﻘﻴﻴﻢ ً". ﻛﻤﺎ ﺗﻢ ﻋﺮض ﺷﺮح ﺗﻔﺼﻴﻠﻲ ﻟﻠﻤﺴﺎﻋﺪة ﻓﻲ ﺗﻔﺴﻴﺮ اﻟﻨﺘﺎﺋﺞ اﻟﺘﻲ ﺣﺼﻠﺖ ﻋﻠﻴﻬﺎ. وﻧﻈﺮاً إﻟﻰ "ﻣﺮﺗﻔﻊ ﺟﺪا10 اﻟﺬاﺗﻲ، ﺗﻌﻜﺲ اﻟﻨﺘﺎﺋﺞ إدراﻛﻚ اﻟﺬاﺗﻲ اﻟﺬي ﺗﺒﻴﻦ أﻧﻪ ﻣﺆﺷﺮ دﻗﻴﻖ ﻷداﺋﻚ اﻟﻌﺎﻃﻔﻲ واﻻﺟﺘﻤﺎﻋﻲ اﻟﻤﺤﺘﻤﻞ ﻓﻲ ﺑﻴﺌﺔ اﻟﻌﻤﻞ. ﻛﻤﺎ ﻳﺘﻌﻴﻦ اﻟﺘﺤﻘﻖ  دون ﺗﺪﺧﻞ ﺑﺸﺮي. وﻣﻦ اﻟﻤﺮﺟﺢ أن ًﻣﻦ ﺻﺤﺔ اﻟﻨﺘﺎﺋﺞ ﻣﻦ ﺧﻼل اﻟﻤﺰﻳﺪ ﻣﻦ اﻻﺳﺘﻜﺸﺎف واﻟﺘﺄﻣﻞ اﻟﺬاﺗﻲ، ﻻ ﺳﻴﻤﺎ وأن اﻟﺘﻘﺮﻳﺮ ﻳﺘﻢ إﻋﺪاده ﺗﻠﻘﺎﺋﻴﺎ .ً ﺷﻬﺮا18-12ﺗﻈﻞ اﻟﻨﺘﺎﺋﺞ ﺳﺎرﻳﺔ ﻟﻤﺪة
+        </p>
+
+        <p>ﻳﻤﻜﻦ اﺳﺘﺨﺪام ﻫﺬا اﻟﺘﻘﺮﻳﺮ ﻟﻠﻤﺴﺎﻋﺪة ﻓﻲ اﻟﺘﻔﻜﻴﺮ اﻟﺬاﺗﻲ واﻟﺘﻌﺮف ﻋﻠﻰ ﻣﺴﺘﻮى ذﻛﺎﺋﻚ اﻟﻌﺎﻃﻔﻲ. ﻛﻤﺎ ﻳﻤﻜﻦ اﺳﺘﺨﺪاﻣﻪ ﻟﻮﺿﻊ ﺧﻄﺔ ﺗﻄﻮﻳﺮ ﺗﺪﻋﻢ ﺗﻄﻠﻌﺎﺗﻚ اﻟﻤﻬﻨﻴﺔ اﻟﺤﺎﻟﻴﺔ واﻟﻤﺴﺘﻘﺒﻠﻴﺔ.</p>
+
+        <p>
+            ﻳﻐﻄﻲ اﻟﺘﻘﺮﻳﺮ اﻷﻗﺴﺎم اﻟﺘﺎﻟﻴﺔ:<br />
+            القسم 1: ﻣﺨﻄﻂ ﺗﻘﻴﻴﻢ اﻟﺬﻛﺎء اﻟﻌﺎﻃفى<br />
+            القسم 2: اﻟﻮﺻﻒ اﻟﺘﻔﺼﻴلي<br />
+            القسم 3: اﻗﺘﺮاﺣﺎت اﻟﺘﻄﻮير
+
+        </p>
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-2" style="padding-top: 50px; padding-bottom: 50px; margin-left: -50px; margin-right: -50px;">
+        <h2 class="font-weight-600" style="color: #626262; margin-bottom: 30px;">القسم 1: ﻣﺨﻄﻂ ﺗﻘﻴﻴﻢ ذﻛﺎﺋﻚ اﻟﻌﺎﻃفي</h2>
+
+        <table class="" style="width: 100%; table-layout: fixed; border-collapse: collapse;">
+
+            <tr class="leadership-sprint" style="height: 90px;">
+                <td colspan="14" style="padding: 15px;">
+                    <p class="font-weight-600">إﺟﻤﺎﻟﻲ ﻧﻘﺎط اﻟﺬﻛﺎء اﻟﻌﺎﻃﻔﻲ - ﻫﺬه ﻫﻲ اﻟﻨﺘﻴﺠﺔ اﻹﺟﻤﺎﻟﻴﺔ ﻋﻠﻰ ﻣﺨﺘﻠﻒ اﻟﻤﻘﺎﻳﻴﺲ، وﻫﻲ ﺗﺸﻴﺮ إﻟﻰ اﻟﻨﺴﺒﺔ اﻟﻤﺌﻮﻳﺔ ﻟﻸﺷﺨﺎص اﻟﺬﻳﻦ ﺗﻔﻮﻗﺖ ﻋﻠﻴﻬﻢ ﻓﻲ اﻟﻨﺘﺎﺋﺞ ﺿﻤﻦ ﻣﺠﻤﻮﻋﺔ اﻟﻤﻘﺎرﻧﺔ.</p>
+                    <div class="overall-eq-score">
+                        <div class="square display-block average">
+                            @{
+                                int dividedScore = int.Parse(Math.Round(Model.OverallScore / 5).ToString());
+                            }
+                            @for (int i = 1; i < 21; i++)
+                            {
+                                if (i < dividedScore)
+                                {
+                                    <div class="sq average"></div>
+                                }
+                                else if (i == dividedScore)
+                                {
+                                    <div class="sq font-weight-600 text-center average" style="color:#fff; height: 19px; padding: 10px 0;">@((int)Model.OverallScore)</div>
+
+                                }
+                                else if (i > dividedScore)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+                            }
+                         
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="5" style="padding: 15px;">
+                    <p>
+                        ﻳﻮﺿﺢ اﻟﻤﺨﻄﻂ اﻟﺘﺎﻟﻲ اﻟﻤﺴﺘﻮى اﻟﺬي ﺳﺠﻠﺘﻪ ﻣﻦ اﻷداء  ﻟﻤﺎ ﺗﻢ ﻗﻴﺎﺳﻪ ﺑﻮاﺳﻄﺔ ًاﻻﺟﺘﻤﺎﻋﻲ واﻟﻌﺎﻃﻔﻲ، وﻓﻘﺎ اﻻﺳﺘﺒﻴﺎن. ﻳﻤﻜﻦ ﺗﻔﺴﻴﺮ درﺟﺎﺗﻚ ﻋﻠﻰ ﻛﻞ ﻣﻘﻴﺎس ﻛﻤﺎ ﻳﻠﻲ:
+                    </p>
+                </td>
+                <td colspan="9" style="padding: 15px;">
+                    <table class="leadership-score-table" style="width: 100%; table-layout: fixed;">
+                        <tr>
+                            <td class="font-weight-600 text-center">منخفض جدا</td>
+                            <td class="font-weight-600 text-center">منخفض</td>
+                            <td class="font-weight-600 text-center">متوسط</td>
+                            <td class="font-weight-600 text-center">مرتفع</td>
+                            <td class="font-weight-600 text-center">مرتفع جدا</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="square display-block very-low">
+                                    <div class="sq very-low"></div>
+                                    <div class="sq very-low"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="square display-block low">
+                                    <div class="sq low"></div>
+                                    <div class="sq low"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="square display-block average">
+                                    <div class="sq average"></div>
+                                    <div class="sq average"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="square  display-block high">
+                                    <div class="sq high"></div>
+                                    <div class="sq high"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="square display-block very-high">
+                                    <div class="sq very-high"></div>
+                                    <div class="sq very-high"></div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            @foreach (var item in Model.profileScaleScoreReportsView)
+            {
+                <tr class="leadership-sprint">
+                    <td colspan="5" style="padding: 0px 15px;">
+                        <h4 style="margin-top: 10px; margin-bottom: 10px; color: #606060;">@item.ScaleName.Current</h4>
+                        <p class="font-weight-600" style="margin-bottom: 10px; margin-top: 0; color: #606060; font-size: 14px;">
+                            @item.ScaleLowDescription.Current
+                        </p>
+                    </td>
+                    <td colspan="9" style="padding: 0px 15px;">
+                        <div class="square display-block ">
+                            @if ((int)item.Score == 1)
+                            {
+                                <div class="sq very-low"></div>
+                                for (int i = 1; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+
+
+                            }
+                            else if ((int)item.Score == 2)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                for (int i = 2; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+
+                            }
+                            else if ((int)item.Score == 3)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                for (int i = 3; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+                            }
+                            else if ((int)item.Score == 4)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq low"></div>
+                                for (int i = 4; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+                            }
+                            else if ((int)item.Score == 5)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq average"></div>
+                                for (int i = 5; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+                            }
+                            else if ((int)item.Score == 6)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq average"></div>
+                                <div class="sq average"></div>
+                                for (int i = 6; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+                            }
+                            else if ((int)item.Score == 7)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq average"></div>
+                                <div class="sq average"></div>
+                                <div class="sq high"></div>
+                                for (int i = 7; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+                            }
+                            else if ((int)item.Score == 8)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq average"></div>
+                                <div class="sq average"></div>
+                                <div class="sq high"></div>
+                                <div class="sq high"></div>
+                                for (int i = 8; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+                            }
+                            else if ((int)item.Score == 9)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq average"></div>
+                                <div class="sq average"></div>
+                                <div class="sq high"></div>
+                                <div class="sq high"></div>
+                                <div class="sq very-high"></div>
+                                for (int i = 9; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+                            }
+                            else if ((int)item.Score == 10)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq average"></div>
+                                <div class="sq average"></div>
+                                <div class="sq high"></div>
+                                <div class="sq high"></div>
+                                <div class="sq very-high"></div>
+                                <div class="sq very-high"></div>
+                            }
+
+
+
+                        </div>
+
+
+                    </td>
+                </tr>
+
+                <tr style="height: 10px;"></tr>
+
+
+            }
+
+        </table>
+
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-2" style="padding-top: 50px; padding-bottom: 50px; margin-left: -50px; margin-right: -50px;">
+        <h2 class="font-weight-600" style="color: #626262; margin: 0;">القسم 2: اﻟﻮﺻﻒ اﻟﺘﻔﺼﻴﻠﻲ ﻟﻠﺬﻛﺎء اﻟﻌﺎﻃفي</h2>
+        <p style="margin-top: 0; margin-bottom: 30px">ﻳﻮﺿﺢ اﻟﻮﺻﻒ اﻟﺘﻔﺼﻴﻠﻲ أدﻧﺎه اﻟﻤﺴﺘﻮﻳﺎت اﻟﺘﻲ ﺳﺠﻠﺘﻬﺎ ﻋﻠﻰ ﻛﻞ ﻣﻘﻴﺎس ﻣﻦ ﻣﻘﺎﻳﻴﺲ اﻟﺬﻛﺎء اﻟﻌﺎﻃﻔﻲ.</p>
+        @foreach (var narrative in Model.profileScaleNarrativeDescriptionsView)
+        {
+            <p class="leadership-sprint font-weight-600" style="margin-bottom: 5px; margin-top: 15px; padding: 10px; font-size: 14px;">@narrative.ScaleName.Current</p>
+            <p class="leadership-sprint font-weight-600" style="padding: 10px; margin-top: 0; margin-bottom: 3px; font-size: 12px;">
+                @narrative.Description.Current
+            </p>
+        }
+
+        </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-3" style="padding-top: 50px; padding-bottom: 50px; margin-left: -50px; margin-right: -50px;">
+        <h2 class="font-weight-600" style="color: #626262; margin: 0;">القسم 3: ﻣﻘﺘﺮﺣﺎت اﻟﺘﻄﻮﻳﺮ</h2>
+        <p style="margin-top: 0; margin-bottom: 30px;">ﻳﺸﻴﺮ اﻟﻮﺻﻒ اﻟﺘﺎﻟﻲ إﻟﻰ ﺑﻌﺾ اﻟﻤﻘﺘﺮﺣﺎت اﻟﺨﺎﺻﺔ ﺑﺘﺤﺴﻴﻦ ذﻛﺎﺋﻚ اﻟﻌﺎﻃﻔﻲ. وﺗﺸﻴﺮ اﻷﺑﺤﺎث إﻟﻰ أن اﻟﻘﺎدرﻳﻦ ﻋﻠﻰ...</p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 3px; margin-top: 6px; padding: 10px; font-size: 14px;">الوعي</p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px; margin-top: 0; margin-bottom: 3px; font-size: 12px;">
+            إﺣﺪى اﻟﻄﺮق اﻟﺘﻲ ﻳﻤﻜﻨﻚ ﻣﻦ ﺧﻼﻟﻬﺎ زﻳﺎدة اﻟﻮﻋﻲ اﻟﺬاﺗﻲ ﻫﻲ ﻋﻦ ﻃﺮﻳﻖ ًﻳﺴﺎﻋﺪك إدراك ﻋﻮاﻃﻔﻚ وﻗﺪرﺗﻚ ﻋﻠﻰ اﻟﺘﻌﺮف ﻋﻠﻴﻬﺎ ﻋﻠﻰ ﻓﻬﻢ وﻣﻌﺮﻓﺔ ﻧﻔﺴﻚ ﺟﻴﺪا ﺑﺎﻻﺣﺘﻔﺎظ ﺑﻤﻔﻜﺮة ﻟﺘﺪوﻳﻦ أﻓﻜﺎرك وﻣﺸﺎﻋﺮك ﻋﻠﻰ ﻣﺪار اﻟﻴﻮم وﻣﺎ ﺗﺸﻌﺮ ﺑﻪ ﻋﻨﺪ اﻟﺘﻔﺎﻋﻞ ﻣﻊ ًﻗﻀﺎء ﺑﻌﺾ اﻟﻮﻗﺖ ﻓﻲ ﺗﻘﻴﻴﻢ ﻣﺸﺎﻋﺮك ﻓﻲ ﻣﻨﺎﺳﺒﺎت ﻣﺨﺘﻠﻔﺔ. ﻗﻢ ﻣﺜﻼ ، أو ﻫﻞ ﻫﻨﺎك أﺷﻴﺎء أﺧﺮى ً ﺎ ﻣﻌﻴًﻨﺎ ﻷﻓﻜﺎرك وﻣﺸﺎﻋﺮك؛ ﻋﻠﻰ ﺳﺒﻴﻞ اﻟﻤﺜﺎل ، ﻫﻞ ﻫﻨﺎك ﺑﻌﺾ اﻷﻧﺸﻄﺔ اﻟﺘﻲ ﺗﺠﻌﻠﻚ ﺳﻌﻴﺪا ًاﻵﺧﺮﻳﻦ. اﺳﺘﻌﺮض اﻟﻤﻌﻠﻮﻣﺎت وﺣﺪد ﻧﻤﻄ ﺗﺸﻌﺮك ﺑﻤﺰﻳﺪ ﻣﻦ اﻟﻐﻀﺐ؟
+        </p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 3px; margin-top: 6px; padding: 10px; font-size: 14px;">التنظيم</p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px; margin-top: 0; margin-bottom: 3px; font-size: 12px;">
+            ﻳﺴﺎﻋﺪك ﺗﻨﻈﻴﻢ وﺿﺒﻂ ﻋﻮاﻃﻔﻚ ﻟﺘﺤﻘﻴﻖ ﺣﺎﻟﺔ ﻋﺎﻃﻔﻴﺔ إﻳﺠﺎﺑﻴﺔ ﻋﻨﺪ اﻟﻤﺒﺎدرة ﺑﺒﻨﺎء ﻋﻼﻗﺎت ﺷﺨﺼﻴﺔ ﻣﻊ اﻵﺧﺮﻳﻦ. ﻫﻞ ﺗﺠﺪ ﻓﻲ ﺑﻌﺾ اﻷﺣﻴﺎن أﻧﻚ ﺗﺘﻔﺎﻋﻞ ﺑﺴﺮﻋﺔ ﻛﺒﻴﺮة ﻣﻊ ﻣﻮﻗﻒ أو إﺧﻔﺎق ﻣﻌﻴﻦ؟ ﻫﻞ ﻫﻨﺎك ﺣﺎﻻت ﻣﻌﻴﻨﺔ ﺗﺘﻔﺎﻋﻞ ﻓﻴﻬﺎ ﺑﺴﺮﻋﺔ أو ﺗﺰﻳﺪ ﻓﻴﻬﺎ ﻣﺸﺎﻋﺮك اﻟﺴﻠﺒﻴﺔ؟  ﻗﺪ ﻳﻜﻮن ﻣﻦ اﻟﻤﻔﻴﺪ أن ﺗﻄﻠﺐ ﺑﻌﺾ اﻟﻤﻼﺣﻈﺎت ﻣﻦ أﺣﺪ ﺻﺪﻗﺎء أو اﻟﺰﻣﻼء ﻋﻨﺪﻣﺎ ﺗﺘﻔﺎﻋﻞ ﺑﺴﺮﻋﺔ ﻣﻊ ﻣﻮﻗﻒ ﻣﻌﻴﻦ، ﺣﻴﺚ ﻳﺴﺎﻋﺪك ذﻟﻚ ﻋﻠﻰ رؤﻳﺔ ﻛﻴﻔﻴﺔ ﺗﻨﻈﻴﻢ اﻟﻌﻮاﻃﻒ ﻣﻦ ﻣﻨﻈﻮر آﺧﺮ
+        </p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 3px; margin-top: 6px; padding: 10px; font-size: 14px;">التعاطف مع الاخرين</p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px; margin-top: 0; margin-bottom: 3px; font-size: 12px;">
+            ﻻ ﺷﻚ أن زﻳﺎدة ﻗﺪرﺗﻚ ﻋﻠﻰ اﻟﺘﻌﺎﻃﻒ ﺑﺴﺮﻋﺔ أﻛﺒﺮ ﺳﻴﺴﺎﻋﺪك ﻋﻠﻰ ﺑﻨﺎء ﻋﻼﻗﺎت ﺟﻴﺪة ﻣﻊ اﻵﺧﺮﻳﻦ. ﻫﻞ ﺻﺎدﻓﺘﻚ ﺣﺎﻻت ﻳﻤﻜﻨﻚ ﻓﻴﻬﺎ ﻗﻀﺎء اﻟﻤﺰﻳﺪ ﻣﻦ اﻟﻮﻗﺖ ﻓﻲ اﻟﺘﻌﺮف ﻋﻠﻰ ﺷﺨﺺ ﻣﺎ؟ ﻳﺰﻳﺪ اﻻﺳﺘﻤﺎع اﻟﺠﻴﺪ ﻟﻶﺧﺮﻳﻦ ﻣﻦ ﻓﻬﻤﻚ ﻟﻮﺟﻬﺎت ﻧﻈﺮﻫﻢ وﻣﺎ ﻳﻘﻮﻣﻮن ﺑﻪ ﻣﻦ أﻓﻌﺎل. ﺣﺎول ﺗﻄﻮﻳﺮ ﻗﺪرﺗﻚ ﻋﻠﻰ ﻃﺮح اﻟﻜﺜﻴﺮ ﻣﻦ أﻧﻮاع اﻷﺳﺌﻠﺔ اﻟﻤﺨﺘﻠﻔﺔ واﻻﺳﺘﻤﺎع ﺟﻴﺪأ إﻟﻰ اﻵﺧﺮﻳﻦ، ﺑﺤﻴﺚ ﻳﺼﻞ ﻟﻶﺧﺮﻳﻦ إﺣﺴﺎس ﺣﻘﻴﻘﻲ ﺑﺄﻧﻚ ﻣﻬﺘﻢ ﺑﻤﺎ ﻳﻘﻮﻟﻮن.
+        </p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 3px; margin-top: 6px; padding: 10px; font-size: 14px;">التعبير</p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px; margin-top: 0; margin-bottom: 3px; font-size: 12px;">
+            إن ﺗﻌﺒﻴﺮك ﻋﻦ ﻣﺸﺎﻋﺮك ﺑﻄﺮﻳﻘﺔ واﺿﺤﺔ ﺧﺎﻟﻴﺔ ﻣﻦ اﻟﻐﻤﻮض ﻳﺴﺎﻋﺪ اﻵﺧﺮﻳﻦ ﻋﻠﻰ ﺗﻨﻈﻴﻢ ردودﻫﻢ ﻛﻤﺎ ﻳﺴﺎﻋﺪك ﻋﻠﻰ ﺑﻨﺎء ﻋﻼﻗﺎت أﻓﻀﻞ. وﻟﺬﻟﻚ ﻧﻨﺼﺢ ﺑﺘﺤﺪﻳﺪ اﻷوﻗﺎت اﻟﺘﻲ ﺗﺸﻌﺮ ﻓﻴﻬﺎ ﺑﺎﻧﺨﻔﺎض ﻣﺆﺷﺮ اﻟﺜﻘﺔ ﻟﺪﻳﻚ ﻓﻲ اﻟﺘﻌﺒﻴﺮ ﻋﻦ ﻋﻮاﻃﻔﻚ، وﻣﻦ ﺛﻢ ﺗﻘﻮم ﺑﺰﻳﺎدة ﺷﻌﻮرك ﺑﺎﻻرﺗﻴﺎح ﻣﻦ ﺧﻼل إﻃﻼع اﻵﺧﺮﻳﻦ ﻋﻠﻰ ﻣﺸﺎﻋﺮك ﺣﺘﻰ وإن ﻟﻢ ﺗﻜﻦ ﻋﻠﻰ ﻣﻌﺮﻓﺔ ﺟﻴﺪة ﺑﻬﻢ. ﺗﻌﻠﻢ ﺑﻌﺾ أﺳﺎﻟﻴﺐ اﻟﺘﻮاﺻﻞ وﻗﻢ ﺑﺴﺆال زﻣﻼﺋﻚ ﻓﻲ اﻟﻌﻤﻞ ﺑﺸﻜﻞ دوري ﻋﻦ ﻣﺸﺎﻋﺮﻫﻢ وﻫﻮ ﻣﺎ ﺳﻴﺠﻌﻠﻚ ﺗﺸﻌﺮ ﺑﺎﻻرﺗﻴﺎح ﻋﻨﺪﻣﺎ ﺗﻮﺻﻞ إﻟﻴﻬﻢ ﻣﺎ ﺗﺸﻌﺮ ﺑﻪ.
+        </p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 3px; margin-top: 6px; padding: 10px; font-size: 14px;">العلاقات</p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px; margin-top: 0; margin-bottom: 3px; font-size: 12px;">
+            ﻟﺘﺤﺪﻳﺪ اﻷﺷﺨﺎص اﻟﺮﺋﻴﺴﻴﻴﻦ ﻓﻲ اﻟﻌﻤﻞ اﻟﺬﻳﻦ ﻻ ً ﻛﺎﻓﻴﺎًﻳﺴﺎﻋﺪ ﺑﻨﺎء ﻋﻼﻗﺎت إﻳﺠﺎﺑﻴﺔ ﻣﻊ اﻵﺧﺮﻳﻦ ﻋﻠﻰ اﻟﺘﻘﺪم ﻓﻲ ﻣﺴﻴﺮﺗﻚ اﻟﻤﻬﻨﻴﺔ وﺗﻄﻮﻳﺮ ﺣﻴﺎﺗﻚ ﺧﺎرج اﻟﻌﻤﻞ. ﺧﺬ وﻗﺘﺎ ﺑﻌﺪ، واﺑﺤﺚ ﻋﻦ اﻟﻔﺮص اﻟﻤﻨﺎﺳﺒﺔ ﻟﺒﻨﺎء ﻋﻼﻗﺔ ﻣﻌﻬﻢ. اﻃﺮح اﻷﺳﺌﻠﺔ، واﺳﻌﻰ إﻟﻰ إﺷﺮاﻛﻬﻢ وﻓﻬﻢ ﻣﺨﺎوﻓﻬﻢ اﻷﺳﺎﺳﻴﺔ، وﻫﻮ ﻣﺎ ﺳﻴﺴﺎﻋﺪك ﻓﻲ ﺑﻨﺎء ًﺗﻌﺮﻓﻬﻢ ﺟﻴﺪا اﻟﻌﻼﻗﺎت. ﺣﺎول أن ﺗﺨﺮج ﻣﻦ ﻣﻨﻄﻘﺔ اﻟﺮاﺣﺔ اﻟﺨﺎﺻﺔ ﺑﻚ واﺑﺪأ ﻓﻲ اﻟﺘﻮاﺻﻞ ﻣﻊ اﻵﺧﺮﻳﻦ، واﺣﺮص ﻋﻠﻰ ﺗﺤﺴﻴﻦ ﺳﻤﺎﺗﻚ اﻟﺸﺨﺼﻴﺔ داﺧﻞ اﻟﻤﺆﺳﺴﺔ ﻟﺘﺸﺠﻊ اﻵﺧﺮﻳﻦ ﻋﻠﻰ اﻻﻗﺘﺮاب ﻣﻨﻚ وﺗﺘﻤﻜﻦ ﻣﻦ اﻻﻗﺘﺮاب ﻣﻨﻬﻢ.
+        </p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 3px; margin-top: 6px; padding: 10px; font-size: 14px;">تحمل التوتر</p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px; margin-top: 0; margin-bottom: 3px; font-size: 12px;">
+            ﺗﻌﺘﺒﺮ اﻟﻘﺪرة ﻋﻠﻰ ﺗﺤﻤﻞ ﻣﺴﺘﻮى ﻣﻌﻴﻦ ﻣﻦ اﻹﺟﻬﺎد أو اﻟﻀﻐﻂ ﻓﻲ اﻟﻌﻤﻞ إﺣﺪى اﻟﻤﻬﺎرات اﻟﻤﻔﻴﺪة ﻓﻲ اﻟﺘﻄﻮﻳﺮ واﻟﻌﻤﻞ ﺑﺸﻜﻞ ﻓﻌﺎل ﻓﻲ اﻟﻤﺴﺘﻮﻳﺎت اﻟﻌﻠﻴﺎ. وﻟﺘﻘﻠﻴﻞ ﻣﺴﺘﻮﻳﺎت اﻹﺟﻬﺎد ﻟﺪﻳﻚ ﺑﺸﻜﻞ ﻋﺎم، ﻓﻜﺮ ﻓﻲ ﻣﺎ إذا ﻛﺎن ﻣﻦ اﻟﻤﻤﻜﻦ ﺗﻘﻠﻴﻞ ﺑﻌﺾ ﻋﻮاﻣﻞ اﻹﺟﻬﺎد اﻟﺘﻲ ﺗﺘﻌﺮض ﻟﻬﺎ - ﻋﻠﻰ ﺳﺒﻴﻞ اﻟﻤﺜﺎل ، إذا ﻛﺎن ﻫﻨﺎك ، ﻗﻢ ﺑﺘﻐﻴﻴﺮ ﻃﺮﻳﻘﺔ ﺗﻘﻴﻴﻢ اﻟﻤﻮاﻗﻒ اﻟﻤﺠﻬﺪة - ﺗﻌﻠﻢ أﺳﺎﻟﻴﺐ ﺳﻠﻮﻛﻴﺔ ً، ﻓﻬﻞ ﻫﻨﺎك ﻓﺮﺻﺔ ﻹﺑﻌﺎد ﻧﻔﺴﻚ ﻋﻦ ﻫﺬا اﻟﻮﺿﻊ؟ ﺛﺎﻧﻴﺎًﺷﻲء ﻻ ﺗﺴﺘﻤﺘﻊ ﺑﻪ أو ﺗﺠﺪه ﻣﺠﻬﺪا وإدراﻛﻴﺔ ﻟﻤﺴﺎﻋﺪﺗﻚ ﻋﻠﻰ ﺗﻐﻴﻴﺮ ﻃﺮﻳﻘﺔ ﺗﻔﻜﻴﺮك ﻓﻲ اﻷﻣﻮر اﻟﻤﺠﻬﺪة ﻓﻲ ﺣﻴﺎﺗﻚ ﺣﺘﻰ ﺗﻜﻮن أﻛﺜﺮ إﻳﺠﺎﺑﻴﺔ أو اﻟﺘﻔﻜﻴﺮ ﺑﺸﻜﻞ ﻣﺨﺘﻠﻒ، وﻫﺬا ﺳﻴﻘﻠﻞ ﻣﻦ ﺗﺠﺮﺑﺔ اﻹﺟﻬﺎد. ، ﻓﻜﺮ ﻓﻲ ﺗﺤﺴﻴﻦ اﻟﻄﺮﻳﻘﺔ اﻟﺘﻲ ﺗﺘﻌﺎﻣﻞ ﺑﻬﺎ ﻣﻊ اﻹﺟﻬﺎد ﻋﻦ ﻃﺮﻳﻖ زﻳﺎدة اﻟﺘﻤﺮﻳﻨﺎت اﻟﺒﺪﻧﻴﺔ، وإدﺧﺎل أﺳﺎﻟﻴﺐ اﻻﺳﺘﺮﺧﺎء ﻓﻲ روﺗﻴﻨﻚ اﻟﻴﻮﻣﻲ، واﻟﻌﻤﻞ ﻋﻠﻰ ًأﺧﻴﺮا اﻻﺳﺘﻤﺘﺎع ﺑﻤﺎ ﺗﺤﺐ ﺧﺎرج أوﻗﺎت اﻟﻌﻤﻞ.
+        </p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 3px; margin-top: 6px; padding: 10px; font-size: 14px;">المرونة العاطفية</p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px; margin-top: 0; margin-bottom: 3px; font-size: 12px;">
+            ﺗﺴﺎﻋﺪك اﻟﻤﺮوﻧﺔ ﻣﻊ ﻋﻮاﻃﻔﻚ ﻋﻠﻰ اﻟﺤﻔﺎظ ﻋﻠﻰ أﺳﻠﻮب دﻳﻨﺎﻣﻴﻜﻲ ﻓﻲ اﻟﻌﻤﻞ، ﻛﻤﺎ ﺗﻌﻨﻲ أﻧﻚ ﻗﺎدر ﻋﻠﻰ اﻟﺘﻜﻴﻒ ﺑﺸﻜﻞ ﺟﻴﺪ ﻣﻊ اﻟﻈﺮوف اﻟﻤﺘﻐﻴﺮة. ﺣﺪد اﻷوﻗﺎت اﻟﺘﻲ ﻟﻢ ﺗﺘﺤﻞ ﻓﻴﻬﺎ ﺑﺎﻟﻤﺮوﻧﺔ واﻃﻠﺐ ﻣﻼﺣﻈﺎت اﻵﺧﺮﻳﻦ. اﺑﺤﺚ ﻓﻲ أﺳﺒﺎب ﻋﺪم ﻣﺮوﻧﺘﻚ وﻓﻜﺮ ﻓﻲ اﻟﺘﺼﺮف ﺑﺸﻜﻞ ﻣﺨﺘﻠﻒ. ﺣﺎول أن ﺗﻤﺎرس اﻟﺘﻔﻜﻴﺮ ﻓﻲ اﻟﻄﺮق اﻟﺘﻲ ﻳﻤﻜﻨﻚ ﻣﻦ ﺧﻼﻟﻬﺎ اﻟﻘﻴﺎم ﺑﺎﻷﺷﻴﺎء ﺑﺸﻜﻞ ﻣﺨﺘﻠﻒ وﻣﺎ إذا ﻛﺎن ﺑﺈﻣﻜﺎﻧﻚ ﺗﺠﺮﺑﺔ ﻃﺮﻳﻘﺔ أﺧﺮى ﻟﺘﺤﻘﻴﻖ اﻟﻤﻬﺎم. ﺣﻴﺚ ﻳﺆدي ﻣﺠﺮد إﺟﺮاء ﺗﻐﻴﻴﺮات ﺻﻐﻴﺮة واﻟﺘﺤﻠﻲ ﺑﺸﻲء ﻣﻦ اﻟﻤﺮوﻧﺔ ﻓﻲ ﺑﻌﺾ اﻷﺣﻴﺎن إﻟﻰ ﻣﻨﺤﻨﺎ اﻟﺜﻘﺔ ﻹﺟﺮاء ﺗﻐﻴﻴﺮات ﻋﻠﻰ ﻧﻄﺎق أوﺳﻊ. اﻗﺮأ ﺑﻌﺾ اﻟﻤﻮاد اﻟﻤﺘﻌﻠﻘﺔ ﺑﺈدارة اﻟﺘﻐﻴﻴﺮ وﻗﻢ ﺑﺘﺴﺠﻴﻞ ﻣﺰاﻳﺎ اﻟﺘﻐﻴﻴﺮ ﻓﻲ ذﻫﻨﻚ ﻋﻨﺪﻣﺎ  ﻟﻔﺮص اﻟﻨﻤﻮ اﻟﺘﻲ ﻳﻮﻓﺮﻫﺎ. ًﻳﺘﻄﻠﺐ اﻷﻣﺮ ﻣﻨﻚ ﻣﺮة أﺧﺮى ﺗﻐﻴﻴﺮ أﺳﻠﻮﺑﻚ، ﺣﻴﺚ ﻣﻦ اﻟﻤﻤﻜﻦ اﻻﺳﺘﻔﺎدة ﻣﻦ اﻟﺠﻮاﻧﺐ اﻹﻳﺠﺎﺑﻴﺔ ﻓﻲ اﻟﺘﻐﻴﻴﺮ ﻧﻈﺮ
+        </p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 3px; margin-top: 6px; padding: 10px; font-size: 14px;">السعادة</p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px; margin-top: 0; margin-bottom: 3px; font-size: 12px;">
+            ﺗﺴﺎﻋﺪك اﻟﺴﻌﺎدة ﻋﻠﻰ اﻟﺤﻔﺎظ ﻋﻠﻰ إﻳﺠﺎﺑﻴﺘﻚ ﻓﻲ وﺟﻪ اﻹﺧﻔﺎﻗﺎت، ﻛﻤﺎ ﺗﺴﺎﻋﺪ ﻋﻠﻰ ﺗﺤﺴﻴﻦ اﻟﺬﻛﺎء اﻟﻌﺎﻃﻔﻲ ﺑﺸﻜﻞ ﻋﺎم. وﻟﺮﻓﻊ ﻣﺴﺘﻮى اﻟﺴﻌﺎدة، اﻛﺘﺐ ﺛﻼﺛﺔ أﺷﻴﺎء . ﻓﻜﺮ ﻓﻲ اﻟﻘﻴﺎم ﺑﻬﺬه اﻷﺷﻴﺎء أﻛﺜﺮ ﻟﺘﺤﺴﻴﻦ ﻣﺰاﺟﻚ وإﻳﺠﺎﺑﻴﺘﻚ ﺑﺸﻜﻞ ﻋﺎم. ﻓّﻜﺮ ﻓﻲ ﻛﻴﻔﻴﺔ ﺗﻐﻴﻴﺮ ﻃﺮﻳﻘﺔ ﺗﻔﻜﻴﺮك ﻋﻦ ﻧﻔﺴﻚ ﻣﻦ ﺧﻼل ً وراﺿﻴﺎً وﻣﺒﺘﻬﺠﺎًﺗﺠﻌﻠﻚ ﺳﻌﻴﺪا ﺗﻘﻴﻴﻢ ﻣﺎ ﺗﻘﺪﻣﻪ ﻣﻦ ﻣﺴﺎﻫﻤﺎت إﻳﺠﺎﺑﻴﺔ. أﻇﻬﺮ اﻻﻣﺘﻨﺎن وﺣﺎول اﻟﺘﻔﻜﻴﺮ ﻓﻲ اﻷﺷﻴﺎء اﻹﻳﺠﺎﺑﻴﺔ اﻟﺘﻲ ﺗﺤﻈﻰ ﺑﻬﺎ. وﻳﻤﻜﻨﻚ ﻛﺬﻟﻚ أن ﺗﺘﺼﻮر ﻧﻔﺴﻚ ﺑﺄﻓﻀﻞ ﻣﺎ ﻳﻜﻮن ﻣﻦ ﺧﻼل ﺗﺪوﻳﻦ أﻓﻀﻞ ﻣﺎ ﺗﺮى ﻧﻔﺴﻚ ﻋﻠﻴﻪ ﻓﻲ اﻟﻤﺴﺘﻘﺒﻞ واﻟﺘﻔﻜﻴﺮ ﻓﻴﻤﺎ ﺳﺘﺒﺪو ﻋﻠﻴﻪ ﻋﻨﺪﻣﺎ ﺗﺤﻘﻖ ﻣﺎ ﺗﺴﻌﻰ إﻟﻴﻪ.
+        </p>
+
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-5" style="padding-top: 100px; padding-bottom: 100px;">
+        <h2 class="font-weight-600" style="color: #626262;">القسم 3: ﻣﺼﻔﻮﻓﺔ اﻟﻜﻔﺎءات</h2>
+        <p style="margin-bottom: 30px;">
+            ﻓﻲ ﺗﺤﻘﻴﻖ اﻟﻨﺠﺎح اﻟﻤﻬﻨﻲ ﻻ ﺳﻴﻤﺎ ﻣﻊ اﻟﺘﺮﻗﻲ إﻟﻰ اﻟﻤﻨﺎﺻﺐ اﻟﻌﻠﻴﺎ، ﺣﻴﺚ ً ﻣﺤﻮرﻳﺎًﻳﺆدي اﻟﺬﻛﺎء اﻟﻌﺎﻃﻔﻲ دورا ﻳﺴﺎﻋﺪك اﻟﺬﻛﺎء اﻟﻌﺎﻃﻔﻲ ﻋﻠﻰ اﻷداء اﻟﺠﻴﺪ ﻓﻲ اﻟﻌﺪﻳﺪ ﻣﻦ اﻟﻜﻔﺎءات. ﻟﻜﻦ اﻟﻜﻔﺎءات اﻟﻤﺤﺪدة ﻓﻲ ﺑﺮﻧﺎﻣﺞ ﻗﻴﺎدات ﺎ وﺛﻴًﻘﺎ ﺑﺎﻟﺬﻛﺎء اﻟﻌﺎﻃﻔﻲ ﻫﻲ: ًﺣﻜﻮﻣﺔ اﻹﻣﺎرات واﻟﺘﻲ ﺗﺮﺗﺒﻂ ارﺗﺒﺎﻃ
+        </p>
+        <table class="well-being-table" style="width: 100%; table-layout: fixed;" cellspacing="10">
+
+            <tr>
+                <td colspan="3" style="background-color: #66c9c4; vertical-align: middle; padding: 10px 15px;">
+                    <h4 class="font-weight-600" style="color: #fff; margin: 0;">اﻹﻧﺠﺎز واﻟﺘﺄﺛﻴﺮ </h4>
+                </td>
+                <td colspan="9" style="background-color: #e6e6e6; vertical-align: middle; padding: 10px 15px;">
+                    <p style="color: #696969; margin: 0; line-height: 1.2;">يصنع قرارات ذكية وفعالة وكفؤة</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="3" style="background-color: #66c9c4; vertical-align: middle; padding: 10px 15px;">
+                    <h4 class="font-weight-600" style="color: #fff; margin: 0;">النظرة المستقبلية</h4>
+                </td>
+                <td colspan="9" style="background-color: #e6e6e6; vertical-align: middle; padding: 10px 15px;">
+                    <p style="color: #696969; margin: 0; line-height: 1.2;">ﻣﺘﻌﻠﻢ ﺑﺈﺳﺘﻤﺮار وﻣﺪى اﻟﺤﻴﺎة</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="3" style="background-color: #66c9c4; vertical-align: middle; padding: 10px 15px;">
+                    <h4 class="font-weight-600" style="color: #fff; margin: 0;">الروح القيادية</h4>
+                </td>
+                <td colspan="9" style="background-color: #e6e6e6; vertical-align: middle; padding: 10px 15px;">
+                    <p style="color: #696969; margin: 0; line-height: 1.2;">ﻣﻨﻔﺘﺢ ﻋﻠﻰ اﻟﻌﺎﻟﻢ</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="3" style="vertical-align: middle; padding: 10px 15px;"></td>
+                <td colspan="9" style="background-color: #e6e6e6; vertical-align: middle; padding: 10px 15px;">
+                    <p style="color: #696969; margin: 0; line-height: 1.2;">قدوة حسنة</p>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="3" style="vertical-align: middle; padding: 10px 15px;"></td>
+                <td colspan="9" style="background-color: #e6e6e6; vertical-align: middle; padding: 10px 15px;">
+                    <p style="color: #696969; margin: 0; line-height: 1.2;">ﻤّﻜﻦ ﻟﻺﻧﺴﺎن ُ ﻣ</p>
+                </td>
+            </tr>
+
+        </table>
+    </article>
+
+</body>
+</html>

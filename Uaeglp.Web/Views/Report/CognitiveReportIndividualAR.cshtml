@@ -1,0 +1,437 @@
+﻿@model Uaeglp.ViewModels.AssessmentViewModels.AssessmentIndividualToolReportView
+    @{
+	Layout = null;
+}
+
+<html>
+<head>
+    <meta charset="utf-8">
+    @*<title>Demo</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="license" href="https://www.opensource.org/licenses/mit-license/">
+        <script src="script.js"></script>
+        <link href="~/css/demo.css" rel="stylesheet" />*@
+    <style>
+
+        .breakhere {
+            page-break-after: always;
+            background-color: blueviolet;
+        }
+
+        tr {
+            page-break-inside: avoid;
+            direction: rtl;
+        }
+
+        .imagetorotate {
+            -webkit-transform: rotate(200deg);
+            -webkit-backface-visibility: hidden;
+        }
+
+        body {
+            font-family: sans-serif;
+            background: url('~/Assets/images/bgs/cognitive-report-individual.jpg');
+            direction: rtl;
+        }
+
+        .background {
+            position: absolute;
+            display: block;
+            min-width: 100%;
+            text-align: center;
+            background-color: transparent;
+            /*padding-top: 50%;*/
+            background: url(../../Assets/images/bgs/cognitive-report-individual.jpg) no-repeat;
+            background-size: contain;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+        }
+
+        .cover-page {
+        }
+
+        .font-size-32 {
+            font-size: 32px;
+        }
+
+        .font-size-24 {
+            font-size: 24px;
+        }
+
+        .font-size-20 {
+            font-size: 20px;
+        }
+
+        .font-size-12 {
+            font-size: 12px;
+        }
+
+        .m-100 {
+            margin: 60px;
+        }
+
+        p {
+            line-height: 1.5;
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #6e6e6e;
+        }
+
+        .square .sq {
+            width: 28px;
+            height: 28px;
+            margin-right: 4px;
+            float: left;
+        }
+
+        .sq-green-600 {
+            background-color: #66cbc4;
+        }
+
+        .green-900 {
+            background: #00a99d;
+        }
+
+        .sq-green-100 {
+            background: #e0f5f3;
+        }
+
+        .sq-grey-300 {
+            background-color: #e6e6e6;
+        }
+
+        .red-100 {
+            background: #ffcbc4;
+        }
+
+        .text-grey-400 {
+            color: #6a6a6a;
+        }
+
+        table {
+            font-family: sans-serif;
+            /*text-align: left;*/
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .table-key td {
+            height: 75px;
+            padding: 8px;
+            border: 5px solid #fff;
+        }
+
+        table th {
+            padding: 8px;
+            border: 3px solid #fff;
+        }
+
+        table th {
+            color: #fff;
+        }
+
+        .w-100 {
+            width: 100px;
+        }
+
+        .w-160 {
+            width: 160px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .display-block {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .v-align-top {
+            vertical-align: top;
+        }
+
+        .font-weight-bold {
+            font-weight: bold;
+        }
+
+        .font-weight-600 {
+            font-weight: 600;
+        }
+
+        .w-p60 {
+            width: 60%;
+        }
+
+        .w-p40 {
+            width: 40%;
+        }
+
+        .h-27 {
+            height: 27px;
+        }
+
+        .mh-27 {
+            min-height: 27px;
+        }
+
+        .page-2 .sq {
+            color: #fff;
+            width: 23px;
+        }
+
+        .text-white {
+            color: #fff;
+        }
+
+        .title {
+            margin-bottom: 50px;
+            font-size: 32px;
+            font-weight: bold;
+            color: #666;
+        }
+
+        .subtitle {
+            font-weight: bold;
+            color: #666;
+            margin-top: 50px;
+        }
+
+        .note {
+            padding: 15px;
+            border: 2px solid #66cbc4;
+            color: #66cbc4;
+            height: 85px;
+        }
+
+        .page-5 .table-borderless td {
+            border: 0;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 37px;
+            padding: 0 15px;
+            border-bottom: 5px solid #fff;
+        }
+
+        .page-5 .table-borderless tr:last-child td {
+            border-bottom: 0;
+        }
+
+        .table-cell-p50 {
+            margin-top: 2px;
+        }
+
+            .table-cell-p50 td {
+                padding: 5px 15px;
+                width: 50%;
+                border: 3px solid #fff;
+                height: 50px;
+                line-height: 1.2;
+            }
+
+            .table-cell-p50 tr td:first-child {
+                border-left: 0;
+            }
+
+            .table-cell-p50 tr td:last-child {
+                border-right: 0;
+            }
+
+        .text-green {
+            color: #03a7a0;
+        }
+
+        .text-title {
+            margin-bottom: 30px;
+        }
+
+        .leadership-score-table tr:first-child td {
+            border-left: 2px solid #6e6e6e;
+            color: #6e6e6e;
+        }
+
+        .leadership-score-table tr:last-child td {
+            padding: 0;
+        }
+
+        .leadership-score-table td .sq,
+        .leadership-sprint .sq {
+            width: 52px;
+            height: 52px;
+            margin-right: 2px;
+            margin-left: 2px;
+        }
+
+            .leadership-score-table td .sq:last-child {
+                margin-right: 0;
+            }
+
+        .very-low .sq {
+            background-color: #c1eae6;
+        }
+
+        .low .sq {
+            background-color: #a3e0db;
+        }
+
+        .average .sq {
+            background-color: #66c9c4;
+        }
+
+        .high .sq {
+            background-color: #4c9792;
+        }
+
+        .very-high .sq {
+            background-color: #336661;
+        }
+
+        .leadership-sprint {
+            background-color: #eef0ef;
+        }
+
+        .white-sq {
+            background-color: #fff !important;
+        }
+        /*.leadership-sprint .display-block{
+            display: inline-block;
+            overflow: hidden;
+        }*/
+        .leadership-sprint .sq {
+            float: right;
+        }
+    </style>
+</head>
+<body style="margin-left: 100px; margin-right: 100px; padding-top: 260px;">
+
+    <article class="cover-page">
+        <div class="background"></div>
+        <div style="">
+            <h2 class="font-size-32" style=" margin: 15px 0 10px;">اﺧﺘﺒﺎر </h2>
+            <h1 class="" style="font-size: 48px; margin: 15px 0;">اﻟﻘﺪرات اﻟﻤﻌﺮﻓﻴﺔ </h1>
+            <h2 class="font-size-32">تقرير المرشح</h2>
+        </div>
+        <div style="margin-top: 80px;">
+
+            <h2 style="margin: 15px 0; font-weight: 400;">الاسم : @Model.ProfileName.Arabic </h2>
+            <h2 style="margin: 15px 0; font-weight: 400;">ﺗﺎرﻳﺦ ﺗﻘﺪﻳﻢ اﻻﺧﺘﺒﺎر : @Model.CompletedOn </h2>
+            <h2 style="margin: 15px 0; font-weight: 400;">تم طباعة التقرير :@DateTime.Now.ToShortDateString() </h2>
+        </div>
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-1" style="padding-top: 100px; padding-bottom: 100px;">
+        <h2 class="text-green text-title">مقدمة</h2>
+        <p>
+            ﻧﺸﻜﺮك ﻋﻠﻰ إﺗﻤﺎم اﺧﺘﺒﺎر "اﻟﻘﺪرات اﻟﻤﻌﺮﻓﻴﺔ". ﻳﻘﻴﺲ ﻫﺬا اﻻﺧﺘﺒﺎر ﻗﺪراﺗﻚ وﻣﻬﺎراﺗﻚ وﺳﺮﻋﺘﻚ ﻓﻲ اﻟﺘﻌﺎﻣﻞ ﻣﻊ اﻟﻤﻌﻠﻮﻣﺎت اﻟﻌﺪدﻳﺔ، واﻟﻤﻜﺘﻮﺑﺔ، واﻟﻤﻨﻄﻘﻴﺔ ﻣﺜﻞ اﻷﺷﻜﺎل واﻷﻧﻤﺎط. وﻗﺪ أﺷﺎرت اﻷﺑﺤﺎث إﻟﻰ أﻫﻤﻴﺔ ﻫﺬه اﻟﻘﺪرات اﻟﻤﻌﺮﻓﻴﺔ ﻓﻲ ﺗﺤﻘﻴﻖ اﻟﻨﺠﺎح ﻓﻲ اﻟﻌﺪﻳﺪ ﻣﻦ اﻟﻮﻇﺎﺋﻒ، ﻛﺎ أﻇﻬﺮت أن اﻷﺷﺨﺎص اﻟﺬﻳﻦ ﻳﺤﺼﻠﻮن ﻋﻠﻰ ﺗﻘﻴﻴﻢ ﻣﺮﺗﻔﻊ ﻓﻲ ﻫﺬه اﻻﺧﺘﺒﺎرات ﺗﺘﺰاﻳﺪ اﺣﺘﻤﺎﻟﻴﺔ ﻧﺠﺎﺣﻬﻢ ﻓﻲ وﻇﺎﺋﻔﻬﻢ وﺗﻤﻴﺰ أداﺋﻬﻢ ﻣﻘﺎرﻧﺔ ﺑﺎﻷﺷﺨﺎص اﻟﺤﺎﺻﻠﻴﻦ ﻋﻠﻰ ﺗﻘﻴﻴﻢ أﻗﻞ.
+            <br />وﻳﻘﻴﺲ ﻫﺬا اﻻﺧﺘﺒﺎر ﺗﺤﺪﻳﺪ اﻟﻌﻨﺎﺻﺮ اﻟﺘﺎﻟﻴﺔ:
+
+        </p>
+        <p>
+            <strong>اﻟﻘﺪرات اﻟﻌﺪدﻳﺔ – </strong>وﻫﻲ اﻟﻘﺪرة ﻋﻠﻰ ﺗﺤﻠﻴﻞ اﻟﺒﻴﺎﻧﺎت اﻟﻌﺪدﻳﺔ ﻓﻲ اﻟﺠﺪاول واﻟﺮﺳﻮم اﻟﺒﻴﺎﻧﻴﺔ، وإﺟﺮاء اﻟﻌﻤﻠﻴﺎت اﻟﺤﺴﺎﺑﻴﺔ اﻷﺳﺎﺳﻴﺔ ﻟﺘﺤﺪﻳﺪ اﻹﺟﺎﺑﺔ اﻟﺼﺤﻴﺤﺔ.
+        </p>
+
+        <p>
+            <strong>اﻟﻘﺪرات اللغوية – </strong> وﻫﻲ اﻟﻘﺪرة ﻋﻠﻰ ﺗﻘﻴﻴﻢ وﺗﻔﺴﻴﺮ اﻟﻤﻌﻠﻮﻣﺎت اﻟﻠﻐﻮﻳﺔ اﻟﺘﺤﺮﻳﺮﻳﺔ ﻓﻲ اﻟﻔﻘﺮات اﻟﻤﻜﺘﻮﺑﺔ واﻟﻮﺻﻮل إﻟﻰ اﻻﺳﺘﻨﺘﺎﺟﺎت اﻟﺼﺤﻴﺤﺔ.
+        </p>
+
+        <p>
+            <strong>اﻟﻘﺪرات المنطقية – </strong>وﻫﻲ اﻟﻘﺪرة ﻋﻠﻰ ﺗﺤﻠﻴﻞ اﻷﻧﻤﺎط وﺗﺴﻠﺴﻞ اﻟﻤﻌﻠﻮﻣﺎت، ﻣﺜﻞ أﻧﻤﺎط اﻷﺷﻜﺎل واﻟﺮﺳﻮم، واﺳﺘﺨﺪاﻣﻬﺎ ﻓﻲ ﺣﻞ اﻟﻤﺴﺎﺋﻞ واﺳﺘﺨﻼص اﻻﺳﺘﻨﺘﺎﺟﺎت اﻟﻤﻨﻄﻘﻴﺔ.
+        </p>
+
+        <p>
+            وﻗﺪ أﺟﺮﻳﺖ ﻣﻘﺎرﻧﺔ ﺑﻴﻦ اﻟﻨﺘﺎﺋﺞ اﻟﺘﻲ ﺣﻘﻘﺘﻬﺎ ﻓﻲ اﻻﺧﺘﺒﺎر اﻟﺬي ﺧﻀﻌﺖ ﻟﻪ وﻧﺘﺎﺋﺞ ﻣﺠﻤﻮﻋﺔ ﻣﻦ اﻟﻤﻮاﻃﻨﻴﻴﻦ اﻹﻣﺎراﺗﻴﻴﻦ اﻟﺬﻳﻦ ﺧﻀﻌﻮا ﻟﻨﻔﺲ اﻻﺧﺘﺒﺎر ﻣﻦ ﻗﺒﻞ.
+        </p>
+
+        <p>
+            ﻷن ًوﺗﺄﺗﻲ ﻧﺘﺎﺋﺞ اﻻﺧﺘﺒﺎر ﻓﻲ ﺻﻮرة ﺗﻘﺮﻳﺮ ﻳﻮﺿﺢ ﺗﻘﻴﻴﻤﻚ ﻣﻘﺎرﻧﺔ ﺑﺘﻘﻴﻴﻢ اﻷﺷﺨﺎص اﻟﺬﻳﻦ ﺧﺎﺿﻮا اﻻﺧﺘﺒﺎر ﻧﻔﺴﻪ ﻓﻲ وﻗﺖ ﺳﺎﺑﻖ. وﻧﻈﺮا اﻻﺧﺘﺒﺎرات ﻟﻬﺎ وﻗﺖ ﻣﺤﺪد، ﻓﺈن ﺳﺮﻋﺔ إﺟﺎﺑﺘﻚ ﻋﻠﻰ اﻷﺳﺌﻠﺔ ﺗﻮﺿﻊ ﻓﻲ اﻻﻋﺘﺒﺎر وﺗﺆﺛﺮ ﻋﻠﻰ ﻧﺘﺎﺋﺞ اﻻﺧﺘﺒﺎرات وﻛﺬﻟﻚ ﻋﻠﻰ اﻟﺘﻘﻴﻴﻢ اﻟﻜﻠﻲ. وﺗﻤﺘﺪ ا.ً ﺷﻬﺮ12-18ﺻﻼﺣﻴﺔ ﻫﺬه اﻟﻨﺘﺎﺋﺞ ﻟﻤﺪة
+        </p>
+
+        <p>
+            وﻳﺘﻨﺎول اﻟﺘﻘﺮﻳﺮ اﻷﻗﺴﺎم اﻟﺘﺎﻟﻴﺔ: <br />
+            اﻟﻘﺴﻢ اﻷول: ﻧﺘﺎﺋﺞ اﻟﺘﻘﻴﻴﻢ اﻟﻜﻠﻲ واﻻﺧﺘﺒﺎرات اﻟﻤﻨﻔﺼﻠﺔ <br />
+            اﻟﻘﺴﻢ اﻟﺜﺎﻧﻲ: ﺗﻌﺰﻳﺰ اﻟﻘﺪرات اﻟﻤﻌﺮﻓﻴﺔ
+        </p>
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-2" style="padding-top: 50px; padding-bottom: 50px; margin-left: -50px; margin-right: -50px;">
+        <h2 class="font-weight-600" style="color: #626262; margin-bottom: 80px;">اﻟﻘﺴﻢ اﻷول: ﻧﺘﺎﺋﺞ اﻟﺘﻘﻴﻴﻢ اﻟﻜﻠﻲ واﻻﺧﺘﺒﺎرات اﻟﻤﻨﻔﺼﻠﺔ</h2>
+
+
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 5px; padding: 10px 20px; color: #6e6e6e;">ﻟﺘﻘﻴﻴﻢ اﻟﻜﻠﻲ</p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px 20px 30px; margin-top: 0; min-height: 100px;">
+      @Model.profileCognitiveNarrativeDescriptionView.OverallScoreNarrativeDescription.Current  </p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 5px; padding: 10px 20px;">ﺗﻘﻴﻴﻢ اﺧﺘﺒﺎر اﻟﻘﺪرات اﻟﻌﺪدﻳﺔ</p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px 20px 30px; margin-top: 0; min-height: 100px;">
+            @Model.profileCognitiveNarrativeDescriptionView.NumericalScoreNarrativeDescription.Current
+        </p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 5px; padding: 10px 20px;">ﺗﻘﻴﻴﻢ اﺧﺘﺒﺎر اﻟﻘﺪرات اﻟﻠﻐﻮﻳﺔ</p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px 20px 30px; margin-top: 0; min-height: 100px;">
+            @Model.profileCognitiveNarrativeDescriptionView.VerbalScoreNarrativeDescription.Current
+        </p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 5px; padding: 10px 20px;">ﺗﻘﻴﻴﻢ اﺧﺘﺒﺎر اﻟﻘﺪرات اﻟﻤﻨﻄﻘﻴﺔ</p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px 20px 30px; margin-top: 0; min-height: 100px;">
+            @Model.profileCognitiveNarrativeDescriptionView.AbstractScoreNarrativeDescription.Current
+        </p>
+
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-3" style="padding-top: 50px; padding-bottom: 50px; margin-left: -50px; margin-right: -50px;">
+        <h2 class="font-weight-600" style="color: #626262;">القسم الثاني: ﺗﻌﺰﻳﺰ اﻟﻘﺪرات اﻟﻤﻌﺮﻓﻴﺔ</h2>
+        <p style="margin-top: 0; margin-bottom: 80px;">ﻧﻘﺪم ﻓﻴﻤﺎ ﻳﻠﻲ ﺑﻌﺾ اﻟﻨﺼﺎﺋﺢ اﻟﺘﻲ ﻗﺪ ﺗﺴﺎﻋﺪ ﻋﻠﻰ ﺗﻌﺰﻳﺰ ﻗﺪراﺗﻚ اﻟﻤﻌﺮﻓﻴﺔ. وﻋﻠﻰ اﻟﺮﻏﻢ ﻣﻦ ﺻﻌﻮﺑﺔ ﺗﺤﻘﻴﻖ ﺗﻐﻴﻴﺮ ﻣﻠﺤﻮظ ﻓﻲ ﺗﻘﻴﻴﻢ اﻻﺧﺘﺒﺎر، ﻓﻘﺪ ﻳﺴﺎﻋﺪ ﺗﻌﺮﻳﻔﻚ ﺑﺒﻌﺾ اﻟﻤﻌﻠﻮﻣﺎت اﻟﻌﺪدﻳﺔ واﻟﻠﻐﻮﻳﺔ واﻟﻤﻨﻄﻘﻴﺔ ﻋﻠﻰ ﺗﺤﺴﻴﻦ ﻣﺴﺘﻮى ﻗﺪراﺗﻚ ﺑﺸﻜﻞ ﻋﺎم.</p>
+
+        <h3 class="font-weight-600" style="color: #626262;">ﺑﻌﺾ اﻷﻓﻜﺎر اﻟﻤﻔﻴﺪة ﻟﺘﻌﺰﻳﺰ اﻟﻘﺪرات اﻟﻤﻌﺮﻓﻴﺔ:</h3>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 5px; padding: 10px 20px;">اﻟﻘﺪرات اﻟﻌﺪدﻳﺔ</p>
+        <div class="leadership-sprint font-weight-600" style="padding: 10px 20px 30px; margin-top: 0; min-height: 100px;">
+            <ul style="margin: 0; padding: 0 15px; color:#6e6e6e;">
+                <li>ﺗﺨﺼﻴﺺ ﺑﻌﺾ اﻟﻮﻗﺖ ﻟﻘﺮاءة اﻟﺘﻘﺎرﻳﺮ واﻟﻤﻘﺎﻻت اﻟﺘﻲ ﺗﺤﺘﻮي ﻋﻠﻰ ﺑﻴﺎﻧﺎت ﻣﺎﻟﻴﺔ ورﻗﻤﻴﺔ.</li>
+                <li>ﻣﺤﺎوﻟﺔ ﻓﻬﻢ اﻟﻤﻌﻠﻮﻣﺎت اﻟﻌﺪدﻳﺔ وﺗﺤﺪﻳﺪ اﻟﻤﻐﺰى ﻣﻨﻬﺎ،  وﻧﻘﻞ ﻫﺬه اﻟﻤﻌﻠﻮﻣﺎت ﻷﺷﺨﺎص آﺧﺮﻳﻦ.</li>
+                <li>ﻣﺤﺎوﻟﺔ إﺟﺮاء ﺑﻌﺾ اﻟﻌﻤﻠﻴﺎت اﻟﺤﺴﺎﺑﻴﺔ ﺑﺎﺳﺘﺨﺪام اﻵﻟﺔ اﻟﺤﺎﺳﺒﺔ ﺗﺎرة وﻣﻦ دوﻧﻬﺎ ﺗﺎرة أﺧﺮى، واﻟﺘﺪرﻳﺐ ﻋﻠﻰ إﺟﺮاء اﻟﻌﻤﻠﻴﺎت .</li>
+                <li>اﻟﺤﺴﺎﺑﻴﺔ ﻳﻮﻣية ﻣﺤﺎوﻟﺔ ﺗﺤﺪﻳﺪ اﻟﺘﻐﻴﺮات ﻓﻲ أﻧﻤﺎط اﻟﻤﻌﻠﻮﻣﺎت اﻟﻤﺎﻟﻴﺔ ﻋﻨﺪ ﺗﻘﺪﻳﻢ ﺗﻘﺎرﻳﺮ ﻋﻨﻬﺎ.</li>
+                <li>ﺗﺤﻤﻞ اﻟﻤﺰﻳﺪ ﻣﻦ ﻣﺴﺆوﻟﻴﺎت ﺗﺤﻠﻴﻞ اﻟﻤﻌﻠﻮﻣﺎت اﻟﻌﺪدﻳﺔ.</li>
+            </ul>
+        </div>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 5px; padding: 10px 20px;">اﻟﻘﺪرات اﻟﻠﻐﻮﻳﺔ</p>
+        <div class="leadership-sprint font-weight-600" style="padding: 10px 20px 30px; margin-top: 0; min-height: 100px;">
+            <ul style="margin: 0; padding: 0 15px; color:#6e6e6e;">
+                <li>ﺗﺨﺼﻴﺺ ﺑﻌﺾ اﻟﻮﻗﺖ ﻟﻘﺮاءة اﻟﻤﻘﺎﻻت اﻟﺘﻲ ﻗﺪ ﺗﺤﻈﻰ ﺑﺎﻫﺘﻤﺎﻣﻚ.</li>
+                <li>اﺳﺘﺨﻼص اﻷﻓﻜﺎر اﻟﺮﺋﻴﺴﻴﺔ ﻟﻠﻤﻘﺎل وﻋﺮﺿﻬﺎ ﻋﻠﻰ ﺷﺨﺺ آﺧﺮ.</li>
+                <li>اﻟﺒﺤﺚ ﻋﻦ ﻣﻌﺎﻧﻲ اﻟﻜﻠﻤﺎت اﻟﻐﺮﻳﺒﺔ ﻓﻲ اﻟﻤﻌﺠﻢ أو ﻗﺎﻣﻮس اﻟﻤﺘﺮادﻓﺎت اﻟﻠﻔﻈﻴﺔ.</li>
+                <li>اﻟﺘﺪرﻳﺐ ﻋﻠﻰ ﻛﺘﺎﺑﺔ اﻟﻤﻘﺎﻻت.</li>
+                <li>ﻣﺮاﺟﻌﺔ رﺳﺎﺋﻠﻚ اﻟﻤﻜﺘﻮﺑﺔ وﻣﺤﺎوﻟﺔ ﺗﺤﺴﻴﻨﻬﺎ، وﺑﺤﺚ إﻣﻜﺎﻧﻴﺔ اﺳﺘﺒﺪال ﺑﻌﺾ اﻟﻜﻠﻤﺎت أو اﻟﻌﺒﺎرات ﺑﺄﺧﺮى أﻓﻀﻞ ﻟﺘﺤﺴﻴﻦ ﻣﺴﺘﻮى اﻟﺮﺳﺎﺋﻞ اﻟﺘﻲ ﺗﺴﺘﺨﺪﻣﻬﺎ ﻓﻲ اﻟﺘﻮاﺻﻞ ﻣﻊ اﻵﺧﺮﻳﻦ.</li>
+                <li>إﺟﺮاء ﻣﺮاﺟﻌﺔ ﻋﻠﻰ ﻣﻜﺎﺗﺒﺎﺗﻚ، وﺗﺤﺴﻴﻨﻬﺎ، وﻣﺮاﻋﺎة اﻟﻤﺰﻳﺪ ﻣﻦ اﻟﺪﻗﺔ ﻓﻲ ﺻﻴﺎﻏﺘﻬﺎ.</li>
+                <li>إﺟﺮاء ﻣﻘﺎرﻧﺔ ﺑﻴﻦ وﺟﻬﺎت اﻟﻨﻈﺮ اﻟﻮاردة ﻓﻲ اﻟﻤﻘﺎﻻت اﻟﻤﺨﺘﻠﻔﺔ وﺗﺤﺪﻳﺪ أوﺟﻪ اﻟﺘﺸﺎﺑﻪ واﻻﺧﺘﻼف ﻓﻴﻤﺎ ﺑﻴﻨﻬﺎ.</li>
+            </ul>
+        </div>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 5px; padding: 10px 20px;">اﻟﻘﺪرات اﻟﻤﻨﻄﻘﻴﺔ</p>
+        <div class="leadership-sprint font-weight-600" style="padding: 10px 20px 30px; margin-top: 0; min-height: 100px;">
+            <ul style="margin: 0; padding: 0 15px; color:#6e6e6e;">
+                <li>ﻗﻀﺎء ﺑﻌﺾ اﻟﻮﻗﺖ ﻓﻲ اﻟﺒﺤﺚ ﻋﻦ اﻷﻧﻤﺎط، وﺗﺤﺪﻳﺪ اﻟﻌﻼﻗﺔ ﺑﻴﻦ ﻣﺨﺘﻠﻒ اﻷﺷﻴﺎء، وﺣﻞ اﻷﻟﻐﺎز.</li>
+                <li> اﻻﻃﻼع ﻋﻠﻰ اﻟﻤﻌﻠﻮﻣﺎت اﻟﻤﻨﻄﻘﻴﺔ اﻟﻮاردة ﻓﻲ اﻟﻜﺘﺐ واﻟﻤﻘﺎﻻت.</li>
+                <li>اﻟﺒﺤﺚ ﻋﻦ ﻣﻌﺎﻧﻲ اﻟﻜﻠﻤﺎت اﻟﻐﺮﻳﺒﺔ ﻓﻲ اﻟﻤﻌﺠﻢ أو ﻗﺎﻣﻮس اﻟﻤﺘﺮادﻓﺎت اﻟﻠﻔﻈﻴﺔ.</li>
+                <li>ﻣﺤﺎوﻟﺔ إﻋﺪاد أﻟﻐﺎز ﻣﻨﻄﻘﻴﺔ وﻋﺮﺿﻬﺎ ﻋﻠﻰ ﻟﻶﺧﺮﻳﻦ.</li>
+                <li>اﻟﺘﺪرﻳﺐ ﻋﻠﻰ ﺣﻞ اﻷﻟﻐﺎز وأﻟﻌﺎب اﻟﻌﻘﻞ اﻟﻤﺘﻮﻓﺮة ﻋﻠﻰ ﻣﻮاﻗﻊ اﻹﻧﺘﺮﻧﺖ.</li>
+            </ul>
+        </div>
+
+    </article>
+
+</body>
+</html>

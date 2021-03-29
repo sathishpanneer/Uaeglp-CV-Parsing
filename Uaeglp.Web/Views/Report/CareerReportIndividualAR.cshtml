@@ -1,0 +1,800 @@
+﻿@model Uaeglp.ViewModels.AssessmentViewModels.AssessmentIndividualToolReportView
+@{
+    Layout = null;
+}
+
+<html>
+<head>
+    <meta charset="utf-8">
+    @*
+        <title>Demo</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="license" href="https://www.opensource.org/licenses/mit-license/">
+        <script src="script.js"></script>
+        <link href="~/css/demo.css" rel="stylesheet" />*@
+    <style>
+
+        .breakhere {
+            page-break-after: always;
+            background-color: blueviolet;
+        }
+
+        tr {
+            page-break-inside: avoid;
+            /*direction: rtl;*/
+        }
+
+        .imagetorotate {
+            -webkit-transform: rotate(200deg);
+            -webkit-backface-visibility: hidden;
+        }
+
+        body {
+            font-family: sans-serif;
+            /*background: url('~/Assets/images/bgs/career-reports-individual-en.jpg');*/
+            direction: rtl;
+        }
+
+        .background {
+            position: absolute;
+            display: block;
+            min-width: 100%;
+            text-align: center;
+            background-color: transparent;
+            /*padding-top: 50%;*/
+            background: url(../../Assets/images/bgs/career-reports-individual-ar.jpg) no-repeat;
+            background-size: contain;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+        }
+
+        .cover-page {
+        }
+
+        .font-size-32 {
+            font-size: 32px;
+        }
+
+        .font-size-24 {
+            font-size: 24px;
+        }
+
+        .font-size-20 {
+            font-size: 20px;
+        }
+
+        .font-size-12 {
+            font-size: 12px;
+        }
+
+        .m-100 {
+            margin: 60px;
+        }
+
+        p {
+            line-height: 1.5;
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #6e6e6e;
+        }
+
+        .square .sq {
+            width: 28px;
+            height: 28px;
+            margin-left: 4px;
+            float: right;
+        }
+
+        .sq-green-600 {
+            background-color: #66cbc4;
+        }
+
+        .green-900 {
+            background: #00a99d;
+        }
+
+        .sq-green-100 {
+            background: #e0f5f3;
+        }
+
+        .sq-grey-300 {
+            background-color: #e6e6e6;
+        }
+
+        .red-100 {
+            background: #ffcbc4;
+        }
+
+        .text-grey-400 {
+            color: #6a6a6a;
+        }
+
+        table {
+            font-family: sans-serif;
+            /*text-align: left;*/
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .table-key td {
+            height: 75px;
+            padding: 8px;
+            border: 5px solid #fff;
+        }
+
+        table th {
+            padding: 8px;
+            border: 3px solid #fff;
+        }
+
+        table th {
+            color: #fff;
+        }
+
+        .w-100 {
+            width: 100px;
+        }
+
+        .w-160 {
+            width: 160px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .display-block {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .v-align-top {
+            vertical-align: top;
+        }
+
+        .font-weight-bold {
+            font-weight: bold;
+        }
+
+        .font-weight-600 {
+            font-weight: 600;
+        }
+
+        .w-p60 {
+            width: 60%;
+        }
+
+        .w-p40 {
+            width: 40%;
+        }
+
+        .h-27 {
+            height: 27px;
+        }
+
+        .mh-27 {
+            min-height: 27px;
+        }
+
+        .page-2 .sq {
+            color: #fff;
+            width: 23px;
+        }
+
+        .text-white {
+            color: #fff;
+        }
+
+        .title {
+            margin-bottom: 50px;
+            font-size: 32px;
+            font-weight: bold;
+            color: #666;
+        }
+
+        .subtitle {
+            font-weight: bold;
+            color: #666;
+            margin-top: 50px;
+        }
+
+        .note {
+            padding: 15px;
+            border: 2px solid #66cbc4;
+            color: #66cbc4;
+            height: 85px;
+        }
+
+        .table-borderless td {
+            border: 0;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 37px;
+            padding: 0 15px;
+            border-bottom: 5px solid #fff;
+        }
+
+        .table-borderless tr:last-child td {
+            border-bottom: 0;
+        }
+
+        .table-cell-p50 {
+            margin-top: 2px;
+        }
+
+            .table-cell-p50 td {
+                padding: 5px 15px;
+                width: 50%;
+                border: 3px solid #fff;
+                height: 50px;
+                line-height: 1.2;
+            }
+
+            .table-cell-p50 tr td:first-child {
+                border-left: 0;
+            }
+
+            .table-cell-p50 tr td:last-child {
+                border-right: 0;
+            }
+
+        .text-green {
+            color: #03a7a0;
+        }
+
+        .text-title {
+            margin-bottom: 30px;
+        }
+
+        .leadership-score-table tr:first-child td {
+            border-left: 2px solid #6e6e6e;
+            color: #6e6e6e;
+        }
+
+        .leadership-score-table tr:last-child td {
+            padding: 0;
+        }
+
+        .leadership-score-table td .sq,
+        .leadership-sprint .sq {
+            width: 52px;
+            height: 52px;
+            margin-right: 2px;
+            margin-left: 2px;
+        }
+
+            .leadership-score-table td .sq:last-child {
+                margin-right: 0;
+            }
+
+        .very-low .sq {
+            background-color: #c1eae6;
+        }
+
+        .low .sq {
+            background-color: #a3e0db;
+        }
+
+        .average .sq {
+            background-color: #66c9c4;
+        }
+
+        .high .sq {
+            background-color: #4c9792;
+        }
+
+        .very-high .sq {
+            background-color: #336661;
+        }
+
+        .leadership-sprint {
+            background-color: #eef0ef;
+        }
+
+        .white-sq {
+            background-color: #fff !important;
+        }
+
+        .grey-sq {
+            background-color: #e6e6e6 !important;
+        }
+        /*.leadership-sprint .display-block{
+            display: inline-block;
+            overflow: hidden;
+        }*/
+        .leadership-sprint .sq {
+            float: right;
+        }
+
+        .career-report-table .sq {
+            width: 32px;
+            height: 32px;
+        }
+
+        table.career-report-table p {
+            margin: 0;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .career-planning {
+            height: 200px;
+            padding: 10px 15px;
+            margin-bottom: 15px;
+            color: #00b39c;
+            border: 1px solid #00b39c;
+        }
+    </style>
+</head>
+<body style="margin-left: 100px; margin-right: 100px; padding-top: 260px;">
+
+	<article class="cover-page">
+		<div class="background"></div>
+		<div style="">
+			<h2 class="font-size-32" style=" margin: 15px 0 0;">تعرف على</h2>
+			<h1 class="" style="font-size: 48px; margin: 0 0 15px;">  اهتماماتك المهنية</h1>
+			<h2 class="font-size-32">تقرير الأفراد</h2>
+		</div>
+		<div style="margin-top: 80px;">
+			<h2 style="margin: 15px 0; font-weight: 400;">الاسم : @Model.ProfileName.Arabic </h2>
+			<h2 style="margin: 15px 0; font-weight: 400;">ﺗﺎرﻳﺦ ﺗﻘﺪﻳﻢ اﻻﺧﺘﺒﺎر : @Model.CompletedOn </h2>
+			<h2 style="margin: 15px 0; font-weight: 400;">تم طباعة التقرير :@DateTime.Now.ToShortDateString() </h2>
+		</div>
+	</article>
+
+	<div class="breakhere"></div>
+
+	<article class="page-1" style="padding-top: 100px; padding-bottom: 100px;">
+		<h2 class="text-green text-title">المقدمه</h2>
+		<p style="margin-bottom: 30px;">
+			نشكرك على إتمام استبيان "تعر ف على اهتماماتك المهنية". يحدد هذا الاستبيان النمط السلوكي الذي تتبعه، ودوافعك،
+			واهتماماتك. ويمكن أن تساعدك هذه المعلومات في معرفة كيفية تأثير نهجك المفضّ ل في العمل ومع الأفراد والمواقف
+			المختلفة على نوع العمل الذي يناسبك أكثر من غيره.
+			ويهدف التقرير إلى تحليل الأنماط السلوكية والدوافع والاهتمامات التي أظهرتها خلال الاستبيان، بالإضافة إلى قدراتك
+			وتوجهاتك المهنية المحتملة لتحديد ما يناسبك من وظائف، كما يقدم التقرير بعض النصائح التي يمكن أن تسترشد بها عند
+			وضع خططك المهنية، فقد أظهرت الأبحاث أن كفاءة الأفراد وجودة أدائهم تتزايد عند عملهم في وظائف تتماشى مع
+			أسلوبهم ودوافعهم واهتماماتهم.
+			وجدير بالذكر أن هذه النوعية من الاستبيانات لا تخلو من أخطاء، لكنها تقدم نقطة انطلاق رائعة تساعدنا على تطوير رؤيتنا
+			وتوجيه قراراتنا وخطواتنا المستقبلية. ونظرا لأن هذا الاستبيان يتم تصميمه آليا، يجب التحقق من صحة النتائج من خلال
+			المزيد من التأمل واستكشاف الذات. ويمثل هذا الاستبيان نقطة بداية لمساعدتك على استكشاف مسارك الوظيفي. وتمتد
+			.صلاحية هذه النتائج لمدة 12-18 شهرا تقريبا <br />
+
+			وﻳﻮﺿﺢ اﻟﺘﻘﺮﻳﺮ ﺗﻘﻴﻴﻤﻚ ﻣﻘﺎرﻧﺔ ﺑﺘﻘﻴﻴﻢ اﻟﻤﻮاﻃﻨﻴﻦ اﻹﻣﺎراﺗﻴﻴﻦ اﻟﺬﻳﻦ أﻛﻤﻠﻮا اﻻﺳﺘﺒﻴﺎن ﻧﻔﺴﻪ ﻓﻲ وﻗﺖ ﺳﺎﺑﻖ. وﻣﻦ ﺛﻢ إﻟﻰ 1، ﺑﺤﻴﺚ ﻳﺸﻴﺮ رﻗﻢ 10 إﻟﻰ 1درﺟﺎﺗﻚ إﻟﻰ ﺗﻘﻴﻴﻤﻚ ﻣﻘﺎرﻧﺔ ﺑﺘﻘﻴﻴﻤﺎت اﻵﺧﺮﻳﻦ. وﻳﺘﻢ ﻋﺮض اﻟﺪرﺟﺎت ﻋﻠﻰ ﻣﻘﻴﺎس ﻣﻦ  إﻟﻰ اﻷﺷﺨﺎص اﻷﻗﺮب إﻟﻰ ﺷﺨﺼﻴﺘﻚ وإﺟﺎﺑﺎﺗﻚ.10اﻷﺷﺨﺎص اﻟﺬﻳﻦ ﻳﺘﺸﺎﺑﻬﻮن ﻣﻌﻚ ﻓﻲ اﻟﻘﻠﻴﻞ ﻣﻦ اﻟﺼﻔﺎت ﺑﻴﻨﻤﺎ ﻳﺸﻴﺮ رﻗﻢ
+
+		</p>
+		<p style="margin-bottom: 30px;">
+			وينقسم التقييم إلى خمسة أقسام كما يلي:
+
+		</p>
+
+		<p style="margin-bottom: 30px;">
+			<strong>القسم الأول:</strong>الأنماط السلوكية، والدوافع، والاهتمامات - ويقدم هذا القسم مخططا لتحليل شخصيتك يعرض من خلاله
+			طريقة استجابتك للأساليب السلوكية التسعة، كما يعرض معلومات تفصيلية حول كل منها، مع مؤشرات تشرح كيف يمكن
+			لدرجتك أن تؤثر على خيارات التوظيف وتطورك الوظيفي المستقبلي.
+
+		</p>
+
+		<p style="margin-bottom: 30px;">
+			<strong>القسم الثاني:  </strong>لتحليل العام - يشرح هذا القسم نمطك السلوكي ودوافعك واهتماماتك وعلاقتها بمختلف العناصر
+			الوظيفية.
+		</p>
+
+		<p style="margin-bottom: 30px;">
+			<strong>القسم الثالث:  </strong>التوجيه المهني - يستعرض هذا القسم الوظائف المناسبة وغير المناسبة لك استنادا إلى ردودك على
+			الاستبيان.
+		</p>
+
+		<p style="margin-bottom: 30px;">
+			<strong>القسم الرابع: </strong>قطاعات حكومة دولة الإمارات العربية المتحدة - يوضح هذا القسم القطاعات الحكومية التي قد تفضل
+			ً الانضمام إليها، بناء على اهتماماتك.
+		</p>
+
+		<p style="margin-bottom: 30px;">
+			<strong>القسم الخامس:  </strong> التخطيط الوظيفي - يطرح هذا القسم بعض الأسئلة ويفسح المجال للمزيد من التفكير والتخطيط
+			المستقبلي لمساعدتك على التفكير في المسار المهني المناسب لشخصيتك
+		</p>
+	</article>
+
+	<div class="breakhere"></div>
+
+	<article class="page-2" style="padding-top: 50px; padding-bottom: 50px; margin-left: -50px; margin-right: -50px;">
+		<h2 class="font-weight-600" style="color: #626262;">القسم الأول: الأنماط السلوكية والدوافع والاهتمامات</h2>
+
+		<p>
+			يوضح هذا القسم نمطك السلوكي، وهو مجموعة العوامل التي تعكس أسلوبك وطريقتك المفضلة في العمل. ويشمل النمط
+			السلوكي تسعة عوامل، ويوضح لك المخطط التوضيحي أدناه تفضيلاتك الخاصة فيما يتعلق بكل منها.
+		</p>
+
+		<p>
+			السلوكي تسعة عوامل، ويوضح لك المخطط التوضيحي أدناه تفضيلاتك الخاصة فيما يتعلق بكل منها.
+			إذا كانت درجاتك تقع في أقصى طرف المقياس، فيعني ذلك أن تفضيلاتك واضحة ومحددة، إلا أن الدرجات التي تقع في وسط
+			ً المقياس هي الأكثر شيوعا لدى معظم الأشخاص. لا توجد إجابات صحيحة أو خاطئة؛ فالاستبيان يقيس تفضيلاتك في بيئة العمل.
+			ً يمكنك استخدام هذه المعلومات فيما بعد لتحديد طبيعة العمل أو المجال الذي يناسبك. ننصحك دائما باستخدام هذه المعلومات
+			كنقطة انطلاق عند التفكير في نوع العمل الذي يمكن أن تستمتع بأدائه.
+		</p>
+
+		<table class="career-report-table" style="width: 100%; table-layout: fixed; border-collapse: collapse; margin-top: 30px;">
+			@foreach (var scale in Model.profileScaleScoreReportsView)
+			{
+				<tr class="">
+					<td class="" colspan="4" style="background-color: #66c9c4; padding: 10px;">
+						<p style="color: #fff;">
+							@scale.ScaleLowDescription.Current
+						</p>
+					</td>
+					<td class="text-center" colspan="6" style="padding: 0px; vertical-align: middle;">
+						<p class="font-weight-600" style="margin-bottom: 15px; font-size: 16px;">@scale.ScaleName.Current</p>
+                        <div class="square display-block average" style="border-left: 5px solid #66c9c4; display: inline-block; overflow: hidden;">
+                            @if (scale.Score == 1)
+                            {
+                                <div class="sq 1"></div>
+                                <div class="sq 2"></div>
+                                <div class="sq 3"></div>
+                                <div class="sq 4"></div>
+                                <div class="sq 5"></div>
+                            }
+                            else if (scale.Score == 2)
+                            {
+                                <div class="sq 1 grey-sq"></div>
+                                <div class="sq 2"></div>
+                                <div class="sq 3"></div>
+                                <div class="sq 4"></div>
+                                <div class="sq 5"></div>
+                            }
+                            else if (scale.Score == 3)
+                            {
+                                <div class="sq 1 grey-sq"></div>
+                                <div class="sq 2 grey-sq"></div>
+                                <div class="sq 3"></div>
+                                <div class="sq 4"></div>
+                                <div class="sq 5"></div>
+                            }
+                            else if (scale.Score == 4)
+                            {
+                                <div class="sq 1 grey-sq"></div>
+                                <div class="sq 2 grey-sq"></div>
+                                <div class="sq 3 grey-sq"></div>
+                                <div class="sq 4"></div>
+                                <div class="sq 5"></div>
+                            }
+                            else if (scale.Score == 5)
+                            {
+                                <div class="sq 1 grey-sq"></div>
+                                <div class="sq 2 grey-sq"></div>
+                                <div class="sq 3 grey-sq"></div>
+                                <div class="sq 4 grey-sq"></div>
+                                <div class="sq 5"></div>
+                            }
+                            else
+                            {
+                                <div class="sq 1 grey-sq"></div>
+                                <div class="sq 2 grey-sq"></div>
+                                <div class="sq 3 grey-sq"></div>
+                                <div class="sq 4 grey-sq"></div>
+                                <div class="sq 5 grey-sq"></div>
+                            }
+
+
+                        </div>
+                        <div class="square display-block average" style=" display: inline-block; overflow: hidden;">
+                            @if (scale.Score == 6)
+                            {
+                                <div class="sq 6"></div>
+                                <div class="sq grey-sq 7"></div>
+                                <div class="sq grey-sq 8"></div>
+                                <div class="sq grey-sq 9 "></div>
+                                <div class="sq grey-sq 10"></div>
+                            }
+                            else if (scale.Score == 7)
+                            {
+
+                                <div class="sq 6"></div>
+                                <div class="sq 7"></div>
+                                <div class="sq grey-sq 8"></div>
+                                <div class="sq grey-sq 9 "></div>
+                                <div class="sq grey-sq 10"></div>
+                            }
+                            else if (scale.Score == 8)
+                            {
+
+                                <div class="sq 6"></div>
+                                <div class="sq 7"></div>
+                                <div class="sq 8"></div>
+                                <div class="sq grey-sq 9 "></div>
+                                <div class="sq grey-sq 10"></div>
+                            }
+                            else if (scale.Score == 9)
+                            {
+                                <div class="sq 6"></div>
+                                <div class="sq 7"></div>
+                                <div class="sq 8"></div>
+                                <div class="sq 9"></div>
+                                <div class="sq 10 grey-sq"></div>
+                            }
+                            else if (scale.Score == 10)
+                            {
+
+                                <div class="sq 6"></div>
+                                <div class="sq 7"></div>
+                                <div class="sq 8"></div>
+                                <div class="sq 9 "></div>
+                                <div class="sq 10"></div>
+                            }
+                            else
+                            {
+                                <div class="sq 1 grey-sq"></div>
+                                <div class="sq 2 grey-sq"></div>
+                                <div class="sq 3 grey-sq"></div>
+                                <div class="sq 4 grey-sq"></div>
+                                <div class="sq 5 grey-sq"></div>
+                            }
+
+                        </div>
+					</td>
+					<td colspan="4" style="background-color: #66c9c4; padding: 10px;">
+						<p style="color: #fff;">
+							@scale.ScaleHighDescription.Current
+						</p>
+					</td>
+				</tr>
+
+				<tr style="height: 15px;"></tr>
+
+			}
+
+		</table>
+
+	</article>
+
+	<div class="breakhere"></div>
+
+	<article class="page-3" style="padding-top: 100px; padding-bottom: 100px;">
+
+		<h2 class="font-weight-600" style="color: #626262; margin-bottom: 10px;">
+			القسم الثاني: التحليل العام
+		</h2>
+		<p style="margin-top: 0;">
+			يشرح هذا القسم ما تعنيه النقاط التي حصلت عليها في كل عنصر من عناصر التقييم المهني، وما تشير إليه النتيجة، وكيف يمكن أن
+			تؤثر على نطاق بحثك عن وظيفة وكذلك على تطورك المهني، كما يوضح العوائق التي قد تعرقل مسيرتك والتي ينبغي عليك أن
+			تدركها لتحاول أن تتجنبها. ولكل عنصر مجموعة من الإيجابيات والسلبيات، ويساعدك هذا القسم على فهم الآثار المترتبة على كل منها
+			وتأثيرها على مسارك الوظيفي.
+		</p>
+		@foreach (var narrative in Model.profileScaleNarrativeDescriptionsView)
+		{
+			<div class="be-profile" style="min-height: 120px;">
+				<p class="leadership-sprint font-weight-600" style="margin-bottom: 5px; margin-top: 10px; padding: 10px;">@narrative.ScaleName.Arabic </p>
+				<p class="leadership-sprint font-weight-600" style="padding: 10px; margin-top: 0; margin-bottom: 3px; font-size: 12px;">
+					@narrative.Description.Arabic
+				</p>
+			</div>
+
+		}
+		<div class="be-profile" style="min-height: 120px;">
+		</div>
+		<div class="be-profile" style="min-height: 120px;">
+		</div>
+		<div class="be-profile" style="min-height: 120px;">
+		</div>
+
+	</article>
+
+	<div class="breakhere"></div>
+
+
+	<article class="page-5" style="padding-top: 50px; padding-bottom: 50px; margin-left: -50px; margin-right: -50px;">
+
+
+		<h2 class="font-weight-600" style="color: #626262; margin-bottom: 5px;">
+			القسم الثالث: التوجيه المهني
+		</h2>
+		<p style="margin-top: 0;">
+			هناك علاقة واضحة تربط بين أنماطنا السلوكية ودوافعنا واهتماماتنا، والوظائف التي تناسبنا أكثر من غيرها، ويمثل هذا القسم نقطة
+			البداية التي تسمح لك بالتفكير في مستقبلك المهني، حيث يوجهك من خلال اقتراح ثلاث وظائف تبدو ملائمة لك أكثر من غيرها. ومع
+			ذلك، لا ينبغي أن تظن أن هذه الخيارات هي وحدها المتاحة لك، فالغرض منها هو مساعدتك وتوجيهك فحسب.
+		</p>
+		<p>
+			تجد في أسفل هذه الصفحة بعض المؤشرات المتعلقة بأنواع بيئة العمل المناسبة لك وفقً ا لإجاباتك على الاستبيان. ويساعدك هذا
+			القسم على التفكير في تأثير ذلك على عملية البحث عن الوظيفة. يمكنك استخدام هذه النتائج عند التعرف على المعلومات التنظيمية
+			في مكان العمل لاستنتاج مدى توافقك مع الثقافة التنظيمية للمؤسسة.
+		</p>
+		<p>
+			استنادا إلى ردودك على الاستبيان، تجد أدناه ثلاثة أنواع من الوظائف الملائمة لك. يرجى ملاحظة، أن هذه الاقتراحات الغرض منها
+			التوجيه والإرشاد فحسب، وعليك أن تدعمها بمزيد من التأمل واستكشاف الذات. يمكنك استخدام الصفحة الملحقة بالجزء الخلفي من
+			التقرير لمساعدتك على تحديد توجهاتك.
+		</p>
+
+		<h3 class="font-weight-600" style="color: #6e6e6e;">
+			الوظائف الملائمة
+		</h3>
+		<table class="table-borderless" style="width: 100%; table-layout: fixed; border-collapse: collapse;">
+			@foreach (var leastjob in Model.profileHighestJobNarrativeDescriptionsView)
+			{
+
+				<tr>
+					<td class="text-center" colspan="3" style="background-color: #00a99e; padding: 0px 15px; vertical-align: middle;">
+						<h3 style="color: #fff; margin: 0;">@leastjob.ScaleName.Arabic</h3>
+					</td>
+					<td colspan="9" style="background-color: #eef0ef; padding: 10px 15px;">
+						<p style="font-size: 14px; margin: 0;">
+							@leastjob.Description.Arabic
+						</p>
+					</td>
+				</tr>
+
+				<tr style="height: 10px;"></tr>
+
+			}
+
+
+		</table>
+
+	</article>
+
+	<div class="breakhere"></div>
+
+	<article class="page-6" style="padding-top: 50px; padding-bottom: 50px; margin-left: -50px; margin-right: -50px;">
+
+
+		<p style="margin-top:10px; margin-bottom: 10px;">
+			وكما وجدنا أن هناك بعض الوظائف التي تناسب شخصيتك، استخدمنا إجاباتك على الاستبيان لتحديد بيئة العمل والوظائف التي قد لا
+			تناسبك. إذا كنت تفكر في العمل في هذه الوظائف في الماضي، فلا ننصحك بتجاهلها ببساطة، بل تحدث إلى بعض الأشخاص الذين
+			ً يعرفونك جيدا وأطلعهم على هذا التقرير، ثم قم بإجراء المزيد من الأبحاث حول الوظائف المتاحة وأنواع المؤسسات التي يمكنك
+			العمل بها. <br />
+			استنادا إلى ردودك على الاستبيان، تظهر أدناه ثلاثة أنواع من الوظائف غير الملائمة لك. يرجى ملاحظة، أن هذه الاقتراحات الغرض
+			منها التوجيه والإرشاد فحسب، وعليك أن تدعمها بمزيد من التأمل واستكشاف الذات. يمكنك استخدام الصفحة الملحقة بالجزء الخلفي
+			من التقرير لمساعدتك على تحديد توجهاتك.
+		</p>
+
+		<h3 class="font-weight-600" style="color: #6e6e6e;">
+			الوظائف غير الملائمة
+		</h3>
+		<table class="table-borderless" style="width: 100%; table-layout: fixed; border-collapse: collapse;">
+			@foreach (var leastjob in Model.profileLowestJobNarrativeDescriptionsView)
+			{
+
+				<tr>
+					<td class="text-center" colspan="3" style="background-color: #00a99e; padding: 0px 15px; vertical-align: middle;">
+						<h3 style="color: #fff; margin: 0;">@leastjob.ScaleName.Current</h3>
+					</td>
+					<td colspan="9" style="background-color: #eef0ef; padding: 10px 15px;">
+						<p style="font-size: 14px; margin: 0;">
+							@leastjob.Description.Current
+						</p>
+					</td>
+				</tr>
+
+				<tr style="height: 10px;"></tr>
+
+			}
+		</table>
+
+		<h2 class="font-weight-600" style="color: #626262; margin-bottom: 5px;">
+			القسم الرابع: قطاعات حكومة دولة الإمارات العربية المتحدة
+		</h2>
+		<p style="margin-top: 0; margin-bottom: 50px;">
+			من المفيد أن تنظر في قطاعات الحكومة الإماراتية التي قد تفضل العمل فيها بناء على اهتماماتك ودوافعك المهنية. داخل كل
+			قطاع هناك وظائف مختلفة، تتطلب كل منها اهتمامات وأساليب سلوكية مختلفة. ويمكن للعمل داخل القطاع الذي يتفق مسار العمل
+			ً فيه مع اهتماماتك، من حيث التنظيم والثقافة، أن يكون مفيدا.
+		</p>
+
+		<div class="career-sectors">
+			<div style="clear: both; overflow: hidden;">
+				<table class="" style="width: 45%; table-layout: fixed; border-collapse: collapse; float: left; height: 120px;">
+
+					<tr>
+						<td colspan="8" style="background-color: #00a99e; padding: 10px 15px;">
+							<h4 style="color: #fff; margin: 0;">
+								القطاع الأول
+							</h4>
+							<h3 class="font-weight-600" style="color: #fff; margin: 10px 0;">
+								السعادة والإيجابية
+
+							</h3>
+						</td>
+						<td class="text-center" colspan="4" style="background-color: #999999; padding: 0px 15px; vertical-align: middle;">
+							<img src="~/Assets/images/career-sector-1.png" alt="" style="width: 100%;" />
+						</td>
+					</tr>
+
+				</table>
+				<table class="" style="width: 45%; table-layout: fixed; border-collapse: collapse; float: right; height: 120px;">
+
+					<tr>
+						<td colspan="8" style="background-color: #00a99e; padding: 10px 15px;">
+							<h4 style="color: #fff; margin: 0;">القطاع الثاني</h4>
+							<h3 class="font-weight-600" style="color: #fff; margin: 10px 0;">
+								العلاقات السياسية<br />
+								الدولية والأمن
+							</h3>
+						</td>
+						<td class="text-center" colspan="4" style="background-color: #999999; padding: 0px 15px; vertical-align: middle;">
+							<img src="~/Assets/images/career-sector-2.png" alt="" style="width: 100%;" />
+						</td>
+					</tr>
+
+				</table>
+			</div>
+
+			<div style="margin-top: 30px;">
+				<table class="" style="width: 45%; table-layout: fixed; border-collapse: collapse; margin-right: auto; margin-left: auto; height: 120px;">
+
+					<tr>
+						<td colspan="8" style="background-color: #00a99e; padding: 10px 15px;">
+							<h4 style="color: #fff; margin: 0;">
+								القطاع الثالث
+							</h4>
+							<h3 class="font-weight-600" style="color: #fff; margin: 10px 0;">
+								الموارد البشرية<br />
+								والإبداع
+							</h3>
+						</td>
+						<td class="text-center" colspan="4" style="background-color: #999999; padding: 0px 15px; vertical-align: middle;">
+							<img src="~/Assets/images/career-sector-3.png" alt="" style="width: 100%;" />
+						</td>
+					</tr>
+
+				</table>
+			</div>
+
+		</div>
+	</article>
+
+	<div class="breakhere"></div>
+
+	<article class="page-7" style="padding-top: 50px; padding-bottom: 50px; margin-left: -50px; margin-right: -50px;">
+
+		<h2 class="font-weight-600" style="color: #626262; margin-bottom: 5px;">
+			القسم الخامس: التخطيط الوظيفي
+		</h2>
+		<p>
+			بعد فحص المعلومات الواردة في هذا التقرير.
+		</p>
+
+		@foreach (var question in Model.ProfileAnswerQuestionGroups)
+		{
+			<div class="career-planning">
+				@question.Question.Current
+				@if (question.Answer != null)
+				{
+					<p>@question.Answer.Current</p>
+				}
+			</div>
+		}
+
+	</article>
+
+	@* Script *@
+	<script src="~/Assets/global/vendor/jquery/jquery.min.js"></script>
+	<script>
+		$(function () {
+			var $all = $('.be-profile').toArray();
+			var $sum = 0;
+
+			$('.be-profile').each(function (index, elem) {
+				$sum += $(elem).height();
+			})
+
+			console.log("sum = ", $sum);
+
+			if ($sum > 1000) {
+				$('<div class="breakhere"></div><article class="new-page" style="padding-top: 100px; padding-bottom: 100px;"><div class="empty"></div></article>').insertAfter($('.be-profile').parent());
+
+			}
+
+			$('.be-profile').each(function (index, elem) {
+				if ($sum > 1000) {
+					$(elem).parent().children().last().insertAfter($('.empty'));
+					//$(elem).parent().children().last().appenView($('.page-4'))
+					$sum -= $(elem).parent().children().last().height();
+				}
+			})
+		});
+	</script>
+
+</body>
+</html>

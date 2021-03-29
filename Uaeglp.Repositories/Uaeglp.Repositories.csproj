@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Hangfire" Version="1.7.11" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.0" />
+    <PackageReference Include="Minio" Version="3.1.12" />
+    <PackageReference Include="NLog" Version="4.6.8" />
+    <PackageReference Include="MongoDB.Driver" Version="2.10.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Uaeglp.LangModel\Uaeglp.LangModel.csproj" />
+    <ProjectReference Include="..\Uaeglp.Models\Uaeglp.Models.csproj" />
+    <ProjectReference Include="..\Uaeglp.MongoModels\Uaeglp.MongoModels.csproj" />
+  </ItemGroup>
+
+</Project>

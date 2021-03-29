@@ -1,0 +1,613 @@
+﻿@model  Uaeglp.ViewModels.AssessmentViewModels.AssessmentIndividualToolReportView
+@{
+    Layout = null;
+    var degree =180-( Model.PercentileScore * 180 / 100);
+
+}
+
+<html>
+<head>
+    <meta charset="utf-8">
+    @*<title>Demo</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="license" href="https://www.opensource.org/licenses/mit-license/">
+        <script src="script.js"></script>
+        <link href="~/css/demo.css" rel="stylesheet" />*@
+    <style>
+
+        .breakhere {
+            page-break-after: always;
+            background-color: blueviolet;
+        }
+
+        tr {
+            page-break-inside: avoid;
+            direction: rtl;
+        }
+
+        .imagetorotate {
+            -webkit-transform: rotate(200deg);
+            -webkit-backface-visibility: hidden;
+        }
+
+        body {
+            font-family: sans-serif;
+            background: url('~/Assets/images/bgs/report-leadership-ar.jpg');
+            direction: rtl;
+        }
+
+        .background {
+            position: absolute;
+            display: block;
+            min-width: 100%;
+            text-align: center;
+            background-color: transparent;
+            /*padding-top: 50%;*/
+            background: url(../../Assets/images/bgs/report-leadership-ar.jpg) no-repeat;
+            background-size: contain;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+        }
+
+        .cover-page {
+        }
+
+        .font-size-32 {
+            font-size: 32px;
+        }
+
+        .font-size-24 {
+            font-size: 24px;
+        }
+
+        .font-size-20 {
+            font-size: 20px;
+        }
+
+        .font-size-12 {
+            font-size: 12px;
+        }
+
+        .m-100 {
+            margin: 60px;
+        }
+
+        p {
+            line-height: 1.5;
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #6e6e6e;
+        }
+
+        .square .sq {
+            width: 28px;
+            height: 28px;
+            margin-right: 4px;
+            float: left;
+        }
+
+        .sq-green-600 {
+            background-color: #66cbc4;
+        }
+
+        .green-900 {
+            background: #00a99d;
+        }
+
+        .sq-green-100 {
+            background: #e0f5f3;
+        }
+
+        .sq-grey-300 {
+            background-color: #e6e6e6;
+        }
+
+        .red-100 {
+            background: #ffcbc4;
+        }
+
+        .text-grey-400 {
+            color: #6a6a6a;
+        }
+
+        table {
+            font-family: sans-serif;
+            /*text-align: left;*/
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .table-key td {
+            height: 75px;
+            padding: 8px;
+            border: 5px solid #fff;
+        }
+
+        table th {
+            padding: 8px;
+            border: 3px solid #fff;
+        }
+
+        table th {
+            color: #fff;
+        }
+
+        .w-100 {
+            width: 100px;
+        }
+
+        .w-160 {
+            width: 160px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .display-block {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .v-align-top {
+            vertical-align: top;
+        }
+
+        .font-weight-bold {
+            font-weight: bold;
+        }
+
+        .font-weight-600 {
+            font-weight: 600;
+        }
+
+        .w-p60 {
+            width: 60%;
+        }
+
+        .w-p40 {
+            width: 40%;
+        }
+
+        .h-27 {
+            height: 27px;
+        }
+
+        .mh-27 {
+            min-height: 27px;
+        }
+
+        .page-2 .sq {
+            color: #fff;
+            width: 23px;
+        }
+
+        .text-white {
+            color: #fff;
+        }
+
+        .title {
+            margin-bottom: 50px;
+            font-size: 32px;
+            font-weight: bold;
+            color: #666;
+        }
+
+        .subtitle {
+            font-weight: bold;
+            color: #666;
+            margin-top: 50px;
+        }
+
+        .note {
+            padding: 15px;
+            border: 2px solid #66cbc4;
+            color: #66cbc4;
+            height: 85px;
+        }
+
+        .page-5 .table-borderless td {
+            border: 0;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 37px;
+            padding: 0 15px;
+            border-bottom: 5px solid #fff;
+        }
+
+        .page-5 .table-borderless tr:last-child td {
+            border-bottom: 0;
+        }
+
+        .table-cell-p50 {
+            margin-top: 2px;
+        }
+
+            .table-cell-p50 td {
+                padding: 5px 15px;
+                width: 50%;
+                border: 3px solid #fff;
+                height: 50px;
+                line-height: 1.2;
+            }
+
+            .table-cell-p50 tr td:first-child {
+                border-left: 0;
+            }
+
+            .table-cell-p50 tr td:last-child {
+                border-right: 0;
+            }
+
+        .text-green {
+            color: #03a7a0;
+        }
+
+        .text-title {
+            margin-bottom: 30px;
+        }
+
+        .leadership-score-table tr:first-child td {
+            border-left: 2px solid #6e6e6e;
+            color: #6e6e6e;
+        }
+
+        .leadership-score-table tr:last-child td {
+            padding: 0;
+        }
+
+        .leadership-score-table td .sq,
+        .leadership-sprint .sq {
+            width: 52px;
+            height: 52px;
+            margin-right: 2px;
+            margin-left: 2px;
+        }
+
+            .leadership-score-table td .sq:last-child {
+                margin-right: 0;
+            }
+
+        .very-low  {
+            background-color: #c1eae6;
+        }
+
+        .low  {
+            background-color: #a3e0db;
+        }
+
+        .average  {
+            background-color: #66c9c4;
+        }
+
+        .high  {
+            background-color: #4c9792;
+        }
+
+        .very-high  {
+            background-color: #336661;
+        }
+
+        .leadership-sprint {
+            background-color: #eef0ef;
+        }
+
+        .white-sq {
+            background-color: #fff !important;
+        }
+        /*.leadership-sprint .display-block{
+            display: inline-block;
+            overflow: hidden;
+        }*/
+        .leadership-sprint .sq {
+            float: right;
+        }
+		.overall-chart {
+			background: url(/Assets/images/counter-chart.png) no-repeat;
+			background-position: center;
+			background-size: contain;
+			width: 100%;
+			height: 150px;
+		}
+    </style>
+</head>
+<body style="margin-left: 100px; margin-right: 100px; padding-top: 260px;">
+
+    <article class="cover-page">
+        <div class="background"></div>
+        <div style="">
+            <h1 class="font-size-32">@Model.AssessmentToolName.Arabic</h1>
+            <h1 class="font-size-32">تقرير المرشح</h1>
+        </div>
+        <div style="margin-top: 80px;">
+            <h2 style="font-weight: 400;">اﻻﺳﻢ: @Model.ProfileName.Arabic </h2>
+            <h2 style="font-weight: 400;">ﺗﺎرﻳﺦ ﺗﻘﺪﻳﻢ اﻻﺧﺘﺒﺎر : @Model.CompletedOn  </h2>
+            <h2 style="font-weight: 400;">ﺗﻢ ﻃﺒﺎﻋﺔ اﻟﺘﻘﺮﻳﺮ : @DateTime.Now.ToShortDateString() </h2>
+        </div>
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-1" style="padding-top: 100px; padding-bottom: 100px;">
+        <h2 class="text-green text-title">مقدمة</h2>
+        <p>
+            ﻧﺸﻜﺮك ﻋﻠﻰ إﺗﻤﺎم اﺧﺘﺒﺎر "ﻣﺆﺷﺮ ﺗﻘﻴﻴﻢ اﻟﻤﻬﺎرات اﻟﻘﻴﺎدﻳﺔ". ﻧﻬﺪف ﻣﻦ ﺧﻼل ﻫﺬا اﻻﺧﺘﺒﺎر إﻟﻰ ﺗﻘﻴﻴﻢ ﻧﻬﺞ ﺗﻔﻜﻴﺮك واﺳﺘﺠﺎﺑﺎﺗﻚ اﻟﻤﺤﺘﻤﻠﺔ ﻋﻨﺪ اﻟﺘﻌﺎﻣﻞ ﻣﻊ ﺳﻠﺴﻠﺔ ﻣﻦ اﻟﺴﻴﻨﺎرﻳﻮﻫﺎت واﻟﻤﻮاﻗﻒ اﻟﻘﻴﺎدﻳﺔ واﻹدارﻳﺔ اﻟﺘﻲ ﺗﺘﻨﺎﺳﺐ ﻣﻊ درﺟﺘﻚ اﻟﻮﻇﻴﻔﻴﺔ. وﻳﻘﻴﺲ ﻫﺬا اﻟﻤﺆﺷﺮ اﻷﺳﻠﻮب اﻟﺬي ﺸﺎر إﻟﻰ أﺣﻴﺎًﻧﺎ ﺑﺎﺳﻢ "اﻟﺤﻜﻢ ُﺗﺘﺒﻌﻪ ﻓﻲ إﺻﺪار اﻷﺣﻜﺎم وﻋﻨﺪ اﺗﺨﺎذ اﻟﻘﺮارات ﻓﻲ اﻟﻤﻮاﻗﻒ اﻟﺘﻲ ﻗﺪ ﺗﻮاﺟﻬﻬﺎ ﻛﺄﺣﺪ ﻗﺎدة اﻟﻘﻄﺎع اﻟﺤﻜﻮﻣﻲ، ﻓﻴﻤﺎ ﻳ اﻟﺼﺎﺋﺐ" أو "اﻟﺬﻛﺎء اﻟﻔﻄﺮي". وﻗﺪ أﻇﻬﺮت اﻷﺑﺤﺎث أن ﻫﺬه اﻟﻤﺆﺷﺮات ﺗﺴﺘﻄﻴﻊ أن ﺗﺘﻨﺒﺄ ﺑﻨﺠﺎح اﻟﻤﺮﺷﺢ ﻓﻲ ﻣﻮﻗﻌﻪ اﻟﻮﻇﻴﻔﻲ اﻟﺤﺎﻟﻲ واﻟﻤﺴﺘﻘﺒﻠﻲ.
+        </p>
+        <p>
+            وﻳﻌﺮض ﻫﺬا اﻟﺘﻘﺮﻳﺮ ﺗﻘﻴﻴﻢ اﻟﻨﺘﺎﺋﺞ اﻟﺘﻲ ﺣﻘﻘﺘﻬﺎ ﻣﻘﺎرﻧﺔ ﺑﺘﻘﻴﻴﻢ اﻷﺷﺨﺎص اﻟﺬﻳﻦ ﺧﺎﺿﻮا اﻻﺧﺘﺒﺎر ﻧﻔﺴﻪ ﻓﻲ وﻗﺖ ﺳﺎﺑﻖ. وُﺗﻌﺮض اﻟﻨﺘﺎﺋﺞ وﻓًﻘﺎ ﻻﺳﺘﺠﺎﺑﺘﻚ وردودك ﻋﻠﻰ اﻟﻤﻮاﻗﻒ اﻟﻘﻴﺎدﻳﺔ واﻹدارﻳﺔ اﻟﺘﺎﻟﻴﺔ اﻟﺘﻲ ُﺗﻌﺪ ﻣﻦ اﻟﻌﻨﺎﺻﺮ اﻟﻤﻬﻤﺔ ﻟﻠﻨﺠﺎح ﻓﻲ اﻟﻤﻨﺎﺻﺐ اﻹدارﻳﺔ اﻟﻌﻠﻴﺎ: وﻗﺪ أﺟﺮﻳﺖ ﻣﻘﺎرﻧﺔ ﺑﻴﻦ اﻟﻨﺘﺎﺋﺞ اﻟﺘﻲ ﺣﻘﻘﺘﻬﺎ ﻓﻲ اﻻﺧﺘﺒﺎر وﻧﺘﺎﺋﺞ ﻣﺠﻤﻮﻋﺔ ﻣﻦ اﻟﻤﻮاﻃﻨﻴﻦ اﻹﻣﺎراﺗﻴﻴﻦ اﻟﺬﻳﻦ ﺧﻀﻌﻮا ﻟﻨﻔﺲ اﻻﺧﺘﺒﺎر ﻣﻦ ﻗﺒﻞ.
+        </p>
+
+        <table style="width: 75%; margin: 50px auto;" class="table-cell-p50 text-center">
+            <tbody>
+                <tr>
+                    <td class="sq-grey-300 text-grey-400 font-weight-600">الروح القيادية</td>
+                </tr>
+                <tr>
+                    <td class="sq-grey-300 text-grey-400 font-weight-600">الإنجاز والتأثير</td>
+                </tr>
+                <tr>
+                    <td class="sq-grey-300 text-grey-400 font-weight-600">النظرة المستقبلية </td>
+                </tr>
+                <tr>
+                    <td class="sq-grey-300 text-grey-400 font-weight-600">التركيز على المتعاملين</td>
+                </tr>
+                <tr>
+                    <td class="sq-grey-300 text-grey-400 font-weight-600">الإبتكار </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <p>
+            ومن ثم، ﻳﻌﺘﻤﺪ ﻣﺎ ﺗﺤﺼﻞ ﻋﻠﻴﻪ ﻣﻦ ﻧﻘﺎط ﻋﻠﻰ ﻣﺎ ﺣﺼﻞ ﻋﻠﻴﻪ اﻵﺧﺮون ﻓﻲ وﻗﺖ ﺳﺎﺑﻖ. وﻳﺘﻢ ﻋﺮض اﻟﺘﻘﻴﻴﻢ ﻋﻠﻰ ﻣﻘﻴﺎس ﻣﻦ 1 إلى 10، حيث يشير الرقم 1 إلى تقييم أقل كثيرا من المتوسط. ويحصل المرشح كذلك على درجة إجمالية لأدائه يتم قياسها كنسبة مئوية من 1-99 مقارنة بالأشخاص الذين تجاوزهم فى تقييم الإختبار.
+        </p>
+        <p>
+            وﻳﻤﻜﻦ اﺳﺘﺨﺪام ﻫﺬا اﻟﺘﻘﺮﻳﺮ ﻟﻤﺴﺎﻋﺪﺗﻚ ﻋﻠﻰ اﻟﺘﻌﺮف ﻋﻠﻰ اﻟﻤﻬﺎرات اﻟﻘﻴﺎدﻳﺔ اﻟﺘﻲ ﻗﺪ ﺗﺤﺘﺎج إﻟﻰ اﻟﻤﺰﻳﺪ ﻣﻦ اﻟﺘﻄﻮﻳﺮ، ﻛﻤﺎ ﻳﻤﻜﻦ اﻟﺮﺟﻮع إﻟﻴﻪ ﻟﻠﺘﻌﺮف ﻋﻠﻰ اﻟﻤﻬﺎرات اﻟﺘﻲ ﺗﺤﺘﺎج إﻟﻰ ﺗﻄﻮﻳﺮ، وإﺟﺮاء اﻟﺘﻘﻴﻴﻢ اﻟﻤﻬﻨﻲ، وﻟﻠﻤﺴﺎﻋﺪة ﻋﻠﻰ وﺿﻊ ﺧﻄﺔ ﺗﻄﻮﻳﺮﻳﺔ ﺗﺴﺎﻋﺪ ﻋﻠﻰ ﺗﺤﻘﻴﻖ ﺗﻄﻠﻌﺎﺗﻚ اﻟﻤﻬﻨﻴﺔ اﻟﺤﺎﻟﻴﺔ واﻟﻤﺴﺘﻘﺒﻠﻴﺔ.
+        </p>
+        <p>
+            وﻳﺘﻨﺎول اﻟﺘﻘﺮﻳﺮ اﻷﻗﺴﺎم اﻟﺘﺎﻟﻴﺔ: <br />
+            اﻟﻘﺴﻢ اﻷول: ﻣﺆﺷﺮ ﺗﻘﻴﻴﻢ اﻟﻤﻬﺎرات اﻟﻘﻴﺎدﻳﺔ <br />
+            اﻟﻘﺴﻢ اﻟﺜﺎﻧﻲ: ﺗﺤﻠﻴﻞ ﻧﺘﺎﺋﺞ اﻟﻤﺆﺷﺮ
+        </p>
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-2" style="padding-top: 30px; padding-bottom: 30px; margin-left: -70px; margin-right: -70px;">
+        <h2 class="font-weight-600" style="color: #626262;">اﻟﻘﺴﻢ اﻷول: ﻣﺆﺷﺮ ﺗﻘﻴﻴﻢ اﻟﻤﻬﺎرات اﻟﻘﻴﺎدﻳﺔ</h2>
+
+        <table class="" style="width: 100%; table-layout: fixed; border-collapse: collapse;">
+            <tr>
+				<td class="" colspan="4" style="background-color: #66c9c4; padding: 15px;">
+					@*<img src="~/Assets/images/chart-counter-10.png" style="width: 100%;" />*@
+
+					<div class="overall-chart" style="position: relative;">
+						<img src="~/Assets/images/counter-arrow.png" style="position: absolute; bottom: 20px; right: 44px; transform: rotate(@(degree)deg); -webkit-transform: rotate(@(degree)deg);" />
+						<span style="position: absolute; right: 92px; bottom: 5px; font-size: 18px; font-weight: 600; color: #fff; width: 50px; text-align: center;">@Model.PercentileScore</span>
+					</div>
+					@*<img src="~/Assets/images/counter-chart.png" style="width: 100%;" />*@
+				</td>
+                <td colspan="10" style="background-color: #eef0ef; padding: 10px 60px;">
+                    <p>
+                        إﺟﻤﺎﻟﻲ ﻧﺘﺎﺋﺞ ﻣﺆﺷﺮ ﺗﻘﻴﻴﻢ اﻟﻤﻬﺎرات اﻟﻘﻴﺎدﻳﺔ: اﻟﻨﺘﻴﺠﺔ اﻹﺟﻤﺎﻟﻴﺔ ﻟﻼﺧﺘﺒﺎر، وﻫﻲ ﺗﺸﻴﺮ إﻟﻰ ﻧﺴﺒﺔ اﻷﺷﺨﺎص اﻟﺬﻳﻦ ﺧﻀﻌﻮا ﻟﻼﺧﺘﺒﺎر ﻣﻦ ﻗﺒﻞ وﺟﺎءت ﻧﺘﺎﺋﺠﻬﻢ أﻗﻞ ﻣﻦ اﻟﻨﺘﺎﺋﺞ اﻟﺘﻲ ﺣﻘﻘﺘﻬﺎ ﻓﻲ اﻻﺧﺘﺒﺎر.
+                    </p>
+                    <p class="font-weight-600">
+                        @Model.OverAllPercentileDescription.Current
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5" style="padding: 15px;">
+                    <p>وﻳﻮﺿﺢ اﻟﺮﺳﻢ اﻟﺒﻴﺎﻧﻲ أدﻧﺎه درﺟﺎﺗﻚ ﻓﻲ ﻛﻞ ﻓﺌﺔ ﻣﻦ ﻓﺌﺎت اﻟﻤﻬﺎرات اﻟﻘﻴﺎدﻳﺔ اﻟﺘﻲ ﺗﻢ ﺗﻘﻴﻴﻤﻬﺎ. وﻳﻤﻜﻦ ﺗﻘﻴﻴﻢ درﺟﺎﺗﻚ ﻓﻲ ﻛﻞ ﻓﺌﺔ ﻋﻠﻰ اﻟﻨﺤﻮ اﻟﺘﺎﻟﻲ:</p>
+                </td>
+                <td colspan="9" style="padding: 15px;">
+                    <table class="leadership-score-table" style="width: 100%; table-layout: fixed;">
+                        <tr>
+                            <td class="font-weight-600 text-center">منخفض جدا</td>
+                            <td class="font-weight-600 text-center">منخفض</td>
+                            <td class="font-weight-600 text-center">متوسط</td>
+                            <td class="font-weight-600 text-center">مرتفع</td>
+                            <td class="font-weight-600 text-center">مرتفع جدا</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="square display-block very-low">
+                                    <div class="sq very-low"></div>
+                                    <div class="sq very-low"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="square display-block low">
+                                    <div class="sq low"></div>
+                                    <div class="sq low"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="square display-block average">
+                                    <div class="sq average"></div>
+                                    <div class="sq average"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="square  display-block high">
+                                    <div class="sq high"></div>
+                                    <div class="sq high"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="square display-block very-high">
+                                    <div class="sq very-high"></div>
+                                    <div class="sq very-high"></div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            @foreach (var item in Model.profilePillarScoreReportView)
+            {
+                <tr class="leadership-sprint">
+                    <td colspan="5" style="padding: 0px 15px;">
+                        <h4 style="margin-top: 10px; margin-bottom: 10px; color: #606060;">@item.PillarName.Current</h4>
+                        <p class="font-weight-600" style="margin-bottom: 10px; margin-top: 0; color: #606060; font-size: 14px;">
+                            @item.PillarDescription.Current
+                        </p>
+                    </td>
+                    <td colspan="9" style="padding: 0px 15px;">
+                        <div class="square display-block ">
+                            @if ((int)item.Score == 1)
+                            {
+                                <div class="sq very-low"></div>
+                                for (int i = 1; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+
+
+                            }
+                            else if ((int)item.Score == 2)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                for (int i = 2; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+
+                            }
+                            else if ((int)item.Score == 3)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                for (int i = 3; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+                            }
+                            else if ((int)item.Score == 4)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq low"></div>
+                                for (int i = 4; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+                            }
+                            else if ((int)item.Score == 5)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq average"></div>
+                                for (int i = 5; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+                            }
+                            else if ((int)item.Score == 6)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq average"></div>
+                                <div class="sq average"></div>
+                                for (int i = 6; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+                            }
+                            else if ((int)item.Score == 7)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq average"></div>
+                                <div class="sq average"></div>
+                                <div class="sq high"></div>
+                                for (int i = 7; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+                            }
+                            else if ((int)item.Score == 8)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq average"></div>
+                                <div class="sq average"></div>
+                                <div class="sq high"></div>
+                                <div class="sq high"></div>
+                                for (int i = 8; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+                            }
+                            else if ((int)item.Score == 9)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq average"></div>
+                                <div class="sq average"></div>
+                                <div class="sq high"></div>
+                                <div class="sq high"></div>
+                                <div class="sq very-high"></div>
+                                for (int i = 9; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+                            }
+                            else if ((int)item.Score == 10)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq average"></div>
+                                <div class="sq average"></div>
+                                <div class="sq high"></div>
+                                <div class="sq high"></div>
+                                <div class="sq very-high"></div>
+                                <div class="sq very-high"></div>
+                            }
+
+
+
+                        </div>
+
+
+                    </td>
+                </tr>
+
+                <tr style="height: 15px;"></tr>
+
+
+            }
+        </table>
+
+        <h2 class="font-weight-600" style="color: #626262; margin-bottom: 0;">القسم 2: تحليل نتائج المؤشر</h2>
+        <p style="margin-top: 0;">ﻳﻮﺿﺢ اﻟﺘﺤﻠﻴﻞ اﻟﺘﺎﻟﻲ ﻣﻬﺎراﺗﻚ وإﻣﻜﺎﻧﺎﺗﻚ اﻟﻘﻴﺎدﻳﺔ اﺳﺘنادا إﻟﻰ إﺟﺎﺑﺎﺗﻚ ﻋﻠﻰ اﻟﺴﻴﻨﺎرﻳﻮﻫﺎت واﻟﻤﻮاﻗﻒ اﻟﻮاردة ﻓﻲ اﻟﺘﻘﻴﻴﻢ</p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 5px; padding: 10px 20px;">ﻣﺆﺷﺮ اﻟﻤﻬﺎرات اﻟﻘﻴﺎدﻳﺔ – ﺗﻘﻴﻴﻢ ﺷﺎﻣﻞ</p>
+
+        <p class="leadership-sprint font-weight-600" style="padding: 10px 20px 30px; margin-top: 0;">  @Model.OverAllDescription.Current</p>
+
+    </article>
+
+
+</body>
+</html>

@@ -1,0 +1,741 @@
+﻿@model Uaeglp.ViewModels.AssessmentViewModels.AssessmentIndividualToolReportView
+
+@{
+    Layout = null;
+}
+
+<html>
+<head>
+    <meta charset="utf-8">
+    @*
+        <title>Demo</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="license" href="https://www.opensource.org/licenses/mit-license/">
+        <script src="script.js"></script>
+        <link href="~/css/demo.css" rel="stylesheet" />*@
+    <style>
+
+        .breakhere {
+            page-break-after: always;
+            background-color: blueviolet;
+        }
+
+        tr {
+            page-break-inside: avoid;
+            direction: rtl;
+        }
+
+        .imagetorotate {
+            -webkit-transform: rotate(200deg);
+            -webkit-backface-visibility: hidden;
+        }
+
+        body {
+            font-family: sans-serif;
+            /*background: url('../../Assets/images/bgs/well-geing-report-ar.jpg');*/
+            direction: rtl;
+        }
+
+        .background {
+            position: absolute;
+            display: block;
+            min-width: 100%;
+            text-align: center;
+            background-color: transparent;
+            /*padding-top: 50%;*/
+            background: url(../../Assets/images/bgs/well-geing-report-ar.jpg) no-repeat;
+            background-size: contain;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            z-index: -1;
+        }
+
+        .cover-page {
+        }
+
+        .font-size-32 {
+            font-size: 32px;
+        }
+
+        .font-size-24 {
+            font-size: 24px;
+        }
+
+        .font-size-20 {
+            font-size: 20px;
+        }
+
+        .font-size-12 {
+            font-size: 12px;
+        }
+
+        .m-100 {
+            margin: 60px;
+        }
+
+        p {
+            line-height: 1.5;
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #6e6e6e;
+        }
+
+        .square .sq {
+            width: 28px;
+            height: 28px;
+            margin-right: 4px;
+            float: left;
+        }
+
+        .sq-green-600 {
+            background-color: #66cbc4;
+        }
+
+        .green-900 {
+            background: #00a99d;
+        }
+
+        .sq-green-100 {
+            background: #e0f5f3;
+        }
+
+        .sq-grey-300 {
+            background-color: #e6e6e6;
+        }
+
+        .red-100 {
+            background: #ffcbc4;
+        }
+
+        .text-grey-400 {
+            color: #6a6a6a;
+        }
+
+        table {
+            font-family: sans-serif;
+            /*text-align: left;*/
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .table-key td {
+            height: 75px;
+            padding: 8px;
+            border: 5px solid #fff;
+        }
+
+        table th {
+            padding: 8px;
+            border: 3px solid #fff;
+        }
+
+        table th {
+            color: #fff;
+        }
+
+        .w-100 {
+            width: 100px;
+        }
+
+        .w-160 {
+            width: 160px;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .display-block {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .v-align-top {
+            vertical-align: top;
+        }
+
+        .font-weight-bold {
+            font-weight: bold;
+        }
+
+        .font-weight-600 {
+            font-weight: 600;
+        }
+
+        .w-p60 {
+            width: 60%;
+        }
+
+        .w-p40 {
+            width: 40%;
+        }
+
+        .h-27 {
+            height: 27px;
+        }
+
+        .mh-27 {
+            min-height: 27px;
+        }
+
+        .page-2 .sq {
+            color: #fff;
+            width: 23px;
+        }
+
+        .text-white {
+            color: #fff;
+        }
+
+        .title {
+            margin-bottom: 50px;
+            font-size: 32px;
+            font-weight: bold;
+            color: #666;
+        }
+
+        .subtitle {
+            font-weight: bold;
+            color: #666;
+            margin-top: 50px;
+        }
+
+        .note {
+            padding: 15px;
+            border: 2px solid #66cbc4;
+            color: #66cbc4;
+            height: 85px;
+        }
+
+        .page-5 .table-borderless td {
+            border: 0;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 37px;
+            padding: 0 15px;
+            border-bottom: 5px solid #fff;
+        }
+
+        .page-5 .table-borderless tr:last-child td {
+            border-bottom: 0;
+        }
+
+        .table-cell-p50 {
+            margin-top: 2px;
+        }
+
+            .table-cell-p50 td {
+                padding: 5px 15px;
+                width: 50%;
+                border: 3px solid #fff;
+                height: 50px;
+                line-height: 1.2;
+            }
+
+            .table-cell-p50 tr td:first-child {
+                border-left: 0;
+            }
+
+            .table-cell-p50 tr td:last-child {
+                border-right: 0;
+            }
+
+        .text-green {
+            color: #03a7a0;
+        }
+
+        .text-title {
+            margin-bottom: 30px;
+        }
+
+        .leadership-score-table tr:first-child td {
+            border-left: 2px solid #6e6e6e;
+            color: #6e6e6e;
+        }
+
+        .leadership-score-table tr:last-child td {
+            padding: 0;
+        }
+
+        .leadership-score-table td .sq,
+        .leadership-sprint .sq {
+            width: 50px;
+            height: 50px;
+            margin-right: 2px;
+            margin-left: 2px;
+        }
+
+            .leadership-score-table td .sq:last-child {
+                margin-right: 0;
+            }
+
+        .very-low  {
+            background-color: #c1eae6;
+        }
+
+        .low  {
+            background-color: #a3e0db;
+        }
+
+        .average  {
+            background-color: #66c9c4;
+        }
+
+        .high  {
+            background-color: #4c9792;
+        }
+
+        .very-high  {
+            background-color: #336661;
+        }
+
+        .leadership-sprint {
+            background-color: #eef0ef;
+        }
+
+        .white-sq {
+            background-color: #fff !important;
+        }
+
+        .grey-sq {
+            background-color: #e6e6e6 !important;
+        }
+        /*.leadership-sprint .display-block{
+            display: inline-block;
+            overflow: hidden;
+        }*/
+        .leadership-sprint .sq {
+            float: right;
+        }
+
+        .career-report-table .sq {
+            width: 32px;
+            height: 32px;
+        }
+
+        table.career-report-table p {
+            margin: 0;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .career-planning {
+            height: 200px;
+            padding: 10px 15px;
+            margin-bottom: 15px;
+            color: #00b39c;
+            border: 1px solid #00b39c;
+        }
+
+        .well-being-table td {
+            vertical-align: top;
+        }
+
+        .overall-well-being .sq {
+            width: 78px;
+            margin-left: 4px;
+            margin-right: 4px;
+        }
+    </style>
+</head>
+<body style="margin-left: 100px; margin-right: 100px; padding-top: 260px;">
+
+    <article class="cover-page">
+        <div class="background"></div>
+        <div style="">
+            <h2 class="font-size-32" style=" margin: 15px 0 0;">ﺗﻌﺮف ﻋﻠﻰ</h2>
+            <h1 class="" style="font-size: 48px; margin: 0 0 15px;">ﻣﺴﺘﻮى ﺟﻮدة ﺣﻴﺎﺗﻚ</h1>
+            <h2 class="font-size-32">ﺗﻘﺮﻳﺮ اﻟﻤﺮﺷﺢ</h2>
+        </div>
+        <div style="margin-top: 80px;">
+            <h2 style="margin: 15px 0; font-weight: 400;">الاسم : @Model.ProfileName.Arabic </h2>
+            <h2 style="margin: 15px 0; font-weight: 400;">ﺗﺎرﻳﺦ ﺗﻘﺪﻳﻢ اﻻﺧﺘﺒﺎر : @Model.CompletedOn </h2>
+            <h2 style="margin: 15px 0; font-weight: 400;">تم طباعة التقرير :@DateTime.Now.ToShortDateString() </h2>
+        </div>
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-1" style="padding-top: 100px; padding-bottom: 100px;">
+        <h2 class="text-green text-title">اﻟﻤﻘﺪﻣﺔ</h2>
+        <p style="margin-bottom: 30px;">
+            ف ﻋﻠﻰ ﻣﺴﺘﻮى ﺟﻮدة ﺣﻴﺎﺗﻚ". ﻳﻬﺪف ﻫﺬا اﻟﺘﻘﺮﻳﺮ إﻟﻰ ﺗﻘﺪﻳﻢ ﻣﻼﺣﻈﺎت ﺣﻮل ﻣﺴﺘﻮى ﺟﻮدة ﺣﻴﺎﺗﻚ ﺑﺸﻜﻞ ّﻧﺸﻜﺮك ﻋﻠﻰ إﺗﻤﺎم اﺳﺘﺒﻴﺎن "ﺗﻌﺮ ﻋﺎم، وﻛﺬﻟﻚ ﻟﻜﻞ ﻋﻨﺼﺮ ﻣﻦ ﻋﻨﺎﺻﺮ اﻟﺤﻴﺎة ﺑﺎﻟﺘﻔﺼﻴﻞ. وﻳﺤﻠﻞ اﻟﺘﻘﺮﻳﺮ ﺗﻘﻴﻴﻤﻚ ﻟﻤﺴﺘﻮى رﺿﺎك وﺳﻌﺎدﺗﻚ ﻋﻦ ﺣﻴﺎﺗﻚ ﻓﻲ اﻟﻮﻗﺖ اﻟﺤﺎﻟﻲ. وﺟﺪﻳﺮ ا، ﺑﻞ ﻣﺠﺮد أداة ﻟﺘﻮﺿﻴﺢ ﻣﺴﺘﻮى ﺟﻮدة ﺣﻴﺎﺗﻚ ﻓﻲ اﻟﻮﻗﺖ اﻟﺮاﻫﻦ وﻛﻞ ﻣﺎ ﻳﻤﻜﻨﻚ ﺗﺤﺴﻴﻨﻪ ﻓﻲ ﻫﺬا اﻟﻨﻄﺎق.ًﺑﺎﻟﺬﻛﺮ أن ﻫﺬا اﻻﺳﺘﺒﻴﺎن ﻟﻴﺲ اﺧﺘﺒﺎر ﻳﻐﻄﻲ اﻟﺘﻘﺮﻳﺮ اﻟﻤﻜﻮﻧﺎت اﻟﺮﺋﻴﺴﻴﺔ اﻟﺜﻼﺛﺔ ﻟﺠﻮدة اﻟﺤﻴﺎة وﻫﻲ: اﻟﺮﺿﺎ ﻋﻦ اﻟﺤﻴﺎة، واﻟﻤﺸﺎﻋﺮ اﻹﻳﺠﺎﺑﻴﺔ، واﻟﻤﺸﺎﻋﺮ اﻟﺴﻠﺒﻴﺔ، ﻛﻤﺎ ﻳﺘﻀﻤﻦ ﺑﻌﺾ اﻟﺒﻨﻮد اﻟﻤﺘﻌﻠﻘﺔ ﺑﺘﻔﻌﻴﻞ اﻟﻘﺪرات، ﻓﻴﻤﺎ ﻳﺸﺎر إﻟﻴﻬﺎ ﻛﺬﻟﻚ ﺑﺎﻟﺘﻄﻮر واﻻزدﻫﺎر ﻋﻠﻰ اﻟﻤﺴﺘﻮى اﻟﺸﺨﺼﻲ، ﺿﻤﻦ ﻣﻘﺎﻳﻴﺲ اﻟﺘﻘﻴﻴﻢ اﻟﻤﻌﺮﻓﻲ )ﻣﻘﻴﺎس اﻟﺮﺿﺎ ﻋﻦ ﺟﻮدة اﻟﺤﻴﺎة(.
+            <br /> وﻳﻘﻴﺲ ﻫﺬا اﻟﺘﻘﺮﻳﺮ ﻛﺬﻟﻚ ًﺎ أو ﺳﻠﺒيا إﻳﺠﺎﺑﻴًﺗﻢ ﺗﺼﻤﻴﻢ ﻫﺬا اﻟﺘﻘﺮﻳﺮ ﻟﻘﻴﺎس ﻣﺴﺘﻮﻳﺎت "اﻟﺴﻌﺎدة" اﻟﺤﺎﻟﻴﺔ، أي أﺣﺪث اﻟﺘﺠﺎرب اﻟﺘﻲ ﺗﺮﻛﺖ ﺗﺄﺛﻴﺮ
+        </p>
+        <table class="well-being-table" style="width: 100%; table-layout: fixed;">
+
+            <tr>
+                <td colspan="6" style="background-color: #6ec9c2; padding: 10px; vertical-align: middle;">
+                    <h4 class="font-weight-600" style="color: #fff; margin: 0;">ﻋﻨﺎﺻﺮ ﺟﻮدة اﻟﺤﻴﺎة</h4>
+                </td>
+                <td colspan="6" style="background-color: #6ec9c2; padding: 10px; vertical-align: middle;">
+                    <h4 class="font-weight-600" style="color: #fff; margin: 0;">مقياس ﺟﻮدة اﻟﺤﻴﺎة</h4>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6">
+                    <table class="" style="width: 100%; table-layout: fixed; border-collapse: collapse; margin-right: auto; margin-left: auto; height: 100px;">
+
+                        <tr>
+                            <td class="text-center" colspan="3" style="background-color: #6ec9c2; padding: 0; vertical-align: middle;">
+                                <img src="~/Assets/images/smile-face.png" alt="" style="width: 70%;" />
+                            </td>
+                            <td colspan="9" style="background-color: #f5f7f6; padding: 5px 10px; vertical-align: middle;">
+                                <h4 style="color: #6e6e6e; margin: 0;">السعادة</h4>
+                                <p class="font-weight-600" style="color: #6e6e6e; margin: 5px 0; font-size: 12px;">اﻟﻤﺸﺎﻋﺮ واﻷﺣﺎﺳﻴﺲ اﻹﻳﺠﺎﺑﻴﺔ واﻟﺴﻠﺒﻴﺔ </p>
+                            </td>
+                        </tr>
+
+                    </table>
+                </td>
+                <td colspan="6">
+                    <p class="leadership-sprint font-weight-600" style="margin:0 0 3px; padding: 12px 10px;">السعادة (المشاعر الإيجابية)</p>
+                    <p class="leadership-sprint font-weight-600" style="margin:0; padding: 12px 10px;">السعادة (المشاعر السلبية)</p>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="6">
+                    <table class="" style="width: 100%; table-layout: fixed; border-collapse: collapse; margin-right: auto; margin-left: auto; height: 100px;">
+
+                        <tr>
+                            <td class="text-center" colspan="3" style="background-color: #6ec9c2; padding: 0; vertical-align: middle;">
+                                <img src="~/Assets/images/well-being.png" alt="" style="width: 70%;" />
+                            </td>
+                            <td colspan="9" style="background-color: #f5f7f6; padding: 5px 10px; vertical-align: middle;">
+                                <h4 style="color: #6e6e6e; margin: 0;">جودة الحياة</h4>
+                                <p class="font-weight-600" style="color: #6e6e6e; margin: 5px 0; font-size: 12px;">(الشعور بالرضا عن مختلف مجالات الحياة)(</p>
+                            </td>
+                        </tr>
+
+                    </table>
+                </td>
+                <td colspan="6">
+                    <p class="leadership-sprint font-weight-600" style="margin:0 0 3px; padding: 12px 10px;">ﻣﻌﺪل اﻟﺮﺿﺎ ﻋﻦ ﺟﻮدة اﻟﺤﻴﺎة</p>
+                    <p class="leadership-sprint font-weight-600" style="margin:0 0 3px; padding: 12px 10px;">الصحة الجسدية </p>
+                    <p class="leadership-sprint font-weight-600" style="margin:0 0 3px; padding: 12px 10px;">العمل</p>
+                    <p class="leadership-sprint font-weight-600" style="margin:0 0 3px; padding: 12px 10px;">الترفيه</p>
+                    <p class="leadership-sprint font-weight-600" style="margin:0 0 3px; padding: 12px 10px;">النوم</p>
+                    <p class="leadership-sprint font-weight-600" style="margin:0 0 3px; padding: 12px 10px;">اﻟﺘﻄﻮر واﻻزدﻫﺎر</p>
+                    <p class="leadership-sprint font-weight-600" style="margin:0; padding: 12px 10px;">التفاعل الاجتماعي</p>
+                </td>
+            </tr>
+        </table>
+
+        <p style="margin-bottom: 0;">
+            ﻣﺴﺘﻮﻳﺎت ﺟﻮدة اﻟﺤﻴﺎة اﻟﻌﺎﻣﺔ واﻟﺨﺎﺻﺔ ﻣﻦ ﺧﻼل ﺗﻘﻴﻴﻢ ﻣﺴﺘﻮﻳﺎت رﺿﺎ اﻟﻤﺸﺎرك ﻓﻲ اﻻﺳﺘﺒﻴﺎن ﻋﻦ ﻣﺨﺘﻠﻒ ﻣﺠﺎﻻت اﻟﺤﻴﺎة، ﻣﺜﻞ اﻟﺼﺤﺔ اﻟﺒﺪﻧﻴﺔ واﻟﻌﻤﻞ.
+            <br /> إﻟﻰ ﻣﺴﺘﻮى 1 ﻣﺴﺘﻮى ﻣﺮﺗﻔﻊ ﻣﻦ اﻟﺮﺿﺎ واﻟﺴﻌﺎدة، ﺑﻴﻨﻤﺎ ﻳﺸﻴﺮ اﻟﺮﻗﻢ 10، ﺣﻴﺚ ﻳﻤﺜﻞ اﻟﺮﻗﻢ 10 إﻟﻰ 1ًﺗﻌﺮض اﻟﻨﺘﺎﺋﺞ ﻋﻠﻰ ﻣﻘﻴﺎس ﻣﻦ ﻣﻨﺨﻔﺾ ﻟﻠﻐﺎﻳﺔ ﻣﻦ اﻟﺮﺿﺎ )ﺑﺎﺳﺘﺜﻨﺎء ﻣﻘﻴﺎس اﻟﺴﻌﺎدة واﻟﺬي ﻳﺸﻴﺮ إﻟﻰ اﻟﻤﺸﺎﻋﺮ اﻹﻳﺠﺎﺑﻴﺔ واﻟﺴﻠﺒﻴﺔ(. وﺗﺸﻴﺮ درﺟﺔ ﺟﻮدة اﻟﺤﻴﺎة ﺑﺸﻜﻞ ﻋﺎم إﻟﻰ ﻧﺴﺒﺔ ﺳﻌﺎدﺗﻚ وﺟﻮدة ﺣﻴﺎﺗﻚ ﺑﺸﻜﻞ ﻋﺎم، ﻣﻊ وﺿﻊ اﻟﻤﺸﺎﻋﺮ اﻟﺴﻠﺒﻴﺔ ﻓﻲ اﻻﻋﺘﺒﺎر. وﻳﻮﺿﺢ اﻟﺘﻘﺮﻳﺮ ﺗﻘﻴﻴﻤﻚ ﻣﻘﺎرﻧﺔ ﺑﺘﻘﻴﻴﻢ اﻟﻤﻮاﻃﻨﻴﻦ اﻹﻣﺎراﺗﻴﻴﻦ اﻟﺬﻳﻦ أﻛﻤﻠﻮا اﻻﺳﺘﺒﻴﺎن ﻧﻔﺴﻪ ﻓﻲ وﻗﺖ ﺳﺎﺑﻖ.
+            <br />ﻣﻦ اﻟﻤﻔﺘﺮض أن ﺗﺤﺪد اﻟﺠﻴﻨﺎت واﻟﺒﻴﺌﺔ اﻟﻤﺤﻴﻄﺔ ﻣﺴﺘﻮى ﺟﻮدة ﺣﻴﺎة اﻟﻔﺮد، إﻻ أن ﻫﺬا اﻟﻤﺴﺘﻮى ﻳﺘﺄﺛﺮ ﻛﺬﻟﻚ ﺑﺎﻟﺘﻔﻀﻴﻼت اﻟﺸﺨﺼﻴﺔ ﻟﻤﺨﺘﻠﻒ ﺎ ﻟﺘﺠﺮﺑﺘﻚ اﻟﺸﺨﺼﻴﺔ ﻓﻴﻤﺎ ﻳﺘﻌﻠﻖ ﺑﺠﻮدة اﻟﺤﻴﺎة وﻳﺘﻨﺎول وﺿﻌﻚ اﻟﺤﺎﻟﻲ "اﻟﻤﺴﺘﻘﺮ"، ﻣﻊ اﻟﺘﺄﻛﻴﺪ ﻋﻠﻰ أن ًاﻷﻓﺮاد. وﻳﻘﺪم اﻟﺘﻘﺮﻳﺮ اﻟﺤﺎﻟﻲ ﻣﻘﻴﺎﺳ ﻓﻲ ﻛﺘﺐ اﻟﺼﺤﺔ ًﻛﻞ ﺷﺨﺺ ﻗﺎدر ﻋﻠﻰ ﺗﻌﺰﻳﺰ ﺟﻮدة ﺣﻴﺎﺗﻪ، وﺗﺤﻘﻴﻖ اﻟﻤﺰﻳﺪ ﻣﻦ اﻟﻨﺠﺎح، وﺗﺤﺴﻴﻦ ﻣﺴﺘﻮى رﺿﺎه ﻋﻦ اﻟﺤﻴﺎة، ﻛﻤﺎ ﻳﺮد ﺗﻔﺼﻴﻼ اﻟﻨﻔﺴﻴﺔ اﻹﻳﺠﺎﺑﻴﺔ.
+            <br />ﻳﻤﻜﻦ اﻟﺮﺟﻮع ﻟﻠﻘﺴﻢ اﻷول ﻣﻦ اﻟﺘﻘﺮﻳﺮ ﻟﻔﻬﻢ ﻣﺴﺘﻮاك اﻟﺤﺎﻟﻲ ﻣﻦ اﻟﺴﻌﺎدة وﺟﻮدة اﻟﺤﻴﺎة. وﻳﻘﺪم اﻟﻘﺴﻢ اﻟﺜﺎﻧﻲ ﻋﺪة اﻗﺘﺮاﺣﺎت ﻟﺘﺤﺴﻴﻦ ﺟﻮدة ا ﺑﺎﻟﺬﻛﺮ أن ﻫﺬه ًاﻟﺤﻴﺎة ﻟﻤﺴﺎﻋﺪﺗﻚ ﻋﻠﻰ اﻟﺘﻔﻜﻴﺮ ﻓﻲ اﻟﺨﻄﻮات اﻟﺘﻲ ﻳﻤﻜﻨﻚ أن ﺗﺘﺨﺬﻫﺎ ﻟﺘﺤﺴﻴﻦ ﺟﻮدة اﻟﺤﻴﺎة ﻓﻲ ﻣﺨﺘﻠﻒ اﻟﻤﺠﺎﻻت. وﺟﺪﻳﺮ ﺎ ﻟﻚ وﻳﺠﺐ اﺳﺘﺨﺪاﻣﻬﺎ ﻛﻤﺒﺎدئ ﺗﻮﺟﻴﻬﻴﺔ ﻓﻘﻂ. ًاﻻﻗﺘﺮاﺣﺎت ﻋﺎﻣﺔ وﻟﻴﺴﺖ ﻣﺼﻤﻤﺔ ﺧﺼﻴﺼ
+        </p>
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-2" style="padding-top: 50px; padding-bottom: 50px; margin-left: -50px; margin-right: -50px;">
+        <h2 class="font-weight-600" style="color: #626262;">القسم 1: ﻣﺨﻄﻂ ﺗﻘﻴﻴﻢ ذﻛﺎﺋﻚ اﻟﻌﺎﻃفي</h2>
+
+        <table class="" style="width: 100%; table-layout: fixed; border-collapse: collapse;">
+            <tr class="leadership-sprint" style="height: 90px;">
+                <td colspan="14" style="padding: 15px;">
+                    <p><strong>جودة الحياة بشكل عام </strong></p>
+                    <div class="overall-well-being">
+                        <div class="square display-block ">
+                            @for (int i = 1; i < 11; i++)
+                            {
+                                if (i < (int)Model.OverallScore)
+                                {
+                                    <div class="sq average"></div>
+                                }
+                                else if (i == (int)Model.OverallScore)
+                                {
+                                    <div class="sq font-weight-600 text-center average" style="color:#fff; height: 30px;  padding: 10px 0;">@((int)Model.OverallScore)</div>
+
+                                }
+                                else if (i > (int)Model.OverallScore)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+                            }
+
+
+                        </div>
+                    </div>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="5" style="padding: 15px;">
+                    <p>
+                        ﻳﻮﺿﺢ اﻟﺮﺳﻢ اﻟﺒﻴﺎﻧﻲ أدﻧﺎه اﻟﻤﺴﺘﻮﻳﺎت اﻟﺤﺎﻟﻴﺔ ﻟﺠﻮدة اﻟﺤﻴﺎة وﻓًﻘﺎ ﻟﻤﺎ ﺗﻢ ﻗﻴﺎﺳﻪ ﻣﻦ ﺧﻼل اﻻﺳﺘﺒﻴﺎن. وﻳﻤﻜﻦ ﺗﻔﺴﻴﺮ درﺟﺎت ﻛﻞ ﻣﻘﻴﺎس وﻓُﻘﺎ ﻟﻤﺎ ﻳﻠﻲ:
+                    </p>
+                </td>
+                <td colspan="9" style="padding: 15px;">
+                    <table class="leadership-score-table" style="width: 100%; table-layout: fixed;">
+                        <tr>
+                            <td class="font-weight-600 text-center"> ﻏﻴﺮ راﺿﻲ <br />ﻋﻠﻰ اﻹﻃﻼق</td>
+                            <td class="font-weight-600 text-center">ﻏﻴﺮ راﺿﻲ</td>
+                            <td class="font-weight-600 text-center">محايد</td>
+                            <td class="font-weight-600 text-center">راضى</td>
+                            <td class="font-weight-600 text-center">راض ﻟﻠﻐﺎﻳﺔ</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="square display-block very-low">
+                                    <div class="sq very-low"></div>
+                                    <div class="sq very-low"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="square display-block low">
+                                    <div class="sq low"></div>
+                                    <div class="sq low"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="square display-block average">
+                                    <div class="sq average"></div>
+                                    <div class="sq average"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="square  display-block high">
+                                    <div class="sq high"></div>
+                                    <div class="sq high"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="square display-block very-high">
+                                    <div class="sq very-high"></div>
+                                    <div class="sq very-high"></div>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            @foreach (var item in Model.profileScaleScoreReportsView)
+            {
+                <tr class="leadership-sprint">
+                    <td colspan="5" style="padding: 0px 15px;">
+                        <h4 style="margin-top: 10px; margin-bottom: 10px; color: #606060;">@item.ScaleName.Current</h4>
+                        <p class="font-weight-600" style="margin-bottom: 10px; margin-top: 0; color: #606060; font-size: 14px;">
+                            @item.ScaleLowDescription.Current
+                        </p>
+                    </td>
+                    <td colspan="9" style="padding: 0px 15px;">
+                        <div class="square display-block ">
+                            @if ((int)item.Score == 1)
+                            {
+                                <div class="sq very-low"></div>
+                                for (int i = 1; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+
+
+                            }
+                            else if ((int)item.Score == 2)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                for (int i = 2; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+
+                            }
+                            else if ((int)item.Score == 3)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                for (int i = 3; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+                            }
+                            else if ((int)item.Score == 4)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq low"></div>
+                                for (int i = 4; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+                            }
+                            else if ((int)item.Score == 5)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq average"></div>
+                                for (int i = 5; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+                            }
+                            else if ((int)item.Score == 6)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq average"></div>
+                                <div class="sq average"></div>
+                                for (int i = 6; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+                            }
+                            else if ((int)item.Score == 7)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq average"></div>
+                                <div class="sq average"></div>
+                                <div class="sq high"></div>
+                                for (int i = 7; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+                            }
+                            else if ((int)item.Score == 8)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq average"></div>
+                                <div class="sq average"></div>
+                                <div class="sq high"></div>
+                                <div class="sq high"></div>
+                                for (int i = 8; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+                            }
+                            else if ((int)item.Score == 9)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq average"></div>
+                                <div class="sq average"></div>
+                                <div class="sq high"></div>
+                                <div class="sq high"></div>
+                                <div class="sq very-high"></div>
+                                for (int i = 9; i < 10; i++)
+                                {
+                                    <div class="sq white-sq"></div>
+                                }
+                            }
+                            else if ((int)item.Score == 10)
+                            {
+                                <div class="sq very-low"></div>
+                                <div class="sq very-low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq low"></div>
+                                <div class="sq average"></div>
+                                <div class="sq average"></div>
+                                <div class="sq high"></div>
+                                <div class="sq high"></div>
+                                <div class="sq very-high"></div>
+                                <div class="sq very-high"></div>
+                            }
+
+
+
+                        </div>
+
+
+                    </td>
+                </tr>
+
+                <tr style="height: 10px;"></tr>
+
+
+            }
+        </table>
+
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-2" style="padding-top: 50px; padding-bottom: 50px; margin-left: -50px; margin-right: -50px;">
+        <h2 class="font-weight-600" style="color: #626262;">القسم 2: ﻣﺴﺘﻮى ﺟﻮدة اﻟﺤﻴﺎة</h2>
+        <p>ﻳﻮﺿﺢ اﻟﺘﺤﻠﻴﻞ أدﻧﺎه ﻣﺴﺘﻮﻳﺎت رﺿﺎك ﺑﺎﻟﻨﺴﺒﺔ ﻟﻜﻞ ﻣﻘﻴﺎس ﻣﻦ ﻣﻘﺎﻳﻴﺲ ﺟﻮدة اﻟﺤﻴﺎة.</p>
+
+        @foreach (var narrative in Model.profileScaleNarrativeDescriptionsView)
+        {
+            <p class="leadership-sprint font-weight-600" style="margin-bottom: 5px; margin-top: 15px; padding: 10px; font-size: 14px;">@narrative.ScaleName.Arabic</p>
+            <p class="leadership-sprint font-weight-600" style="padding: 10px; margin-top: 0; margin-bottom: 3px; font-size: 12px;">
+                @narrative.Description.Arabic
+            </p>
+        }
+    </article>
+
+    <div class="breakhere"></div>
+
+    <article class="page-2" style="padding-top: 50px; padding-bottom: 50px; margin-left: -50px; margin-right: -50px;">
+        <h2 class="font-weight-600" style="color: #626262; margin: 0;">اﻟﻘﺴﻢ اﻟﺜﺎﻧﻲ: ﺗﺤﺴﻴﻦ ﻣﺴﺘﻮﻳﺎت ﺟﻮدة اﻟﺤﻴﺎة</h2>
+        <p style="margin: 0;">ا ﺑﺎﻟﺬﻛﺮ أن ﻫﺬه اﻻﻗﺘﺮاﺣﺎت ًﻳﻘﺪم اﻟﺘﺤﻠﻴﻞ اﻟﻮارد أدﻧﺎه ﺑﻌﺾ اﻻﻗﺘﺮاﺣﺎت ﻟﺘﺤﺴﻴﻦ ﻣﺴﺘﻮى ﺟﻮدة اﻟﺤﻴﺎة واﻟﺮﺿﺎ ﻓﻴﻤﺎ ﻳﺘﻌﻠﻖ ﺑﻜﻞ ﻣﻘﻴﺎس. وﺟﺪﻳﺮ ﺎ ﻟﻚ وﻳﺠﺐ اﺳﺘﺨﺪاﻣﻬﺎ ﻛﻤﺒﺎدئ ﺗﻮﺟﻴﻬﻴﺔ ﻓﻘﻂ ﻟﺘﻌﺰﻳﺰ ﺳﻌﺎدﺗﻚ وﺟﻮدة ﺣﻴﺎﺗﻚ. ﻳﻤﻜﻨﻚ أن ﺗﺨﺘﺎر ﻣﺠﺎﻟﻴﻦ ﻟﻠﺘﺮﻛﻴﺰ ًﻋﺎﻣﺔ وﻟﻴﺴﺖ ﻣﺼﻤﻤﺔ ﺧﺼﻴﺼ ا ﻟﻴﺪﻋﻤﻚ ﻓﻲ اﺧﺘﺒﺎر ﻫﺬه اﻷﻧﺸﻄﺔ.ًﻋﻠﻴﻬﻤﺎ وﺗﻌﺰﻳﺰ ﻣﺴﺘﻮى رﺿﺎك ﻋﻨﻬﻤﺎ، ﻛﻤﺎ ﻳﻤﻜﻨﻚ اﻟﺘﺤﺪث إﻟﻰ ﺷﺨﺺ ﺗﻌﺮﻓﻪ ﺟﻴ</p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 5px; margin-top: 10px; padding: 10px; font-size: 14px;">اﻟﺴﻌﺎدة-اﻟﻤﺸﺎﻋﺮ اﻹﻳﺠﺎﺑﻴﺔ</p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px; margin-top: 0; margin-bottom: 3px; font-size: 12px;">
+            ﻟﺰﻳﺎدة ﻣﺸﺎﻋﺮ اﻟﺴﻌﺎدة، اﻛﺘﺐ ﺛﻼﺛﺔ أﺷﻴﺎء ﺗﺠﻌﻠﻚ ﺗﺸﻌﺮ ﺑﺎﻟﺴﻌﺎدة واﻟﺒﻬﺠﺔ واﻟﺮﺿﺎ. ﺣﺎول أن ﺗﻔﻌﻞ ﻫﺬه اﻷﺷﻴﺎء ﺑﺸﻜﻞ ﻣﺘﻜﺮر ﻟﺘﺤﺴﻴﻦ ﺣﺎﻟﺘﻚ اﻟﻤﺰاﺟﻴﺔ واﻹﻳﺠﺎﺑﻴﺔ ﺑﺸﻜﻞ ﻋﺎم. ﻓﻜﺮ ﻓﻲ ﻛﻴﻔﻴﺔ ﺗﻐﻴﻴﺮ اﻟﺼﻮرة اﻟﺘﻲ ﺗﺮاﻫﺎ ﻟﻨﻔﺴﻚ ﻣﻦ ﺧﻼل ﺗﻘﻴﻴﻢ ﻣﺴﺎﻫﻤﺎﺗﻚ اﻹﻳﺠﺎﺑﻴﺔ. ﻋﺰز ﺷﻌﻮرك ﺑﺎﻻﻣﺘﻨﺎن وﺗﻔّﻜﺮ ﻓﻴﻤﺎ ﺗﺤﻈﻰ ﺑﻪ ﻣﻦ ﻧﻌﻢ وﻫﺒﺎت. ﻳﻤﻜﻨﻚ ﻛﺬﻟﻚ أن ﺗﺮﺳﻢ ﺻﻮرة ﻟﻨﻔﺴﻚ ﻓﻲ أﻓﻀﻞ ﺣﺎﻻﺗﻬﺎ ﻋﻦ ﻃﺮﻳﻖ ﻛﺘﺎﺑﺔ ﺗﺼﻮرك ﻋﻦ ﻧﻔﺴﻚ ﻓﻲ اﻟﻤﺴﺘﻘﺒﻞ واﻟﺘﻔﻜﻴﺮ ﻓﻴﻤﺎ ﺳﻮف "ﺗﺒﺪو" ﻋﻠﻴﻪ ﻋﻨﺪﻣﺎ ﺗﺤﻘﻖ ﻛﺎﻣﻞ إﻣﻜﺎﻧﺎﺗﻚ.
+        </p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 5px; margin-top: 10px; padding: 10px; font-size: 14px;">اﻟﺴﻌﺎدة-اﻟﻤﺸﺎﻋﺮ اﻟﺴﻠﺒﻴﺔ</p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px; margin-top: 0; margin-bottom: 3px; font-size: 12px;">
+            ﺗﺘﻀﺎءل ﻣﺸﺎﻋﺮ اﻟﺴﻌﺎدة ﺑﺘﻜﺮار اﻷﻓﻜﺎر وﻟﻤﺸﺎﻋﺮ اﻟﺴﻠﺒﻴﺔ. ﺣﺎول أن ﺗﺮﻛﺰ ﻋﻠﻰ اﻷﻓﻜﺎر اﻹﻳﺠﺎﺑﻴﺔ وﺗﻐﻴﺮ اﻟﺼﻮرة اﻟﺘﻲ ﺗﺮاﻫﺎ ﻟﻨﻔﺴﻚ ﻟﺘﻜﻮن أﻛﺜﺮ إﻳﺠﺎﺑﻴﺔ. ﻓﻲ اﻟﺼﺒﺎح، ﻓﻜﺮ ﻓﻲ ﺛﻼﺛﺔ أﻣﻮر إﻳﺠﺎﺑﻴﺔ ﻋﻦ ﻧﻔﺴﻚ واﺳﺘﻤﺮ ﻓﻲ ﺗﺮدﻳﺪﻫﺎ ﺑﺪاﺧﻠﻚ ﻋﻠﻰ ﻣﺪار اﻟﻴﻮم. وﻋﻠﻰ اﻟﺮﻏﻢ ﻣﻦ أن اﻟﻤﺸﺎﻋﺮ اﻟﺴﻠﺒﻴﺔ أﻣﺮ ﻃﺒﻴﻌﻲ، ﻳﻨﺒﻐﻲ ﺗﺤﻮﻳﻞ اﻟﺘﺮﻛﻴﺰ ﻋﻨﻬﺎ وزﻳﺎدة اﻟﺘﺮﻛﻴﺰ ﻋﻠﻰ اﻟﻤﺸﺎﻋﺮ اﻹﻳﺠﺎﺑﻴﺔ اﻟﻤﻮﺿﺤﺔ أﻋﻼه.
+        </p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 5px; margin-top: 10px; padding: 10px; font-size: 12px;">ل اﻟﺮﺿﺎ ﻋﻦ ﺟﻮدة اﻟﺤﻴﺎةّﻣﻌﺪ</p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px; margin-top: 0; margin-bottom: 3px; font-size: 12px;">
+            ﺎ ﻓﻲ ﺟﻤﻴﻊ اﻟﻨﻌﻢ اﻟﺘﻲ ﺗﺤﻈﻰ ﺑﻬﺎ واﻷﺷﻴﺎء اﻹﻳﺠﺎﺑﻴﺔ ﻓﻲ ﺣﻴﺎﺗﻚ، ﻛﻤﺎ ﻳﻨﺒﻐﻲ اﻟﺘﺮﻛﻴﺰ ﻋﻠﻰ اﻟﺘﻔﻜﻴﺮ ًﻟﺘﻌﺰﻳﺰ ﻣﺴﺘﻮى رﺿﺎﺋﻚ ﻋﻦ ﺟﻮدة اﻟﺤﻴﺎة ﺑﺸﻜﻞ ﻋﺎم، ﻳﻨﺒﻐﻲ أن ﺗﺘﺤﻘﻖ ﻣﻦ أﻧﻚ ﺗﻔﻜﺮ ﻣﻠﻴ ﺎ ﺑﺎﻹﻧﺠﺎز، ًا وﻳﻌﻄﻴﻚ إﺣﺴﺎﺳًﺎ ﻟﻠﺘﻌﻠﻢ واﻟﺘﺤﺴﻦ ﻓﻲ اﻟﻤﺴﺘﻘﺒﻞ. ﻓﻜﺮ ﻓﻲ ﺗﺨﺼﻴﺺ اﻟﻤﺰﻳﺪ ﻣﻦ اﻟﻮﻗﺖ ﻓﻲ ﻋﻤﻞ ﻛﻞ ﻣﺎ ﻳﺠﻌﻠﻚ ﺳﻌﻴﺪ ًاﻹﻳﺠﺎﺑﻲ واﻟﻨﻈﺮ إﻟﻰ اﻟﺘﺠﺎرب اﻟﺴﻠﺒﻴﺔ ﺑﺎﻋﺘﺒﺎرﻫﺎ ﻓﺮﺻ وﻗﻠﻞ اﻟﻮﻗﺖ اﻟﺬي ﺗﻘﻀﻴﻪ ﻓﻲ أداء ﻣﻬﺎم ﻻ ﺗﺴﺘﻤﺘﻊ ﺑﻬﺎ.
+        </p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 5px; margin-top: 10px; padding: 10px; font-size: 14px;">الصحة الجسدية</p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px; margin-top: 0; margin-bottom: 3px; font-size: 12px;">
+            ﻟﺘﺤﺴﻴﻦ ﺻﺤﺘﻚ اﻟﺠﺴﺪﻳﺔ، ﻓﻜﺮ ﻓﻲ اﻟﺠﻮاﻧﺐ اﻟﺘﻲ ﺗﺤﺘﺎج إﻟﻰ ﻣﻌﺎﻟﺠﺘﻬﺎ، رﻛﺰ ﻋﻠﻰ ﻣﻜﺎن واﺣﺪ ﻓﻲ ﻛﻞ ﻣﺮة، وﺿﻊ ﺧﻄﺔ واﻗﻌﻴﺔ ﻟﺘﺤﺴﻴﻦ ﺣﺎﻟﺘﻪ. ﻓﻜﺮ ﻓﻲ زﻳﺎدة ﻣﻌﺪل ﻣﻤﺎرﺳﺔ اﻟﺘﻤﺎرﻳﻦ اﻟﺮﻳﺎﺿﻴﺔ  دﻗﻴﻘﺔ ﻋﻠﻰ اﻷﻗﻞ أﺛﻨﺎء اﻟﻌﻤﻞ.90أو ﺣﺎول أن ﺗﺘﻌﻠﻢ ﻫﻮاﻳﺔ ﺟﺪﻳﺪة. ﺟﺮب أن ﺗﺸﺎرك ﻓﻲ ﻣﻤﺎرﺳﺔ ﻧﻮع ﻣﻦ أﻧﻮاع اﻟﺮﻳﺎﺿﺔ، واﺣﺮص أﺧﺬ ﻓﺘﺮات راﺣﺔ ﻣﻨﺘﻈﻤﺔ ﻓﻲ ﻣﻜﺎن اﻟﻌﻤﻞ، وﺗﺤﺮك ﻛﻞ
+        </p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 5px; margin-top: 10px; padding: 10px; font-size: 14px;">العمل</p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px; margin-top: 0; margin-bottom: 3px; font-size: 12px;">
+            ﻟﺘﺤﺴﻴﻦ ﻣﺴﺘﻮى رﺿﺎﺋﻚ ﻋﻦ اﻟﻌﻤﻞ، ﻓّﻜﺮ ﻓﻲ ﻛﻴﻔﻴﺔ ﺗﺤﺪﻳﺪ اﻟﻤﺰﻳﺪ ﻣﻦ اﻷﻫﺪاف ﻟﻨﻔﺴﻚ، وﺣﺎول اﻻﺗﻔﺎق ﻣﻊ أﺣﺪ زﻣﻼء اﻟﻌﻤﻞ ﻟﻤﺴﺎﻋﺪﺗﻚ ﻋﻠﻰ اﻟﺘﺤﺴﻦ ﻓﻲ اﻟﻤﺠﺎﻻت اﻟﺘﻲ ﺗﺮﻏﺐ ﻓﻲ ﺎ ﻋﻦ ﻋﻤﻠﻚ، ﻓﻔﻜﺮ ً ﺳﻨﻮات. إذا ﻟﻢ ﺗﻜﻦ راﺿﻴ5 ﺳﻨﻮات و3ﺗﻄﻮﻳﺮﻫﺎ، أو ﻃﻠﺐ ﺧﺪﻣﺎت ﻣﺪرب إذا ﻟﺰم اﻷﻣﺮ. ﺗﺤﻘﻖ ﻣﻦ وﺟﻮد ﺧﻄﺔ ﺗﻄﻮﻳﺮ ﻣﺤﺪدة وﻗﺎﺑﻠﺔ ﻟﻠﻘﻴﺎس ﺗﻌﻤﻞ ﻋﻠﻴﻬﺎ ﻋﻠﻰ ﻣﺪى ﺳﻨﺔ و ﻓﻲ ﻗﺴﻢ آﺧﺮ أو وﻇﻴﻔﺔ ﺟﺪﻳﺪة ﺗﺘﻔﻖ أﻛﺜﺮ ﻣﻊ اﻫﺘﻤﺎﻣﺎﺗﻚ. ﻳﻤﻜﻨﻚ اﻻﻃﻼع ﻋﻠﻰ ﺗﻘﺮﻳﺮ اﻻﻫﺘﻤﺎم اﻟﻤﻬﻨﻲ ﻟﻤﺰﻳﺪ ﻣﻦ اﻟﺘﻮﺟﻴﻪ.
+        </p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 5px; margin-top: 10px; padding: 10px; font-size: 14px;">الترفيه</p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px; margin-top: 0; margin-bottom: 3px; font-size: 12px;">
+            ﻟﺘﺤﺴﻴﻦ ﻣﺴﺘﻮى رﺿﺎﺋﻚ ﻋﻦ ﺣﻴﺎﺗﻚ ﺧﺎرج اﻟﻌﻤﻞ ﻓّﻜﺮ ﻓﻲ ﺗﻮﺳﻴﻊ ﻧﻄﺎق ﻗﺮاءاﺗﻚ ﻟﻴﺸﻤﻞ ﻣﻮﺿﻮﻋﺎت أﻛﺜﺮ، واﺧﺘﺒﺮ ﻣﻤﺎرﺳﺔ ﻫﻮاﻳﺎت واﻫﺘﻤﺎﻣﺎت ﻓﻜﺮﻳﺔ ﺟﺪﻳﺪة. ﻳﻤﻜﻨﻚ أن ﺗﺸﺎرك ﻓﻲ اﻟﻌﻤﻞ اﻟﻤﺠﺘﻤﻌﻲ وﺗﻘﻀﻲ وﻗﺘﻚ ﻓﻲ أداء ﻣﺎ ﻳﺠﻌﻠﻚ ﺗﺸﻌﺮ ﺑﻤﺸﺎﻋﺮ إﻳﺠﺎﺑﻴﺔ ﺗﺠﺎه ﻧﻔﺴﻚ واﻵﺧﺮﻳﻦ.
+        </p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 5px; margin-top: 10px; padding: 10px; font-size: 14px;">النوم</p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px; margin-top: 0; margin-bottom: 3px; font-size: 12px;">
+            ﺳﺎﻋﺎت(. وﻟﻀﻤﺎن ﺣﺼﻮﻟﻚ ﻋﻠﻰ اﻟﻘﺪر اﻟﻤﻨﺎﺳﺐ ﻣﻦ اﻟﻨﻮم، ﺣﺎﻓﻆ ﻋﻠﻰ ﻣﻮاﻋﻴﺪ ﻣﺤﺪدة ﻟﻠﻨﻮم 8 و4ﻳﺤﺘﺎج ﻏﺎﻟﺒﻴﺔ اﻷﺷﺨﺎص إﻟﻰ ﺳﺎﻋﺎت ﻧﻮم ﻣﺤﺪدة ﻟﻠﺤﻔﺎظ ﻋﻠﻰ ﻣﺴﺘﻮى أداﺋﻬﻢ )ﺑﻴﻦ واﻻﺳﺘﻴﻘﺎظ. ﻳﻨﺒﻐﻲ ﻋﻠﻴﻚ ﻛﺬﻟﻚ أن ﺗﺒﺘﻌﺪ ﻋﻦ أﺟﻮاء اﻟﻌﻤﻞ ﺑﻤﺠﺮد اﻻﻧﺘﻬﺎء ﻣﻦ ﻳﻮم اﻟﻌﻤﻞ واﻻﻧﺨﺮاط ﻓﻲ أي ﻋﻤﻞ ﻣﺨﺘﻠﻒ ﻟﻼﺳﺘﺮﺧﺎء. ﻣﻦ اﻟﻤﻔﻴﺪ اﻟﺤﺪ ﻣﻦ اﺳﺘﺨﺪام اﻟﻬﻮاﺗﻒ أو اﻷﺟﻬﺰة اﻟﻠﻮﺣﻴﺔ أو أﺟﻬﺰة اﻟﻜﻤﺒﻴﻮﺗﺮ اﻟﻤﺤﻤﻮل ﻗﺒﻞ اﻟﻨﻮم ﻣﺒﺎﺷﺮة، واﻻﺳﺘﺮﺧﺎء ﻟﻤﺪة ﺳﺎﻋﺔ ﻗﺒﻞ اﻟﻨﻮم، واﻟﺘﺄﻛﺪ ﻣﻦ أن ﻫﺎﺗﻔﻚ ﺻﺎﻣﺖ. اﺳﺘﺨﺪم اﻟﺘﻘﻨﻴﺎت اﻟﺬﻫﻨﻴﺔ ﻟﺘﻔﺮﻳﻎ ذﻫﻨﻚ ﻣﻦ ﻛﺎﻓﺔ اﻟﻤﺸﺎﻏﻞ واﻛﺘﺐ ﻗﺎﺋﻤﺔ ﺑﺎﻟﻤﻬﺎم ﻋﻠﻰ ﻣﺪار اﻟﻴﻮم وﻗﻢ ﺑﺘﺤﺪﻳﺜﻬﺎ ﻗﺒﻞ اﻟﻨﻮم ﺣﺘﻰ ﻻ ﺗﻤﺮ ﺑﻠﺤﻈﺎت أرق ﻧﺘﻴﺠﺔ ﺗﺬﻛﺮ اﻟﻤﻬﺎم ﺧﻼل اﻟﻠﻴﻞ. ﻳُﻨﺼﺢ ﻛﺬﻟﻚ ﺑﺰﻳﺎدة ﻣﻤﺎرﺳﺔ اﻟﺘﻤﺎرﻳﻦ اﻟﺮﻳﺎﺿﻴﺔ واﻻﺑﺘﻌﺎد ﻋﻦ اﻟﻤﻨﺒﻬﺎت .ًﻣﺴ
+        </p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 5px; margin-top: 10px; padding: 10px; font-size: 14px;">التطور و الإزدهار</p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px; margin-top: 0; margin-bottom: 3px; font-size: 12px;">
+            ﻟﺘﻌﺰﻳﺰ ﻗﺪرﺗﻚ ﻋﻠﻰ ﺗﺤﻘﻴﻖ إﻣﻜﺎﻧﺎﺗﻚ، رﻛﺰ ﻋﻠﻰ ﻧﻘﺎط اﻟﻘﻮة وﺗﺤﻘﻖ ﻣﻦ ﻛﻮﻧﻚ ﺗﺴﺘﺨﺪﻣﻬﺎ ﺑﺎﻟﻜﺎﻣﻞ. ﻓﻜﺮ ﻓﻴﻤﺎ ﺗﺮﻏﺐ ﻓﻲ ﺗﺤﻘﻴﻘﻪ ﻓﻲ ﻋﻤﻠﻚ وﺣﻴﺎﺗﻚ، وﻣﺎ ﻳﺠﻌﻠﻚ ﺗﺸﻌﺮ ﺑﺎﻹﻳﺠﺎﺑﻴﺔ، وﺣﺪد اﻷﻫﺪاف اﻟﺘﻲ ﺗﺴﺎﻋﺪك ﻋﻠﻰ ﺗﺤﻘﻴﻖ ذﻟﻚ، وﻗﻠﺺ ﺣﺠﻢ ﺗﻮاﺟﺪ اﻷﺷﺨﺎص أو ﻣﻤﺎرﺳﺔ اﻷﻧﺸﻄﺔ اﻟﺘﻲ ﺗﺜﻴﺮ داﺧﻠﻚ ﻣﺸﺎﻋﺮ ﺳﻠﺒﻴﺔ. ﺣﺪد أﻫﺪاًﻓﺎ ﻟﺤﻴﺎﺗﻚ وﻋﻤﻠﻚ وﺗﺘﺒﻌﻬﺎ واﻋﻤﻞ ﻋﻠﻰ ﺗﺤﻘﻴﻘﻬﺎ. ﺎ ﻧﺼﺐ ﻋﻴﻨﻴﻚ واﺗﺒﻊ ﺧﻄﻮاﺗﻪ واﺣﺮص ﻋﻠﻰ اﻟﺘﻄﻠﻊ إﻟﻰ ﺗﺤﻘﻴﻖ اﻟﻤﺰﻳﺪ.ًﺎ ﻣﺜﺎﻟﻴًﺿﻊ ﻧﻤﻮذﺟ
+        </p>
+
+        <p class="leadership-sprint font-weight-600" style="margin-bottom: 5px; margin-top: 10px; padding: 10px; font-size: 14px;">التفاعل الاجتماعي</p>
+        <p class="leadership-sprint font-weight-600" style="padding: 10px; margin-top: 0; margin-bottom: 3px; font-size: 12px;">
+            ﻟﺘﺤﺴﻴﻦ ﻣﺴﺘﻮى رﺿﺎﺋﻚ ﻋﻦ اﻷﺷﺨﺎص واﻟﻌﻼﻗﺎت ﻓﻲ ﺣﻴﺎﺗﻚ، ﺣﺎول ﺑﻨﺎء ﺷﺒﻜﺔ ﻣﻦ اﻷﺷﺨﺎص اﻟﺬﻳﻦ ﻳﺴﺘﻄﻴﻌﻮن أن ﻳﻘﺪﻣﻮا ﻟﻚ اﻟﺪﻋﻢ ﺑﻘﺪر ﻣﺎ ﺗﻘﺪﻣﻪ ﻟﻬﻢ. ﻗﻠﻞ ﻣﻦ اﻟﻌﻼﻗﺎت اﻟﺴﻠﺒﻴﺔ ﻓﻲ ﺣﻴﺎﺗﻚ ووﻓﺮ ﻃﺎﻗﺘﻚ ﻟﺘﻄﻮﻳﺮ وﺗﻨﻤﻴﺔ اﻟﻌﻼﻗﺎت اﻟﺘﻲ ﺗﺠﻌﻞ ﻟﺤﻴﺎﺗﻚ ﻣﻌﻨﻰ وﺗﺜﻴﺮ ﻓﻴﻚ اﻟﻤﺸﺎﻋﺮ اﻹﻳﺠﺎﺑﻴﺔ. ﻳﺠﺐ أن ﺗﻜﻮن أﻛﺜﺮ ﻣﺮوﻧﺔ ﻓﻲ ﻣﻮاﺟﻬﺔ اﻟﻨﻘﺪ وذﻟﻚ ﻋﻦ ﻃﺮﻳﻖ ﺗﻐﻴﻴﺮ رؤﻳﺘﻚ ﻟﻠﺘﻌﻠﻴﻘﺎت اﻟﺴﻠﺒﻴﺔ واﻟﺘﺮﻛﻴﺰ ﻋﻠﻰ اﻟﺘﻌﻠﻴﻘﺎت اﻹﻳﺠﺎﺑﻴﺔ.
+        </p>
+
+    </article>
+
+</body>
+</html>

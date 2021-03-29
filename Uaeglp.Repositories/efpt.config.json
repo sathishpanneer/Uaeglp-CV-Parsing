@@ -1,0 +1,174 @@
+﻿{
+   "ContextClassName": "LangAppDbContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "DoNotCombineNamespace": false,
+   "IdReplace": false,
+   "IncludeConnectionString": true,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": null,
+   "ProjectRootNamespace": "Uaeglp.Repositories",
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 1,
+   "Tables": [
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[audit_log]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[dev_register]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[device_dwell]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[helpscreen]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[language_questions]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[languages_label]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[languages_label_bak]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[log_bugs]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[master_aboutus]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[master_city]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[master_entity]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[master_faq]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[master_languages]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[master_notification]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[master_servicecenter]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[notification_center]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[notifications]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[settings]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[settings_2]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[settings_comments]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[settings_label]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[survey_answer]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[survey_answer_languages]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[survey_question]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[sys_access_master]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[sys_role_master]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[sysdiagrams]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[temp_feedback]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[temp_feedbackstates]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[user_answer]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[user_comments]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[user_currentlocation]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[user_feedback]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[user_feedbackscreens]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[user_profile]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[vw_survey]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[vw_surveyanswers]"
+      },
+      {
+         "HasPrimaryKey": true,
+         "Name": "[dbo].[web_users]"
+      }
+   ],
+   "UseDatabaseNames": false,
+   "UseFluentApiOnly": false,
+   "UseHandleBars": false,
+   "UseInflector": true,
+   "UseLegacyPluralizer": false,
+   "UseSpatial": false
+}
